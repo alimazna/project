@@ -48,6 +48,53 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   return resp.json() as Promise<T>
 }
 
+export interface TickerEntry {
+  symbol: string
+  last_price: number
+  high_24h: number | null
+  low_24h: number | null
+  volume_24h: number | null
+  change_24h_pct: number | null
+  fetched_at: string
+}
+
+export interface CandleEntry {
+  open_time: string
+  close_time: string
+  open: number
+  high: number
+  low: number
+  close: number
+  volume: number
+  closed: boolean
+}
+
+export interface NewsEntry {
+  id: number
+  source: string
+  url: string
+  title: string
+  summary: string | null
+  author: string | null
+  published_at: string | null
+  sentiment: string
+  relevance_score: number
+  assets: string
+}
+
+export interface SymbolEntry {
+  symbol: string
+  base: string
+  quote: string
+  display_name: string | null
+  provider: string
+}
+
+export interface HealthResult {
+  status: string
+  providers: { provider: string; status: string; last_success_at?: string | null; last_error?: string | null; error_count?: number }[]
+}
+
 export const api = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body?: unknown) =>
@@ -55,4 +102,12 @@ export const api = {
   put: <T>(path: string, body?: unknown) =>
     request<T>(path, { method: 'PUT', body: JSON.stringify(body ?? {}) }),
   del: <T>(path: string) => request<T>(path, { method: 'DELETE' }),
+  getTickers: () => api.get<{ tickers: TickerEntry[] }>('/market/tickers'),
+  getCandles: (symbol: string, interval: string, limit = 200) =>
+    api.get<{ symbol: string; interval: string; candles: CandleEntry[] }>(
+      `/market/candles/${encodeURIComponent(symbol)}?interval=${interval}&limit=${limit}`,
+    ),
+  getNews: (limit = 30) => api.get<{ articles: NewsEntry[] }>(`/market/news?limit=${limit}`),
+  getSymbols: () => api.get<{ symbols: SymbolEntry[] }>('/market/symbols'),
+  getHealth: () => api.get<HealthResult>('/health'),
 }
