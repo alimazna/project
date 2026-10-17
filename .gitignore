@@ -1,0 +1,45 @@
+# Environment & secrets
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / web
+node_modules/
+dist/
+*.tsbuildinfo
+web/node_modules/
+web/dist/
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/android/
+mobile/ios/
+
+# Databases
+*.db
+*.db-wal
+*.db-shm
+.sqlite3
+
+# Logs / tmp
+*.log
+.tmp/
+.agent_tmp/
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
