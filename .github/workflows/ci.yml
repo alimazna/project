@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    name: Backend (tests + lint)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - name: Ruff lint
+        run: ruff check app tests
+      - name: Pytest
+        run: pytest -q
+
+  web:
+    name: Web (build + lint + tests)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - name: Typecheck + production build
+        run: npm run build
+      - name: ESLint
+        run: npm run lint
+      - name: Vitest
+        run: npm run test
+
+  licenses:
+    name: License report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Python dependencies
+        run: pip install -q -e "backend[dev]"
+      - name: Node dependencies
+        run: cd web && npm ci
+      - name: Generate license inventory
+        run: |
+          set -e
+          echo "## Dependency licenses ($GITHUB_SHA)" > licenses.txt
+          { echo "### Backend"; pip-licenses 2>/dev/null || echo "(pip-licenses unavailable)"; } >> licenses.txt
+          { echo; echo "### Web"; cd web && npm ls --omit=dev --all 2>/dev/null || true; } >> licenses.txt
+      - name: Upload inventory
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: license-inventory
+          path: licenses.txt

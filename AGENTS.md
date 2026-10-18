@@ -14,6 +14,7 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - Backend serve: `cd backend && python -m uvicorn app.main:app --port 8000`
 - Web build: `cd web && npm run build`  (typecheck = `npx tsc -b`)
 - Web tests: `cd web && npx vitest run`
+- CI: `.github/workflows/ci.yml` — backend pytest+ruff, web build+eslint+vitest, license report (pip-licenses + npm ls) on push/PR.
 
 ## Stack & key facts
 - Python 3.13, FastAPI, SQLAlchemy 2, pydantic v2, argon2-cffi, PyJWT; pytest + ruff.
@@ -34,5 +35,7 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - SQLite returns naive datetimes — normalize with `_as_utc()` before comparing to aware UTC.
 
 ## Current stage
-Stage 2 (foundation) DONE: backend auth module + web skeleton committed (`255de31`, on origin/main). Next per IMPLEMENTATION_ROADMAP:
-- Admin routes (plans CRUD admin) — Stage: analytics engine & news intelligence modules, market provider adapters, ingestion workers, then charts dashboard, mobile, Docker/CI.
+Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) DONE. Latest commit on origin/main: `021bf30` (feat(admin): system overview — Stage 5f). CI workflow added (`.github/workflows/ci.yml`). Next per IMPLEMENTATION_ROADMAP:
+- CI verified green on GitHub (after first push).
+- Stage 4 remaining polish (charts/watchlist already present — full acceptance pass pending).
+- Stage 6 mobile (Expo) + push, Stage 7 validation/handover.

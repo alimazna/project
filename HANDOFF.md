@@ -8,19 +8,23 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 ## Current milestone
 
-**Backend foundation (Stage 1) and real-data pipeline (Stage 2): COMPLETE and pushed**
+**Stages 1–5: COMPLETE and pushed** (foundation, data pipeline, analytical
+engine, web product, SaaS+admin system overview).
 
-- FastAPI backend with auth, provider adapters, ingestion worker, and read API.
-- Live dashboard wired to real Kraken + CoinTelegraph/CoinDesk data.
+- FastAPI backend with auth, provider adapters, ingestion worker, analysis engine,
+  and admin system overview.
+- Web product: dashboard, asset detail + charts, scanner, scenarios, watchlist,
+  alerts, account, plans, admin panel.
+- CI workflow added: `.github/workflows/ci.yml`.
 
 ### Latest verified commit (checkpoint)
 
 | Key | Value |
 |---|---|
-| Commit | `feat: Stage 2 data pipeline — market/news providers, ingestion, market API, real-data dashboard` |
+| Commit | `feat(admin): system overview — counts, provider health, billing (Stage 5f)` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git push` succeeded; remote `origin/main` shows the commit |
+| Verified | `git push` succeeded; remote `origin/main` shows the commit (`021bf30`) |
 
 ---
 
@@ -72,18 +76,18 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 ## What is NOT built yet
 
-- **Stage 3 — Analytical engine** (indicators, news classifier, decision matrix,
-  scenario state machine, backtest): the next milestone.
-- Stage 4 — functional web product beyond the dashboard (charts, watchlist,
-  scanner, scenario view).
-- Stage 5 — SaaS admin (RBAC admin UI, quotas, billing abstraction).
-- Stage 6 — mobile app + push.
-- Stage 7 — validation & handover.
+- **CI verified green on GitHub** — workflow added and locally green; awaiting
+  first GitHub Actions run after next push.
+- **Stage 6 — mobile app (Expo) + push delivery.**
+- **Stage 7 — validation & handover** (E2E smoke, fresh-install verification,
+  security audit, license inventory publish, buyer package).
 
 ## Testing status
 
-- Backend: `80 passed` (pytest), `ruff check` clean.
+- Backend: `128 passed` (pytest), `ruff check` clean.
 - Web: `5 passed` (vitest); ESLint 9 flat config clean; production build passes.
+- CI workflow: locally green (backend pytest+ruff, web build+eslint+vitest,
+  license report jobs); first GitHub Actions run pending after push.
 - Engine: indicators (EMA/RSI/ATR/vol/S-R), news classifier, decision-matrix
   scenario builder, leakage-guarded walk-forward backtest, analysis API
   (POST /analysis/run, GET /scenarios, GET /analysis/backtest) — deterministic.
@@ -96,12 +100,12 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 ## Next milestones (in progress)
 
-1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold backend/web, auth, tests).
+1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold backend/web, auth, tests, CI workflow added).
 2. ~~**Stage 2 — Real data pipeline**~~ — DONE (Kraken/OKX/RSS → DB → read API; live dashboard).
-3. **Stage 3 — Analytical engine** — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
-4. **Stage 4 — Web product** — IN PROGRESS (dashboard live incl. scenario card, signal scanner + backtest stats, scenario history; charts/watchlist pending).
-5. **Stage 5 — SaaS + Super Admin.**
-6. **Stage 6 — Mobile + push.**
+3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
+4. ~~**Stage 4 — Web product**~~ — MOSTLY DONE (dashboard incl. scenario card, signal scanner + backtest stats, scenario history, asset detail + charts, watchlist, alerts, account, admin; final acceptance pass pending).
+5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans CRUD, quotas, billing abstraction, admin user management, system overview).
+6. **Stage 6 — Mobile + push.** — NEXT
 7. **Stage 7 — Validation & handover.**
 
 ## Blockers / external dependencies
