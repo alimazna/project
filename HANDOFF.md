@@ -32,16 +32,16 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 
 | Key | Value |
 |---|---|
-| Last commit | `5b5d910` — `feat(web): news feed source filter on dashboard — getNews accepts source/symbol params (Stage 4 roadmap: news feed+filter)` |
+| Last commit | `697e2a3` — `feat(scripts): API-driven E2E smoke test — 36 steps across the full product journey (Stage 7)` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git ls-remote origin main` == local HEAD == `5b5d910d3530bfc4de3ec5657296e386d5b2983e` (confirmed after push); CI green on `39126824314` for `9b7309d` |
+| Verified | `git ls-remote origin main` == local HEAD == `697e2a39ae9fc5bf690ae5e917206bc5cd548582` (confirmed after push) |
 
 > **History note (reset):** the remote `main` was force-pushed/re-written at
 > some point during Stage 6 delivery. HANDOFF previously documented commit
 > `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
 > `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
-> push dispatch — Stage 6`). The current remote HEAD is `5b5d910`; any
+> push dispatch — Stage 6`). The current remote HEAD is `697e2a3`; any
 > references to `021bf30` are stale and should be ignored.
 
 ---
