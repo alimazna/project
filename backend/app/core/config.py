@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     # --- providers ---
     market_provider: str = "kraken"
     news_provider: str = "rss"
+    billing_provider: str = "demo"  # none|demo|stripe (see ADR-011)
     news_feeds: str = (
         "https://cointelegraph.com/rss|CoinTelegraph,"
         "https://www.coindesk.com/arc/outboundfeeds/rss/|CoinDesk"

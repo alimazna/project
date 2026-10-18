@@ -33,7 +33,7 @@ class TestRBAC:
         second = _register(client, "second@x.com")
         resp = client.post(
             "/api/v1/admin/plans",
-            json={"code": "pro", "name": "Pro"},
+            json={"code": "rbac-pro", "name": "RBAC Pro"},
             headers=second,
         )
         assert resp.status_code == 403
@@ -45,7 +45,7 @@ class TestPlanCRUD:
         created = client.post(
             "/api/v1/admin/plans",
             json={
-                "code": "pro",
+                "code": "pro-custom",
                 "name": "Pro Trader",
                 "display_price": "$19",
                 "billing_interval": "monthly",
@@ -56,7 +56,7 @@ class TestPlanCRUD:
         )
         assert created.status_code == 201
         item = created.json()["item"]
-        assert item["code"] == "pro"
+        assert item["code"] == "pro-custom"
         assert item["quotas"]["watchlists"] == 50
         plan_id = item["id"]
 
@@ -73,7 +73,7 @@ class TestPlanCRUD:
 
     def test_duplicate_code_conflict(self, client):
         headers = _make_super(client)
-        payload = {"code": "free", "name": "Free"}
+        payload = {"code": "dup-code", "name": "Dup"}
         assert client.post("/api/v1/admin/plans", json=payload, headers=headers).status_code == 201
         assert client.post("/api/v1/admin/plans", json=payload, headers=headers).status_code == 409
 

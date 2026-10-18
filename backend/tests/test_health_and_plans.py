@@ -1,5 +1,7 @@
 """API smoke/health/plans tests."""
 
+from sqlalchemy import delete
+
 from app.models import Plan
 
 
@@ -15,13 +17,15 @@ def test_root(client):
     assert "docs" in resp.json()
 
 
-def test_public_plans_empty(client):
+def test_public_plans_seeded(client):
     resp = client.get("/api/v1/plans")
-    assert resp.status_code == 200
-    assert resp.json()["items"] == []
+    body = resp.json()
+    assert body["total"] == 2
+    assert {p["code"] for p in body["items"]} == {"free", "pro"}
 
 
 def test_public_plans_from_db(client, db_session):
+    db_session.execute(delete(Plan))
     db_session.add(
         Plan(code="free", name="Free", display_price="$0", is_active=True, sort_order=1)
     )
@@ -37,5 +41,5 @@ def test_inactive_plan_hidden(client, db_session):
         Plan(code="legacy", name="Legacy", display_price="$9", is_active=False)
     )
     db_session.commit()
-    resp = client.get("/api/v1/plans")
-    assert resp.json()["total"] == 0
+    codes = {p["code"] for p in client.get("/api/v1/plans").json()["items"]}
+    assert "legacy" not in codes

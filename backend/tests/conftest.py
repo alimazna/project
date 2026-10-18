@@ -9,6 +9,7 @@ from sqlalchemy.pool import StaticPool
 from app.core.ratelimit import reset_rate_limits
 from app.db.session import Base, get_db
 from app.main import app
+from app.services.seed import seed_plans
 
 
 @pytest.fixture(autouse=True)
@@ -26,6 +27,9 @@ def engine_factory():
         poolclass=StaticPool,
     )
     Base.metadata.create_all(bind=engine)
+    Session = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
+    seed_plans(Session())
+    Session().close()
     return engine
 
 

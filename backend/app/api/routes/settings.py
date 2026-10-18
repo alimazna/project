@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from app.api.deps import get_current_user
 from app.db.session import get_db
 from app.models import Device, NotificationPreference, Plan, Subscription, User
+from app.services.billing import subscribe_to_plan
 from app.services.quotas import usage_report
 
 router = APIRouter(tags=["settings"])
@@ -193,21 +194,13 @@ def set_subscription(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ) -> dict:
-    """Assign a plan to the current user (demo billing). Super-visible, self-serve."""
+    """Assign a plan to the current user through the configured billing provider."""
     plan = db.execute(select(Plan).where(Plan.code == payload.plan_code)).scalar_one_or_none()
     if plan is None or not plan.is_active or plan.is_archived:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"Plan '{payload.plan_code}' not found")
-    # cancel old active subs
-    for old in db.execute(
-        select(Subscription).where(Subscription.user_id == user.id, Subscription.status == "active")
-    ).scalars().all():
-        old.status = "canceled"
-    sub = Subscription(
-        user_id=user.id,
-        plan_id=plan.id,
-        status=payload.status,
-        payment_provider=payload.provider,
-    )
-    db.add(sub)
-    db.commit()
-    return {"plan": {"code": plan.code, "name": plan.name}, "status": sub.status}
+    sub = subscribe_to_plan(db, user, plan, payload.provider, status=payload.status)
+    return {
+        "plan": {"code": plan.code, "name": plan.name},
+        "status": sub.status,
+        "provider": sub.payment_provider,
+    }
