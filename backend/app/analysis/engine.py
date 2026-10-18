@@ -40,7 +40,7 @@ _RULES: dict[str, Any] = {
         "oversold": 30,
         "overbought": 70,
         "cap_extreme_high": 85,  # beyond → trend-continuation, not fade
-        "cap_extreme_low": 15,   # below → downtrend-continuation, not bounce
+        "cap_extreme_low": 15,  # below → downtrend-continuation, not bounce
         "weight": 0.20,
     },
     "volatility_atr": {"period": 14, "weight": 0.10},
@@ -116,10 +116,15 @@ def compute_scenario(
                 "weight": weight,
                 "aligned": round(vote * weight, 4),
                 "value": {"fast": round(f, 6), "slow": round(s, 6), "gap_pct": round(gap * 100, 3)},
-                "reason": ("price above fast EMA over slow EMA (uptrend)"
-                           if vote > 0 else
-                           ("price below fast EMA over slow EMA (downtrend)"
-                            if vote < 0 else "EMAs converged — no trend")),
+                "reason": (
+                    "price above fast EMA over slow EMA (uptrend)"
+                    if vote > 0
+                    else (
+                        "price below fast EMA over slow EMA (downtrend)"
+                        if vote < 0
+                        else "EMAs converged — no trend"
+                    )
+                ),
             }
         )
 
@@ -148,10 +153,13 @@ def compute_scenario(
             vote = 0.0
             reason = f"RSI {r:.1f} neutral zone"
         regime = (
-            "continuation_up" if r >= cap_hi else
-            ("continuation_down" if r <= cap_lo else
-             ("fade_overbought" if r >= ob else
-              ("fade_oversold" if r <= os else "neutral")))
+            "continuation_up"
+            if r >= cap_hi
+            else (
+                "continuation_down"
+                if r <= cap_lo
+                else ("fade_overbought" if r >= ob else ("fade_oversold" if r <= os else "neutral"))
+            )
         )
         decisions.append(
             {
@@ -177,7 +185,7 @@ def compute_scenario(
                 "weight": w,
                 "aligned": 0.0,
                 "value": {"atr": round(a, 6), "atr_pct": round(vol_ratio * 100, 3)},
-                "reason": f"ATR {a:.2f} ({vol_ratio*100:.1f}% of price) — sizing context",
+                "reason": f"ATR {a:.2f} ({vol_ratio * 100:.1f}% of price) — sizing context",
             }
         )
 
@@ -208,7 +216,9 @@ def compute_scenario(
     # structure: price vs recent swing-turned-levels
     from app.analysis.indicators import confirmed_swing_pivots, support_resistance
 
-    pivots = confirmed_swing_pivots(candles, _RULES["structure"]["left"], _RULES["structure"]["right"])
+    pivots = confirmed_swing_pivots(
+        candles, _RULES["structure"]["left"], _RULES["structure"]["right"]
+    )
     levels = support_resistance(pivots)
     if levels:
         nearest_support = min((lv for lv, k in levels if k == "S"), default=None)
@@ -360,11 +370,17 @@ def compute_scenario(
         "take_profits": take_profits,
         "invalidation": (
             {
-                "close_above": round(entry_high + 1.0 * (atr_val if direction != "NEUTRAL" else (last_close * 0.02)), 6)
+                "close_above": round(
+                    entry_high + 1.0 * (atr_val if direction != "NEUTRAL" else (last_close * 0.02)),
+                    6,
+                )
             }
             if direction == "BEARISH"
             else {
-                "close_below": round(entry_low - 1.0 * (atr_val if direction != "NEUTRAL" else (last_close * 0.02)), 6)
+                "close_below": round(
+                    entry_low - 1.0 * (atr_val if direction != "NEUTRAL" else (last_close * 0.02)),
+                    6,
+                )
             }
             if direction == "BULLISH"
             else {}

@@ -134,4 +134,3 @@ def _compute_stats(results: list[TradeResult], hold_bars: int) -> dict:
         "total_pnl_pct": round(total, 4),
         "hold_bars": hold_bars,
     }
-

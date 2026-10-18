@@ -15,8 +15,18 @@ def _mk(prices: list[float], vol: float = 100.0) -> list[CandleData]:
     out = []
     for i, p in enumerate(prices):
         t = t0 + timedelta(hours=i)
-        out.append(CandleData("BTC/USD", "1h", t, p, p + (0.05 if i % 3 else 0),
-                              p - (0.05 if i % 4 else 0), p, vol + i))
+        out.append(
+            CandleData(
+                "BTC/USD",
+                "1h",
+                t,
+                p,
+                p + (0.05 if i % 3 else 0),
+                p - (0.05 if i % 4 else 0),
+                p,
+                vol + i,
+            )
+        )
     return out
 
 
@@ -84,4 +94,3 @@ class TestLeakageGuard:
             assert s["direction"] == trade["direction"]
             # entry is last close in the window
             assert trade["entry"] == candles[i].close
-

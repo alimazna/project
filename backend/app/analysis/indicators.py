@@ -15,6 +15,7 @@ from app.providers.base import CandleData
 
 # ---------------------------------------------------------------- smoothing
 
+
 def sma(values: list[float], period: int) -> list[float | None]:
     """Simple moving average; None while fewer than `period` bars exist."""
     if period <= 0:
@@ -61,6 +62,7 @@ def stdev(values: list[float], period: int) -> list[float | None]:
 
 # ---------------------------------------------------------------- oscillators
 
+
 def rsi(values: list[float], period: int = 14) -> list[float | None]:
     """Wilder RSI. First value requires `period` bars of gains/losses."""
     if period <= 0:
@@ -97,6 +99,7 @@ def _rsi_from(avg_gain: float, avg_loss: float) -> float:
 
 
 # ---------------------------------------------------------------- volatility
+
 
 def atr(candles: list[CandleData], period: int = 14) -> list[float | None]:
     """Wilder ATR using the True Range defined by the prior close (right-aligned)."""
@@ -142,6 +145,7 @@ def _zscore(values: list[float], period: int) -> list[float | None]:
 
 
 # ---------------------------------------------------------------- structure / pivots
+
 
 @dataclass(frozen=True)
 class Pivot:

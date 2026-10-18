@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   api,
@@ -6,6 +6,7 @@ import {
   type CandleEntry,
   type HealthResult,
   type NewsEntry,
+  type ScenarioDetail,
   type TickerEntry,
 } from '../lib/api'
 
@@ -19,6 +20,17 @@ function fmtPrice(n: number | null | undefined) {
 function fmtTime(iso: string | null | undefined) {
   if (!iso) return '—'
   return new Date(iso).toLocaleString()
+}
+
+function fmtPct(n: number | null | undefined) {
+  if (n === null || n === undefined || Number.isNaN(n)) return '—'
+  return `${(n * 100).toFixed(0)}%`
+}
+
+function directionLabel(d: string) {
+  if (d === 'BULLISH') return '▲ Bullish'
+  if (d === 'BEARISH') return '▼ Bearish'
+  return '◆ Neutral'
 }
 
 function sparklineColor(candles: CandleEntry[]): string {
@@ -59,6 +71,9 @@ export function Dashboard() {
   const [candles, setCandles] = useState<CandleEntry[]>([])
   const [candleLoading, setCandleLoading] = useState(false)
 
+  const [scenario, setScenario] = useState<ScenarioDetail | null>(null)
+  const [scenarioLoading, setScenarioLoading] = useState(false)
+
   useEffect(() => {
     Promise.all([api.getHealth(), api.getSymbols(), api.getTickers(), api.getNews(12)])
       .then(([h, s, t, n]) => {
@@ -83,6 +98,20 @@ export function Dashboard() {
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load candles'))
       .finally(() => setCandleLoading(false))
   }, [selected, interval])
+
+  const refreshScenario = useCallback(() => {
+    if (!selected) return
+    setScenarioLoading(true)
+    api
+      .runAnalysis(selected, interval, 120, true)
+      .then((r) => setScenario(r.scenario))
+      .catch((e) => setError(e instanceof Error ? e.message : 'Failed to compute scenario'))
+      .finally(() => setScenarioLoading(false))
+  }, [selected, interval])
+
+  useEffect(() => {
+    refreshScenario()
+  }, [refreshScenario])
 
   if (!authed) {
     return (
@@ -130,6 +159,84 @@ export function Dashboard() {
       </div>
 
       <div className="grid-2">
+        {/* Scenario card */}
+        <div className="card">
+          <div className="card-toolbar">
+            <h3>Scenario — explainable</h3>
+            <button
+              className="btn btn-small"
+              onClick={refreshScenario}
+              disabled={scenarioLoading}
+            >
+              {scenarioLoading ? '…' : 'Re-run'}
+            </button>
+          </div>
+
+          {!scenario && !scenarioLoading && (
+            <p className="muted">No scenario computed yet.</p>
+          )}
+          {scenarioLoading && <p className="muted">Running decision matrix…</p>}
+
+          {scenario && !scenarioLoading && (
+            <>
+              <div className="scenario-head">
+                <span className={`badge badge-${scenario.direction.toLowerCase()}`}>
+                  {directionLabel(scenario.direction)}
+                </span>
+                <span className="muted small">
+                  {scenario.symbol} · {scenario.timeframe} · {scenario.rule_version}
+                </span>
+              </div>
+
+              <div className="price-row">
+                <span className="price-big">{fmtPrice(scenario.last_close)}</span>
+                <span className="muted">alignment {fmtPct(scenario.alignment_score)}</span>
+              </div>
+
+              {scenario.direction !== 'NEUTRAL' && (
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Entry</th>
+                      <th>Stop</th>
+                      <th>Targets</th>
+                      <th>R/R</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        {fmtPrice(scenario.entry_low)}
+                        {scenario.entry_high && scenario.entry_high !== scenario.entry_low
+                          ? `–${fmtPrice(scenario.entry_high)}`
+                          : ''}
+                      </td>
+                      <td>{fmtPrice(scenario.stop_loss)}</td>
+                      <td>{scenario.take_profits.map(fmtPrice).join(' / ') || '—'}</td>
+                      <td>{scenario.risk_reward ?? '—'}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              )}
+
+              <div className="scenario-drivers">
+                <h4>Why?</h4>
+                <ul>
+                  {scenario.decisions.map((d) => (
+                    <li key={d.signal}>
+                      <span className={`badge badge-vote badge-vote-${Math.sign(d.vote)}`}>
+                        {d.vote > 0 ? '+' : d.vote < 0 ? '−' : '·'}
+                      </span>
+                      <span className="muted small">{d.signal.replace(/_/g, ' ')}</span>
+                      <span className="small">{d.reason}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
+        </div>
+
         {/* Chart card */}
         <div className="card">
           <div className="card-toolbar">

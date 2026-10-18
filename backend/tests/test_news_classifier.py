@@ -68,4 +68,3 @@ class TestRecency:
         r_fresh = classify_news("Bitcoin rallies", published_at=fresh, now=now)
         r_old = classify_news("Bitcoin rallies", published_at=old, now=now)
         assert r_fresh["importance"] > r_old["importance"]
-

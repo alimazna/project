@@ -30,7 +30,11 @@ def _flat(n: int = 60, price: float = 100.0) -> list[CandleData]:
             "BTC/USD",
             "1h",
             datetime(2026, 1, 1, tzinfo=UTC),
-            price, price, price, price, 50.0,
+            price,
+            price,
+            price,
+            price,
+            50.0,
         )
         for _ in range(n)
     ]
@@ -68,7 +72,13 @@ class TestEvidence:
     def test_decisions_has_all_signals(self):
         s = compute_scenario(_trend(120), symbol="BTC/USD")
         names = {d["signal"] for d in s["decisions"]}
-        assert {"ema_trend", "rsi_momentum", "volatility_regime", "volume_confirm", "structure_levels"} <= names
+        assert {
+            "ema_trend",
+            "rsi_momentum",
+            "volatility_regime",
+            "volume_confirm",
+            "structure_levels",
+        } <= names
 
     def test_evidence_sums(self):
         s = compute_scenario(_trend(120), symbol="BTC/USD")
@@ -125,10 +135,14 @@ class TestDeterminism:
     def test_news_order_independent(self):
         candles = _trend(120)
         t = datetime(2026, 1, 1, 12, 0, tzinfo=UTC)
-        n1 = [{"title": "x", "sentiment": "positive", "relevance_score": 0.9, "importance": 0.8},
-              {"title": "y", "sentiment": "negative", "relevance_score": 0.8, "importance": 0.7}]
-        n2 = [{"title": "y", "sentiment": "negative", "relevance_score": 0.8, "importance": 0.7},
-              {"title": "x", "sentiment": "positive", "relevance_score": 0.9, "importance": 0.8}]
+        n1 = [
+            {"title": "x", "sentiment": "positive", "relevance_score": 0.9, "importance": 0.8},
+            {"title": "y", "sentiment": "negative", "relevance_score": 0.8, "importance": 0.7},
+        ]
+        n2 = [
+            {"title": "y", "sentiment": "negative", "relevance_score": 0.8, "importance": 0.7},
+            {"title": "x", "sentiment": "positive", "relevance_score": 0.9, "importance": 0.8},
+        ]
         a = compute_scenario(candles, news=n1, symbol="BTC/USD", now=t)
         b = compute_scenario(candles, news=n2, symbol="BTC/USD", now=t)
         assert a == b

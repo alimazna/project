@@ -95,6 +95,56 @@ export interface HealthResult {
   providers: { provider: string; status: string; last_success_at?: string | null; last_error?: string | null; error_count?: number }[]
 }
 
+export interface ScenarioDecision {
+  signal: string
+  vote: number
+  weight: number
+  aligned: number
+  value?: Record<string, unknown>
+  reason: string
+}
+
+export interface ScenarioDetail {
+  id?: number
+  symbol: string
+  direction: 'BULLISH' | 'BEARISH' | 'NEUTRAL'
+  status: string
+  timeframe: string
+  alignment_score: number
+  risk_reward: number | null
+  entry_low: number | null
+  entry_high: number | null
+  stop_loss: number | null
+  take_profits: number[]
+  invalidation: Record<string, unknown>
+  rule_version: string
+  evidence: {
+    signals_evaluated?: number
+    bullish?: number
+    bearish?: number
+    neutral?: number
+    weighted_alignment?: number
+  }
+  decisions: ScenarioDecision[]
+  last_close?: number
+  generated_at?: string
+  created_at?: string
+}
+
+export interface BacktestResult {
+  results: { index: number; symbol: string; direction: string; entry: number; exit_price: number; pnl_pct: number; alignment: number; rule_version: string; hold_bars: number }[]
+  stats: {
+    trades: number
+    wins: number
+    losses: number
+    winrate_pct: number
+    avg_pnl_pct: number
+    total_pnl_pct: number
+    hold_bars: number
+  }
+  config: { symbol: string; hold_bars: number; start: number; end: number }
+}
+
 export const api = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body?: unknown) =>
@@ -110,4 +160,17 @@ export const api = {
   getNews: (limit = 30) => api.get<{ articles: NewsEntry[] }>(`/market/news?limit=${limit}`),
   getSymbols: () => api.get<{ symbols: SymbolEntry[] }>('/market/symbols'),
   getHealth: () => api.get<HealthResult>('/health'),
+  runAnalysis: (symbol: string, interval: string, limit = 200, withNews = true) =>
+    api.post<{ scenario: ScenarioDetail; saved_scenario_id: number | null }>(
+      `/analysis/run?symbol=${encodeURIComponent(symbol)}&interval=${interval}&limit=${limit}&with_news=${withNews}&persist=true`,
+    ),
+  getScenarios: (symbol?: string, limit = 10) =>
+    api.get<{ scenarios: ScenarioDetail[] }>(
+      `/analysis/scenarios?limit=${limit}${symbol ? `&symbol=${encodeURIComponent(symbol)}` : ''}`,
+    ),
+  getScenario: (id: number) => api.get<{ scenario: ScenarioDetail }>(`/analysis/scenarios/${id}`),
+  runBacktest: (symbol: string, interval: string, limit = 400, holdBars = 24) =>
+    api.get<BacktestResult>(
+      `/analysis/backtest?symbol=${encodeURIComponent(symbol)}&interval=${interval}&limit=${limit}&hold_bars=${holdBars}`,
+    ),
 }
