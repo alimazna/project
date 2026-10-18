@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
+import { AssetDetail } from './pages/AssetDetail'
 import { Dashboard } from './pages/Dashboard'
 import { Landing } from './pages/Landing'
 import { Login } from './pages/Login'
@@ -30,6 +31,7 @@ export function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/asset/:symbol" element={<AssetDetail />} />
           <Route path="/scanner" element={<Scanner />} />
           <Route path="/scenarios" element={<Scenarios />} />
         </Routes>

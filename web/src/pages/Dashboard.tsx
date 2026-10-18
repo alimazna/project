@@ -9,6 +9,7 @@ import {
   type ScenarioDetail,
   type TickerEntry,
 } from '../lib/api'
+import { CandleChart, type ChartLevel } from '../components/CandleChart'
 
 const INTERVALS = ['1h', '4h', '1d'] as const
 
@@ -31,32 +32,6 @@ function directionLabel(d: string) {
   if (d === 'BULLISH') return '▲ Bullish'
   if (d === 'BEARISH') return '▼ Bearish'
   return '◆ Neutral'
-}
-
-function sparklineColor(candles: CandleEntry[]): string {
-  if (candles.length < 2) return 'var(--muted)'
-  return candles[candles.length - 1].close >= candles[0].open ? '#10b981' : '#ef4444'
-}
-
-function Sparkline({ candles }: { candles: CandleEntry[] }) {
-  if (candles.length < 2) return null
-  const max = Math.max(...candles.map((c) => c.high))
-  const min = Math.min(...candles.map((c) => c.low))
-  const range = max - min || 1
-  const width = 120
-  const height = 36
-  const pts = candles
-    .map((c, i) => {
-      const x = (i / (candles.length - 1)) * width
-      const y = height - ((c.close - min) / range) * (height - 4) - 2
-      return `${x.toFixed(1)},${y.toFixed(1)}`
-    })
-    .join(' ')
-  return (
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
-      <polyline fill="none" stroke={sparklineColor(candles)} strokeWidth="1.5" points={pts} />
-    </svg>
-  )
 }
 
 export function Dashboard() {
@@ -130,6 +105,20 @@ export function Dashboard() {
 
   const selectedTicker = tickers.find((t) => t.symbol === selected)
   const lastCandle = candles[candles.length - 1]
+
+  const assetLink = `/asset/${encodeURIComponent(selected)}`
+
+  const chartLevels: ChartLevel[] = []
+  if (scenario && scenario.direction !== 'NEUTRAL') {
+    if (scenario.entry_low != null)
+      chartLevels.push({ price: scenario.entry_low, label: 'Entry', color: '#4f8cff' })
+    if (scenario.entry_high != null && scenario.entry_high !== scenario.entry_low)
+      chartLevels.push({ price: scenario.entry_high, label: 'Entry', color: '#4f8cff' })
+    if (scenario.stop_loss != null)
+      chartLevels.push({ price: scenario.stop_loss, label: 'Stop', color: '#ef4444' })
+    for (const tp of scenario.take_profits ?? [])
+      chartLevels.push({ price: tp, label: 'TP', color: '#22c55e' })
+  }
 
   return (
     <section className="dashboard">
@@ -256,39 +245,27 @@ export function Dashboard() {
 
           {candleLoading && <p className="muted">Loading candles…</p>}
 
-          {!candleLoading && lastCandle && (
+          {!candleLoading && candles.length > 0 && (
             <>
               <div className="price-row">
-                <span className="price-big">{fmtPrice(lastCandle.close)}</span>
-                <Sparkline candles={candles.slice(-40)} />
+                <span className="price-big">{fmtPrice(lastCandle?.close)}</span>
+                <span className="muted small">
+                  <Link to={assetLink}>Open asset detail →</Link> · {selected} · {interval} ·{' '}
+                  {candles.length} candles
+                </span>
               </div>
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>Open</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Close</th>
-                    <th>Volume</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {candles
-                    .slice(-10)
-                    .map((c) => (
-                      <tr key={c.open_time}>
-                        <td>{fmtPrice(c.open)}</td>
-                        <td>{fmtPrice(c.high)}</td>
-                        <td>{fmtPrice(c.low)}</td>
-                        <td>{fmtPrice(c.close)}</td>
-                        <td>{fmtPrice(c.volume)}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-              <p className="muted small">
-                Last 10 candles · {selected} · {interval}
-              </p>
+              <CandleChart candles={candles} levels={chartLevels} height={320} />
+              {scenario?.direction !== 'NEUTRAL' && (
+                <p className="muted small">
+                  Entry {fmtPrice(scenario?.entry_low)}
+                  {scenario?.entry_high && scenario.entry_high !== scenario.entry_low
+                    ? `–${fmtPrice(scenario.entry_high)}`
+                    : ''}{' '}
+                  · Stop {fmtPrice(scenario?.stop_loss)} · Targets{' '}
+                  {scenario?.take_profits.map(fmtPrice).join(' / ') || '—'} — plotted as
+                  dashed lines.
+                </p>
+              )}
             </>
           )}
         </div>

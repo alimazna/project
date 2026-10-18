@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   api,
   getToken,
@@ -84,8 +85,15 @@ export function Scanner() {
               return (
                 <tr key={t.symbol}>
                   <td>
-                    <button className="linklike" onClick={() => setSymbol(t.symbol)}>
+                    <Link className="linklike" to={`/asset/${encodeURIComponent(t.symbol)}`}>
                       {t.symbol}
+                    </Link>{' '}
+                    <button
+                      className="linklike"
+                      onClick={() => setSymbol(t.symbol)}
+                      title={`Run backtest for ${t.symbol}`}
+                    >
+                      ⚡
                     </button>
                   </td>
                   <td>{fmtPrice(t.last_price)}</td>
