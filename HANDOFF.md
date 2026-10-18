@@ -82,9 +82,10 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 ## Testing status
 
-- Backend: `29 passed` (pytest), `ruff check` clean.
+- Backend: `57 passed` (pytest), `ruff check` clean.
 - Web: `2 passed` (vitest); ESLint 9 flat config clean; production build passes.
-- Next: engine unit tests (determinism, no-lookahead, dedup, non-actionable).
+- Engine so far: indicators (EMA/RSI/ATR/vol/S-R) + news classifier — deterministic
+  pure functions, no-lookahead pivots covered. Next: decision matrix + backtest.
 
 ---
 
@@ -92,7 +93,7 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold backend/web, auth, tests).
 2. ~~**Stage 2 — Real data pipeline**~~ — DONE (Kraken/OKX/RSS → DB → read API; live dashboard).
-3. **Stage 3 — Analytical engine** — IN PROGRESS (indicators, news classifier, decision matrix, scenarios, backtest).
+3. **Stage 3 — Analytical engine** — IN PROGRESS (indicators ✅, news classifier ✅, decision matrix →, scenarios, backtest).
 4. **Stage 4 — Web product** — STARTED (dashboard live; charts, watchlist, scanner, scenario view pending).
 5. **Stage 5 — SaaS + Super Admin.**
 6. **Stage 6 — Mobile + push.**
