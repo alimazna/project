@@ -26,7 +26,9 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
   market news list**), watchlist, scenarios, alerts, account with push
   registration, asset detail (candles + analysis run / watchlist add),
   analysis detail. Push: expo-notifications + provider abstraction (log default).
-- CI workflow added: `.github/workflows/ci.yml`.
+- CI workflow added: `.github/workflows/ci.yml` — backend tests+lint, web
+  build+lint+tests, license report, and a `security` job (pip-audit + web
+  `npm audit --omit=dev`).
 
 ### Latest verified commit (checkpoint)
 
@@ -96,9 +98,9 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 
 - **Real end-to-end push delivery** — requires a physical device + platform
   accounts (documented under Blockers); the codebase plumbing is in place.
-- **Stage 7 — validation & handover** (in progress: E2E smoke test done; still
-  pending fresh-install verification, security audit follow-through, license
-  inventory publish, deployment/backup docs, buyer package).
+- **Stage 7 — validation & handover** (in progress: E2E smoke test + dependency
+  security scan done; still pending fresh-install verification, deployment/backup
+  docs, license inventory publish, buyer package).
 
 ## Testing status
 
@@ -109,9 +111,15 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
   market data, news+source-filter, analysis run/persist/detail/backtest,
   watchlists, alerts CRUD+evaluate, notification prefs, device registration,
   subscription, admin overview/users/plans, and unauthorized-access rejection.
+- **Dependency security:** backend `pip-audit` = no known vulnerabilities; web
+  production `npm audit --omit=dev` = 0 vulnerabilities after upgrading
+  `react-router-dom` 6.26.0 → 7.18.4 (verified: build+lint+5 tests green).
+  Mobile `npm audit fix` auto-patched transitive toolchain deps (25 remaining
+  findings are Expo/RN build-toolchain-only, non-shipping; see
+  `SECURITY_AND_PRIVACY.md` §10–11).
 - CI workflow: **green on GitHub Actions** — confirmed 2026-10-18 for commits
-  `716bd71`, `b1a6e16`, `83a81bc`, `4e88ab3`, and `9b7309d` (backend tests+lint,
-  web build+lint+tests, license report all pass).
+  `716bd71`, `b1a6e16`, `83a81bc`, `4e88ab3`, `9b7309d`, `697e2a3`, and
+  `35c9abd` (backend tests+lint, web build+lint+tests, license report all pass).
 - Engine: indicators (EMA/RSI/ATR/vol/S-R), news classifier, decision-matrix
   scenario builder, leakage-guarded walk-forward backtest, analysis API
   (POST /analysis/run, GET /scenarios, GET /analysis/backtest) — deterministic.
@@ -137,9 +145,11 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
    list added (`9b7309d`). Remaining (non-blocking): real push E2E on a physical
    device + final acceptance pass.
 7. **Stage 7 — Validation & handover.** — IN PROGRESS — API-driven E2E smoke
-   test done (`scripts/smoke_test.py`, 36 green); next: fresh-install
-   verification from README, security/dependency audit follow-through, license
-   inventory publish, deployment/backup docs, buyer package, final HANDOFF.
+   test done (`scripts/smoke_test.py`, 36 green) and dependency security scan
+   done (pip-audit clean; web prod npm audit 0 vulns after react-router v7
+   upgrade; CI `security` job added). Next: fresh-install verification from
+   README, deployment/backup docs, license inventory publish, buyer package,
+   final HANDOFF.
 
 ## Blockers / external dependencies
 

@@ -92,14 +92,32 @@ never the authorization boundary.
 
 ## 10. Dependency Security
 
-- CI runs `pip-audit` and `npm audit` on merged code.
-- A license inventory is generated on every CI run into `docs/licenses/`.
+- CI runs `pip-audit` (installed backend, incl. dev deps) and `npm audit
+  --omit=dev` (web production deps) in the `security` job, plus a per-run
+  license inventory in the `licenses` job.
+- Verified 2026-10-18:
+  - Backend `pip-audit`: **no known vulnerabilities** (the editable
+    `trendcipher-backend` package is skipped as it is not on PyPI).
+  - Web production (`npm audit --omit=dev`): **0 vulnerabilities** after
+    upgrading `react-router-dom` 6.26.0 → 7.18.4 (fixes GHSA-wrjc-x8rr-h8h6 /
+    GHSA-337j-9hxr-rhxg). Build/lint/tests stay green on v7.
+  - Web dev-tooling (`vitest`, `vite`, `esbuild`, `tinypool`): moderate–critical
+    advisories exist but are **dev-server/test-runner only** (not shipped);
+    remediation requires a breaking major bump (vite 5→8, vitest 2→5) tracked as
+    a buyer/next-milestone item.
+  - Mobile (`expo`/`react-native` 58): 25 transitive advisories in the **Expo/RN
+    build toolchain** (`@expo/cli`, `metro`, `node-forge`, `braces`,
+    `micromatch`); none ship in the app bundle. `npm audit fix` auto-patched the
+    patched transitive packages; the remainder require Expo/RN major upgrades
+    and are tracked as a buyer item.
 
 ## 11. Known Unfinished Security Checks (tracked)
 
 | Check | Status |
 |---|---|
-| Dependency vulnerability scan | CI job configured; full report on next run |
+| Dependency vulnerability scan | DONE — CI `security` job + manual run 2026-10-18; remaining items are dev-toolchain-only or require breaking major bumps |
+| Web dev tooling (vite/vitest) major upgrade | Tracked — breaking bump (vite 5→8, vitest 2→5); dev-server-only risk |
+| Mobile Expo/RN toolchain major upgrade | Tracked — transitive, non-shipping; requires Expo/RN major bump |
 | Real-device push token security | Blocked on physical device; code review done |
 | Production TLS config | Docs provided; not exercised over public internet here |
 | Full third-party data-redistribution legal review | Requires legal counsel; documented as buyer item |
