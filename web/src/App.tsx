@@ -1,5 +1,6 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
 import { Account } from './pages/Account'
+import { Admin } from './pages/Admin'
 import { Alerts } from './pages/Alerts'
 import { AssetDetail } from './pages/AssetDetail'
 import { Dashboard } from './pages/Dashboard'
@@ -27,6 +28,7 @@ export function App() {
           <NavLink to="/watchlist">Watchlist</NavLink>
           <NavLink to="/alerts">Alerts</NavLink>
           <NavLink to="/account">Account</NavLink>
+          <NavLink to="/admin">Admin</NavLink>
           <NavLink to="/login">Sign in</NavLink>
         </nav>
       </header>
@@ -43,6 +45,7 @@ export function App() {
           <Route path="/watchlist" element={<WatchlistPage />} />
           <Route path="/alerts" element={<Alerts />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
     </div>

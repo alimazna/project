@@ -156,6 +156,31 @@ export interface UserAlert {
   created_at: string | null
 }
 
+export interface AdminPlan {
+  id: number
+  code: string
+  name: string
+  description: string | null
+  display_price: string
+  billing_interval: string
+  currency: string
+  sort_order: number
+  is_active: boolean
+  is_archived: boolean
+  features: string[]
+  quotas: Record<string, unknown>
+  version: number
+}
+
+export interface PlanVersionEntry {
+  id: number
+  name: string
+  display_price: string
+  quotas: Record<string, unknown>
+  changed_by: number | null
+  created_at: string | null
+}
+
 export interface NotifPref {
   category: string
   channel: string
@@ -253,4 +278,11 @@ export const api = {
     }),
   deleteDevice: (id: number) => api.del(`/devices/${id}`),
   authMe: () => api.get<Me>('/auth/me'),
+  listAdminPlans: () => api.get<{ items: AdminPlan[]; total: number }>('/admin/plans'),
+  createAdminPlan: (payload: Partial<AdminPlan> & { code: string; name: string }) =>
+    api.post<{ item: AdminPlan }>('/admin/plans', payload),
+  updateAdminPlan: (id: number, payload: Partial<AdminPlan>) =>
+    api.put<{ item: AdminPlan }>(`/admin/plans/${id}`, payload),
+  archiveAdminPlan: (id: number) => api.del(`/admin/plans/${id}`),
+  planVersions: (id: number) => api.get<{ versions: PlanVersionEntry[] }>(`/admin/plans/${id}/versions`),
 }
