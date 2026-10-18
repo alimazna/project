@@ -89,8 +89,6 @@ pushed; Expo mobile app built and validated, commit pending this push.
 
 ## What is NOT built yet
 
-- **CI verified green on GitHub** — workflow added and locally green; awaiting
-  first GitHub Actions run after next push.
 - **Real end-to-end push delivery** — requires a physical device + platform
   accounts (documented under Blockers); the codebase plumbing is in place.
 - **Stage 7 — validation & handover** (E2E smoke, fresh-install verification,
@@ -100,8 +98,9 @@ pushed; Expo mobile app built and validated, commit pending this push.
 
 - Backend: `128 passed` (pytest), `ruff check` clean.
 - Web: `5 passed` (vitest); ESLint 9 flat config clean; production build passes.
-- CI workflow: locally green (backend pytest+ruff, web build+eslint+vitest,
-  license report jobs); first GitHub Actions run pending after push.
+- CI workflow: **green on GitHub Actions** — confirmed 2026-10-18 for commits
+  `716bd71`, `b1a6e16`, and `83a81bc` (backend tests+lint, web build+lint+tests,
+  license report all pass).
 - Engine: indicators (EMA/RSI/ATR/vol/S-R), news classifier, decision-matrix
   scenario builder, leakage-guarded walk-forward backtest, analysis API
   (POST /analysis/run, GET /scenarios, GET /analysis/backtest) — deterministic.
