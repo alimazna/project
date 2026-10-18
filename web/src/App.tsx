@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
+import { Alerts } from './pages/Alerts'
 import { AssetDetail } from './pages/AssetDetail'
 import { Dashboard } from './pages/Dashboard'
 import { Landing } from './pages/Landing'
@@ -23,6 +24,7 @@ export function App() {
           <NavLink to="/scanner">Scanner</NavLink>
           <NavLink to="/scenarios">Scenarios</NavLink>
           <NavLink to="/watchlist">Watchlist</NavLink>
+          <NavLink to="/alerts">Alerts</NavLink>
           <NavLink to="/login">Sign in</NavLink>
         </nav>
       </header>
@@ -37,6 +39,7 @@ export function App() {
           <Route path="/scanner" element={<Scanner />} />
           <Route path="/scenarios" element={<Scenarios />} />
           <Route path="/watchlist" element={<WatchlistPage />} />
+          <Route path="/alerts" element={<Alerts />} />
         </Routes>
       </main>
     </div>

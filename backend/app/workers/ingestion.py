@@ -12,6 +12,7 @@ import time
 
 from app.core.config import settings
 from app.db.session import SessionLocal
+from app.services import alerts
 from app.services.ingest_runner import run_candle_sync, run_news_sync
 
 logger = logging.getLogger(__name__)
@@ -47,6 +48,11 @@ class IngestionWorker:
                 result = run_news_sync(db)
                 logger.info("news sync done: %s", result)
                 self.last_news_at = now
+            # Alert evaluation piggybacks on the market tick — cheap and keeps
+            # price/scenario/news alerts live without a separate scheduler.
+            alert_result = alerts.evaluate_all(db)
+            if alert_result["fired"]:
+                logger.info("alerts fired: %s", alert_result)
         except Exception:
             logger.exception("ingestion tick failed")
         finally:

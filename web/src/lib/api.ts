@@ -138,6 +138,26 @@ export interface Watchlist {
   symbols: string[]
 }
 
+export interface UserAlert {
+  id: number
+  symbol: string
+  kind: string
+  value: number | null
+  is_active: boolean
+  cooldown_minutes: number
+  last_fired_at: string | null
+  created_at: string | null
+}
+
+export interface AlertDeliveryEntry {
+  id: number
+  alert_id: number
+  symbol: string | null
+  channel: string
+  status: string
+  created_at: string | null
+}
+
 export interface BacktestResult {
   results: { index: number; symbol: string; direction: string; entry: number; exit_price: number; pnl_pct: number; alignment: number; rule_version: string; hold_bars: number }[]
   stats: {
@@ -186,4 +206,18 @@ export const api = {
   updateWatchlist: (id: number, patch: { name?: string; symbols?: string[] }) =>
     api.put<{ watchlist: Watchlist }>(`/watchlists/${id}`, patch),
   deleteWatchlist: (id: number) => api.del(`/watchlists/${id}`),
+  getAlerts: (active?: boolean) => api.get<{ alerts: UserAlert[] }>(`/alerts${active != null ? `?active=${active}` : ''}`),
+  createAlert: (symbol: string, kind: string, value?: number, cooldownMinutes = 30) =>
+    api.post<{ alert: UserAlert }>('/alerts', {
+      symbol,
+      kind,
+      value: value ?? null,
+      cooldown_minutes: cooldownMinutes,
+    }),
+  updateAlert: (id: number, patch: Partial<{ is_active: boolean; value: number; cooldown_minutes: number; symbol: string }>) =>
+    api.put<{ alert: UserAlert }>(`/alerts/${id}`, patch),
+  deleteAlert: (id: number) => api.del(`/alerts/${id}`),
+  evaluateAlert: (id: number) => api.post<{ fired: boolean; evaluated: boolean }>(`/alerts/${id}/evaluate`),
+  getAlertDeliveries: (limit = 20) =>
+    api.get<{ deliveries: AlertDeliveryEntry[] }>(`/alerts/deliveries?limit=${limit}`),
 }
