@@ -3,6 +3,7 @@ import {
   api,
   getToken,
   type AdminPlan,
+  type AdminUser,
   type PlanVersionEntry,
 } from '../lib/api'
 
@@ -15,6 +16,8 @@ export function Admin() {
   const [versions, setVersions] = useState<Record<number, PlanVersionEntry[]>>({})
   const [expanded, setExpanded] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [tab, setTab] = useState<'plans' | 'users'>('plans')
+  const [users, setUsers] = useState<AdminUser[]>([])
   const [editing, setEditing] = useState<AdminPlan | null>(null)
   const [form, setForm] = useState({
     code: '',
@@ -43,6 +46,30 @@ export function Admin() {
       .listAdminPlans()
       .then((r) => setPlans(r.items))
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load plans'))
+    api
+      .listAdminUsers()
+      .then((r) => setUsers(r.items))
+      .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load users'))
+  }
+
+  const toggleSuspension = async (u: AdminUser) => {
+    setError(null)
+    try {
+      const updated = await api.updateAdminUser(u.id, { is_suspended: !u.is_suspended })
+      setUsers((prev) => prev.map((x) => (x.id === u.id ? updated.item : x)))
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not update user')
+    }
+  }
+
+  const setUserRoles = async (u: AdminUser, roles: string[]) => {
+    setError(null)
+    try {
+      const updated = await api.updateAdminUser(u.id, { roles })
+      setUsers((prev) => prev.map((x) => (x.id === u.id ? updated.item : x)))
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not update roles')
+    }
   }
 
   useEffect(() => {
@@ -136,10 +163,71 @@ export function Admin() {
   return (
     <section className="dashboard">
       <div className="dashboard-header">
-        <h2>Admin — Plans</h2>
+        <h2>Admin</h2>
         {error && <div className="alert alert-error">{error}</div>}
       </div>
 
+      <div className="tabs">
+        <button className={`tab ${tab === 'plans' ? 'tab-active' : ''}`} onClick={() => setTab('plans')}>
+          Plans
+        </button>
+        <button className={`tab ${tab === 'users' ? 'tab-active' : ''}`} onClick={() => setTab('users')}>
+          Users ({users.length})
+        </button>
+      </div>
+
+      {tab === 'users' && (
+        <div className="card">
+          <h3>Users</h3>
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>State</th>
+                <th>Plan</th>
+                <th>Last login</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((u) => (
+                <tr key={u.id}>
+                  <td>{u.email}</td>
+                  <td>
+                    <select
+                      value={u.roles.includes('super_admin') ? 'super_admin' : u.roles.includes('admin') ? 'admin' : 'user'}
+                      onChange={(e) => setUserRoles(u, e.target.value === 'user' ? [] : [e.target.value])}
+                      disabled={me.email === u.email}
+                    >
+                      <option value="user">user</option>
+                      <option value="admin">admin</option>
+                      <option value="super_admin">super_admin</option>
+                    </select>
+                  </td>
+                  <td>
+                    <span className={`badge ${u.is_suspended ? 'badge-unknown' : u.is_active ? 'badge-ok' : 'badge-unknown'}`}>
+                      {u.is_suspended ? 'Suspended' : u.is_active ? 'Active' : 'Inactive'}
+                    </span>
+                  </td>
+                  <td>{u.plan ?? '—'}</td>
+                  <td className="muted small">{u.last_login_at ? new Date(u.last_login_at).toLocaleString() : '—'}</td>
+                  <td>
+                    {me.email !== u.email && (
+                      <button className="btn btn-small btn-outline" onClick={() => toggleSuspension(u)}>
+                        {u.is_suspended ? 'Reinstate' : 'Suspend'}
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {tab === 'plans' && (
+      <>
       <form className="card" onSubmit={submit}>
         <h3>{editing ? `Edit plan — ${editing.code}` : 'Create a plan'}</h3>
         <div className="alert-form">
@@ -255,6 +343,8 @@ export function Admin() {
           </div>
         )}
       </div>
+      </>
+      )}
     </section>
   )
 }

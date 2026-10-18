@@ -172,6 +172,17 @@ export interface AdminPlan {
   version: number
 }
 
+export interface AdminUser {
+  id: number
+  email: string
+  display_name: string | null
+  is_active: boolean
+  is_suspended: boolean
+  roles: string[]
+  plan: string | null
+  last_login_at: string | null
+}
+
 export interface PlanVersionEntry {
   id: number
   name: string
@@ -285,4 +296,7 @@ export const api = {
     api.put<{ item: AdminPlan }>(`/admin/plans/${id}`, payload),
   archiveAdminPlan: (id: number) => api.del(`/admin/plans/${id}`),
   planVersions: (id: number) => api.get<{ versions: PlanVersionEntry[] }>(`/admin/plans/${id}/versions`),
+  listAdminUsers: () => api.get<{ items: AdminUser[]; total: number }>('/admin/users'),
+  updateAdminUser: (id: number, payload: Partial<AdminUser>) =>
+    api.put<{ item: AdminUser }>(`/admin/users/${id}`, payload),
 }

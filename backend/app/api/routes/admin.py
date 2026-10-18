@@ -11,9 +11,10 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import require_admin, require_super_admin
 from app.db.session import get_db
-from app.models import Plan, PlanVersion, User
+from app.models import Plan, PlanVersion, Role, User
 
-router = APIRouter(prefix="/admin/plans", tags=["admin"])
+plans_router = APIRouter(prefix="/admin/plans", tags=["admin"])
+users_router = APIRouter(prefix="/admin/users", tags=["admin"])
 
 
 class PlanPayload(BaseModel):
@@ -61,7 +62,7 @@ def _audit(db: Session, plan: Plan, user: User) -> None:
     plan.version += 1
 
 
-@router.get("")
+@plans_router.get("")
 def list_admin_plans(
     db: Session = Depends(get_db),
     user: User = Depends(require_admin),
@@ -72,7 +73,7 @@ def list_admin_plans(
     return {"items": [_snapshot(p) for p in plans], "total": len(plans)}
 
 
-@router.post("", status_code=status.HTTP_201_CREATED)
+@plans_router.post("", status_code=status.HTTP_201_CREATED)
 def create_admin_plan(
     payload: PlanPayload,
     db: Session = Depends(get_db),
@@ -104,7 +105,7 @@ def create_admin_plan(
     return {"item": _snapshot(plan)}
 
 
-@router.put("/{plan_id}")
+@plans_router.put("/{plan_id}")
 def update_admin_plan(
     plan_id: int,
     payload: PlanPayload,
@@ -122,7 +123,7 @@ def update_admin_plan(
     return {"item": _snapshot(plan)}
 
 
-@router.delete("/{plan_id}", status_code=status.HTTP_204_NO_CONTENT)
+@plans_router.delete("/{plan_id}", status_code=status.HTTP_204_NO_CONTENT)
 def archive_admin_plan(
     plan_id: int,
     db: Session = Depends(get_db),
@@ -137,7 +138,7 @@ def archive_admin_plan(
     db.commit()
 
 
-@router.get("/{plan_id}/versions")
+@plans_router.get("/{plan_id}/versions")
 def list_plan_versions(
     plan_id: int,
     db: Session = Depends(get_db),
@@ -162,3 +163,61 @@ def list_plan_versions(
             for v in rows
         ]
     }
+
+
+# ---------------------------------------------------------------- user admin
+
+
+class UserUpdate(BaseModel):
+    is_active: bool | None = None
+    is_suspended: bool | None = None
+    roles: list[str] | None = None
+
+
+def _user_out(u: User) -> dict:
+    return {
+        "id": u.id,
+        "email": u.email,
+        "display_name": u.display_name,
+        "is_active": u.is_active,
+        "is_suspended": u.is_suspended,
+        "roles": [r.name for r in u.roles],
+        "plan": u.plan.code if u.plan else None,
+        "last_login_at": u.last_login_at.isoformat() if u.last_login_at else None,
+    }
+
+
+@users_router.get("")
+def list_admin_users(
+    db: Session = Depends(get_db),
+    user: User = Depends(require_admin),
+):
+    rows = db.execute(select(User).order_by(User.id)).scalars().all()
+    return {"items": [_user_out(u) for u in rows], "total": len(rows)}
+
+
+@users_router.put("/{user_id}")
+def update_admin_user(
+    user_id: int,
+    payload: UserUpdate,
+    db: Session = Depends(get_db),
+    actor: User = Depends(require_super_admin),
+):
+    target = db.get(User, user_id)
+    if target is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "User not found")
+    if target.id == actor.id:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, "Cannot modify your own account")
+    if payload.is_active is not None:
+        target.is_active = payload.is_active
+    if payload.is_suspended is not None:
+        target.is_suspended = payload.is_suspended
+    if payload.roles is not None:
+        valid = set(db.execute(select(Role.name)).scalars().all())
+        for r in payload.roles:
+            if r not in valid:
+                raise HTTPException(status.HTTP_400_BAD_REQUEST, f"Unknown role '{r}'")
+        target.roles = [db.execute(select(Role).where(Role.name == r)).scalar_one() for r in payload.roles]
+    db.commit()
+    db.refresh(target)
+    return {"item": _user_out(target)}

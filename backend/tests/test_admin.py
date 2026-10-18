@@ -100,3 +100,61 @@ class TestPlanCRUD:
 
         public = client.get("/api/v1/plans").json()["items"]
         assert not any(p["code"] == "visible" for p in public)
+
+
+class TestUserAdmin:
+    def test_super_lists_users(self, client):
+        headers = _make_super(client)
+        resp = client.get("/api/v1/admin/users", headers=headers)
+        assert resp.status_code == 200
+        emails = {u["email"] for u in resp.json()["items"]}
+        assert "boss@x.com" in emails
+
+    def test_regular_cannot_list_users(self, client):
+        _register(client, "first@x.com")
+        _register(client, "peon@x.com")
+        login = client.post(
+            "/api/v1/auth/login", json={"email": "peon@x.com", "password": "password123"}
+        )
+        headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+        assert client.get("/api/v1/admin/users", headers=headers).status_code == 403
+
+    def test_suspend_and_activate(self, client):
+        headers = _make_super(client)
+        _register(client, "victim@x.com")
+        uid = [
+            u["id"]
+            for u in client.get("/api/v1/admin/users", headers=headers).json()["items"]
+            if u["email"] == "victim@x.com"
+        ][0]
+        sus = client.put(f"/api/v1/admin/users/{uid}", json={"is_suspended": True}, headers=headers)
+        assert sus.status_code == 200
+        assert sus.json()["item"]["is_suspended"] is True
+        # suspended user cannot log in anymore
+        login = client.post(
+            "/api/v1/auth/login", json={"email": "victim@x.com", "password": "password123"}
+        )
+        assert login.status_code == 403
+        react = client.put(f"/api/v1/admin/users/{uid}", json={"is_suspended": False}, headers=headers)
+        assert react.json()["item"]["is_suspended"] is False
+
+    def test_cannot_modify_self(self, client):
+        headers = _make_super(client)
+        uid = client.get("/api/v1/admin/users", headers=headers).json()["items"][0]["id"]
+        resp = client.put(f"/api/v1/admin/users/{uid}", json={"is_suspended": True}, headers=headers)
+        assert resp.status_code == 400
+
+    def test_assign_roles(self, client):
+        headers = _make_super(client)
+        _register(client, "staff@x.com")
+        uid = [
+            u["id"]
+            for u in client.get("/api/v1/admin/users", headers=headers).json()["items"]
+            if u["email"] == "staff@x.com"
+        ][0]
+        resp = client.put(
+            f"/api/v1/admin/users/{uid}", json={"roles": ["admin"]}, headers=headers
+        )
+        assert resp.status_code == 200
+        assert "admin" in resp.json()["item"]["roles"]
+        assert "super_admin" not in resp.json()["item"]["roles"]

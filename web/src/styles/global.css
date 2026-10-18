@@ -560,6 +560,24 @@ select {
   border-bottom: 1px solid var(--c-border);
   margin-bottom: 0.4rem;
 }
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.tab {
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+}
+.tab-active {
+  border-color: var(--c-accent, #4f9dff);
+  color: var(--c-accent, #4f9dff);
+  background: color-mix(in srgb, var(--c-accent, #4f9dff) 12%, transparent);
+}
 .pref-row input[type='checkbox'] {
   width: 1.2rem;
   height: 1.2rem;
