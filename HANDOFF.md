@@ -34,16 +34,16 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 
 | Key | Value |
 |---|---|
-| Last commit | `697e2a3` — `feat(scripts): API-driven E2E smoke test — 36 steps across the full product journey (Stage 7)` |
+| Last commit | `57453ba` — `feat(stage7): dependency security scan — react-router v7 upgrade, CI security job` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git ls-remote origin main` == local HEAD == `697e2a39ae9fc5bf690ae5e917206bc5cd548582` (confirmed after push) |
+| Verified | `git ls-remote origin main` == local HEAD == `57453ba41338746e62d7cf37256d2c0fd596d639` (confirmed after push) |
 
 > **History note (reset):** the remote `main` was force-pushed/re-written at
 > some point during Stage 6 delivery. HANDOFF previously documented commit
 > `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
 > `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
-> push dispatch — Stage 6`). The current remote HEAD is `697e2a3`; any
+> push dispatch — Stage 6`). The current remote HEAD is `57453ba`; any
 > references to `021bf30` are stale and should be ignored.
 
 ---
