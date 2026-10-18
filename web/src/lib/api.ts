@@ -183,6 +183,26 @@ export interface AdminUser {
   last_login_at: string | null
 }
 
+export interface SystemHealthProvider {
+  provider: string
+  status: string
+  last_success_at: string | null
+  last_error: string | null
+  error_count: number
+}
+
+export interface AdminSystem {
+  counts: {
+    users: number
+    plans: number
+    active_subscriptions: number
+    watchlists: number
+    alerts: number
+  }
+  providers: SystemHealthProvider[]
+  billing: { provider: string; label: string; active: boolean }[]
+}
+
 export interface PlanVersionEntry {
   id: number
   name: string
@@ -296,6 +316,7 @@ export const api = {
     api.put<{ item: AdminPlan }>(`/admin/plans/${id}`, payload),
   archiveAdminPlan: (id: number) => api.del(`/admin/plans/${id}`),
   planVersions: (id: number) => api.get<{ versions: PlanVersionEntry[] }>(`/admin/plans/${id}/versions`),
+  adminSystem: () => api.get<AdminSystem>('/admin/system'),
   listAdminUsers: () => api.get<{ items: AdminUser[]; total: number }>('/admin/users'),
   updateAdminUser: (id: number, payload: Partial<AdminUser>) =>
     api.put<{ item: AdminUser }>(`/admin/users/${id}`, payload),

@@ -11,10 +11,12 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import require_admin, require_super_admin
 from app.db.session import get_db
-from app.models import Plan, PlanVersion, Role, User
+from app.models import Alert, Plan, PlanVersion, ProviderHealth, Role, Subscription, User, Watchlist
+from app.services.billing import billing_status
 
 plans_router = APIRouter(prefix="/admin/plans", tags=["admin"])
 users_router = APIRouter(prefix="/admin/users", tags=["admin"])
+system_router = APIRouter(prefix="/admin/system", tags=["admin"])
 
 
 class PlanPayload(BaseModel):
@@ -221,3 +223,42 @@ def update_admin_user(
     db.commit()
     db.refresh(target)
     return {"item": _user_out(target)}
+
+
+# ---------------------------------------------------------------- system overview
+
+
+@system_router.get("")
+def admin_system_overview(
+    db: Session = Depends(get_db),
+    user: User = Depends(require_admin),
+) -> dict:
+    """Counts, provider health, and billing configuration for the admin panel."""
+    user_count = db.execute(select(User.id)).scalars().all()
+    plan_count = db.execute(select(Plan.id)).scalars().all()
+    sub_active = db.execute(
+        select(Subscription.id).where(Subscription.status == "active")
+    ).scalars().all()
+    watchlist_count = db.execute(select(Watchlist.id)).scalars().all()
+    alert_count = db.execute(select(Alert.id)).scalars().all()
+    providers = db.execute(select(ProviderHealth).order_by(ProviderHealth.id)).scalars().all()
+    return {
+        "counts": {
+            "users": len(user_count),
+            "plans": len(plan_count),
+            "active_subscriptions": len(sub_active),
+            "watchlists": len(watchlist_count),
+            "alerts": len(alert_count),
+        },
+        "providers": [
+            {
+                "provider": p.provider,
+                "status": p.status,
+                "last_success_at": p.last_success_at.isoformat() if p.last_success_at else None,
+                "last_error": p.last_error,
+                "error_count": p.error_count,
+            }
+            for p in providers
+        ],
+        "billing": billing_status(),
+    }

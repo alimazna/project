@@ -3,6 +3,7 @@ import {
   api,
   getToken,
   type AdminPlan,
+  type AdminSystem,
   type AdminUser,
   type PlanVersionEntry,
 } from '../lib/api'
@@ -16,8 +17,9 @@ export function Admin() {
   const [versions, setVersions] = useState<Record<number, PlanVersionEntry[]>>({})
   const [expanded, setExpanded] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [tab, setTab] = useState<'plans' | 'users'>('plans')
+  const [tab, setTab] = useState<'plans' | 'users' | 'system'>('plans')
   const [users, setUsers] = useState<AdminUser[]>([])
+  const [system, setSystem] = useState<AdminSystem | null>(null)
   const [editing, setEditing] = useState<AdminPlan | null>(null)
   const [form, setForm] = useState({
     code: '',
@@ -50,6 +52,10 @@ export function Admin() {
       .listAdminUsers()
       .then((r) => setUsers(r.items))
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load users'))
+    api
+      .adminSystem()
+      .then(setSystem)
+      .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load system status'))
   }
 
   const toggleSuspension = async (u: AdminUser) => {
@@ -174,6 +180,9 @@ export function Admin() {
         <button className={`tab ${tab === 'users' ? 'tab-active' : ''}`} onClick={() => setTab('users')}>
           Users ({users.length})
         </button>
+        <button className={`tab ${tab === 'system' ? 'tab-active' : ''}`} onClick={() => setTab('system')}>
+          System
+        </button>
       </div>
 
       {tab === 'users' && (
@@ -223,6 +232,61 @@ export function Admin() {
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {tab === 'system' && system && (
+        <div className="card">
+          <h3>System overview</h3>
+          <div className="stats-grid">
+            {(
+              [
+                ['Users', system.counts.users],
+                ['Plans', system.counts.plans],
+                ['Active subscriptions', system.counts.active_subscriptions],
+                ['Watchlists', system.counts.watchlists],
+                ['Alerts', system.counts.alerts],
+              ] as const
+            ).map(([label, value]) => (
+              <div className="stat" key={label}>
+                <div className="stat-value">{value}</div>
+                <div className="stat-label">{label}</div>
+              </div>
+            ))}
+          </div>
+          <h3>Providers</h3>
+          {system.providers.length === 0 && <p className="muted">No provider health records yet.</p>}
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Status</th>
+                <th>Last success</th>
+                <th>Errors</th>
+              </tr>
+            </thead>
+            <tbody>
+              {system.providers.map((p) => (
+                <tr key={p.provider}>
+                  <td>{p.provider}</td>
+                  <td>
+                    <span className={`badge ${p.status === 'ok' ? 'badge-ok' : 'badge-unknown'}`}>{p.status}</span>
+                  </td>
+                  <td className="muted small">{p.last_success_at ? new Date(p.last_success_at).toLocaleString() : '—'}</td>
+                  <td className="muted small">{p.error_count}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <h3>Billing</h3>
+          <ul>
+            {system.billing.map((b) => (
+              <li key={b.provider}>
+                <strong>{b.label}</strong>
+                <span className="muted"> ({b.provider})</span> — {b.active ? 'configured' : 'inactive'}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 

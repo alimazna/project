@@ -158,3 +158,24 @@ class TestUserAdmin:
         assert resp.status_code == 200
         assert "admin" in resp.json()["item"]["roles"]
         assert "super_admin" not in resp.json()["item"]["roles"]
+
+
+class TestSystemOverview:
+    def test_admin_can_view_system(self, client):
+        headers = _make_super(client)
+        resp = client.get("/api/v1/admin/system", headers=headers)
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["counts"]["users"] >= 1
+        assert body["counts"]["plans"] == 2
+        assert any(b["provider"] == "demo" for b in body["billing"])
+        assert isinstance(body["providers"], list)
+
+    def test_regular_denied(self, client):
+        _register(client, "norm1@x.com")
+        _register(client, "norm2@x.com")
+        login = client.post(
+            "/api/v1/auth/login", json={"email": "norm2@x.com", "password": "password123"}
+        )
+        headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+        assert client.get("/api/v1/admin/system", headers=headers).status_code == 403
