@@ -16,6 +16,7 @@ from app.api.deps import get_current_user
 from app.db.session import get_db
 from app.models import Alert, AlertDelivery, User
 from app.services.alerts import evaluate_alert
+from app.services.quotas import enforce_quota
 
 router = APIRouter(prefix="/alerts", tags=["alerts"])
 
@@ -128,6 +129,7 @@ def create_alert(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ) -> dict:
+    enforce_quota(db, user, "alerts")
     _validate_kind(payload.kind)
     if payload.value is None and payload.kind in ("price_above", "price_below"):
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "Price alerts need a value")

@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from app.api.deps import get_current_user
 from app.db.session import get_db
 from app.models import User, Watchlist, WatchlistItem
+from app.services.quotas import enforce_quota
 
 router = APIRouter(prefix="/watchlists", tags=["watchlists"])
 
@@ -58,8 +59,7 @@ def create_watchlist(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ) -> dict:
-    if len(db.execute(select(Watchlist).where(Watchlist.user_id == user.id)).scalars().all()) >= 20:
-        raise HTTPException(status.HTTP_400_BAD_REQUEST, "Watchlist limit (20) reached")
+    enforce_quota(db, user, "watchlists")
     row = Watchlist(user_id=user.id, name=payload.name, is_default=False)
     db.add(row)
     db.flush()
