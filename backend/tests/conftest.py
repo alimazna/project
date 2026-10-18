@@ -6,8 +6,16 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
+from app.core.ratelimit import reset_rate_limits
 from app.db.session import Base, get_db
 from app.main import app
+
+
+@pytest.fixture(autouse=True)
+def _clean_rate_limits():
+    reset_rate_limits()
+    yield
+    reset_rate_limits()
 
 
 @pytest.fixture()

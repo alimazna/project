@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user
 from app.core.config import settings
+from app.core.ratelimit import rate_limit
 from app.core.security import (
     create_access_token,
     generate_refresh_token,
@@ -63,7 +64,12 @@ def _create_session(db: Session, user: User) -> str:
     return refresh
 
 
-@router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/register",
+    response_model=TokenResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(rate_limit(10, 60, scope="register"))],
+)
 def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     roles = _ensure_roles(db)
     existing = db.execute(select(User).where(User.email == payload.email)).scalar_one_or_none()
@@ -90,7 +96,11 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     return TokenResponse(access_token=access, refresh_token=refresh)
 
 
-@router.post("/login", response_model=TokenResponse)
+@router.post(
+    "/login",
+    response_model=TokenResponse,
+    dependencies=[Depends(rate_limit(20, 60, scope="login"))],
+)
 def login(payload: LoginRequest, db: Session = Depends(get_db)):
     user = db.execute(select(User).where(User.email == payload.email.lower())).scalar_one_or_none()
     if user is None or not verify_password(payload.password, user.password_hash):
@@ -104,7 +114,11 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
     return TokenResponse(access_token=access, refresh_token=refresh)
 
 
-@router.post("/refresh", response_model=TokenResponse)
+@router.post(
+    "/refresh",
+    response_model=TokenResponse,
+    dependencies=[Depends(rate_limit(30, 60, scope="refresh"))],
+)
 def refresh(payload: RefreshRequest, db: Session = Depends(get_db)):
     row = db.execute(
         select(SessionModel).where(
