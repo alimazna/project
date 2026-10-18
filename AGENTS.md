@@ -34,8 +34,20 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - Ruff ignores E501 + B008 (FastAPI `Depends()` idiom is intentional).
 - SQLite returns naive datetimes — normalize with `_as_utc()` before comparing to aware UTC.
 
+## Mobile (Expo) — Stage 6
+- Project at `mobile/` (Expo SDK ~58, expo-router, React 19, RN 0.88).
+- Commands: `cd mobile && npx tsc --noEmit` (typecheck), `npx eslint .` (lint; also `npx expo lint` configures eslint), `npx expo-doctor`, `npx expo export --platform android` (bundle check).
+- `npm install`/`npx expo install` — always use `npx expo install` for SDK-compatible versions. Pin `react-dom@19.3.0` to match Expo SDK 58 expectation (transitive `react-dom@19.3.1` requires `react@^19.3.1` — conflicts).
+- Deps added: `@expo/vector-icons`, `expo-font`, `react-native-svg` (transitive), `expo-notifications`, `expo-secure-store`, `expo-constants`.
+- API base configurable via `EXPO_PUBLIC_API_BASE_URL` (default `http://localhost:8000/api/v1`); `.env.example` documents it.
+- eslint hook rule `react-hooks/set-state-in-effect` flags direct `load()` in effects — use the async-IIFE pattern `(async () => { await load(); })().catch(() => undefined);`.
+- `AndroidImportance.HIGH` (value 6) referenced as numeric constant `CHANNEL_IMPORTANCE_HIGH` to avoid the eslint `import/namespace` deep-path resolver failure.
+- Routes guarded by auth: tabs layout and standalone asset/analysis screens redirect to `/login` when no token.
+
 ## Current stage
-Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) DONE. Latest commit on origin/main: `021bf30` (feat(admin): system overview — Stage 5f). CI workflow added (`.github/workflows/ci.yml`). Next per IMPLEMENTATION_ROADMAP:
+Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) + mobile app (auth, dashboard, watchlist, scenarios, alerts, account w/ push, asset detail, analysis detail) DONE locally. Remote `main` reset — current HEAD `716bd71` (feat(push): provider abstraction, Stage 6); references to `021bf30`/squashed `e8dd9b3` are stale history. Mobile commit+push is the next deliverable. Next per IMPLEMENTATION_ROADMAP:
+- Push mobile code to GitHub (commit + verify).
 - CI verified green on GitHub (after first push).
 - Stage 4 remaining polish (charts/watchlist already present — full acceptance pass pending).
-- Stage 6 mobile (Expo) + push, Stage 7 validation/handover.
+- Real push E2E: requires physical device + platform accounts.
+- Stage 7 validation/handover.

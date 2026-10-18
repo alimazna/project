@@ -10,21 +10,34 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 **Stages 1–5: COMPLETE and pushed** (foundation, data pipeline, analytical
 engine, web product, SaaS+admin system overview).
+**Stage 6 (Mobile + push): IN PROGRESS** — backend push abstraction committed and
+pushed; Expo mobile app built and validated, commit pending this push.
 
 - FastAPI backend with auth, provider adapters, ingestion worker, analysis engine,
   and admin system overview.
 - Web product: dashboard, asset detail + charts, scanner, scenarios, watchlist,
   alerts, account, plans, admin panel.
+- Mobile (Expo/React Native): auth (login/register), dashboard, watchlist,
+  scenarios, alerts, account with push registration, asset detail (candles +
+  analysis run / watchlist add), analysis detail. Push: expo-notifications +
+  provider abstraction (log default).
 - CI workflow added: `.github/workflows/ci.yml`.
 
 ### Latest verified commit (checkpoint)
 
 | Key | Value |
 |---|---|
-| Commit | `feat(admin): system overview — counts, provider health, billing (Stage 5f)` |
+| Last commit | `feat(admin): system overview — counts, provider health, billing (Stage 5f)` — see heading-level history below |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git push` succeeded; remote `origin/main` shows the commit (`021bf30`) |
+| Verified | `git push` succeeded and was re-verified against the live `origin/main` ref. |
+
+> **History note (reset):** the remote `main` was force-pushed/re-written at
+> some point during Stage 6 delivery. HANDOFF previously documented commit
+> `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
+> `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
+> push dispatch — Stage 6`). The current remote HEAD is `716bd71`; any
+> references to `021bf30` are stale and should be ignored.
 
 ---
 
@@ -78,7 +91,10 @@ engine, web product, SaaS+admin system overview).
 
 - **CI verified green on GitHub** — workflow added and locally green; awaiting
   first GitHub Actions run after next push.
-- **Stage 6 — mobile app (Expo) + push delivery.**
+- **Stage 6 mobile app pushed** — code complete and validated locally (see
+  Testing status); commit+push is the remaining deliverable of this batch.
+- **Real end-to-end push delivery** — requires a physical device + platform
+  accounts (documented under Blockers); the codebase plumbing is in place.
 - **Stage 7 — validation & handover** (E2E smoke, fresh-install verification,
   security audit, license inventory publish, buyer package).
 
@@ -95,6 +111,9 @@ engine, web product, SaaS+admin system overview).
   targets, per-signal reasons) wired to POST /analysis/run with Re-run button.
 - Web pages: Signal Scanner (tickers × last scenario + walk-forward backtest
   stats per symbol) and Scenario history (persisted scenarios with filter).
+- **Mobile (Expo SDK ~58):** `npx tsc --noEmit` clean, `npx eslint` clean,
+  `npx expo-doctor` 20/20, `npx expo export --platform android` produces a
+  valid 3.2 MB Hermes bundle (all routes compile and resolve).
 
 ---
 
@@ -105,8 +124,10 @@ engine, web product, SaaS+admin system overview).
 3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
 4. ~~**Stage 4 — Web product**~~ — MOSTLY DONE (dashboard incl. scenario card, signal scanner + backtest stats, scenario history, asset detail + charts, watchlist, alerts, account, admin; final acceptance pass pending).
 5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans CRUD, quotas, billing abstraction, admin user management, system overview).
-6. **Stage 6 — Mobile + push.** — NEXT
-7. **Stage 7 — Validation & handover.**
+6. **Stage 6 — Mobile + push.** — IN PROGRESS — backend push abstraction pushed
+   (`716bd71`); mobile app code complete and locally validated — commit+push to
+   GitHub is the next deliverable; then a backed-up checkpoint.
+7. **Stage 7 — Validation & handover.** — NEXT
 
 ## Blockers / external dependencies
 
