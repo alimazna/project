@@ -261,7 +261,12 @@ export const api = {
     api.get<{ symbol: string; interval: string; candles: CandleEntry[] }>(
       `/market/candles/${encodeURIComponent(symbol)}?interval=${interval}&limit=${limit}`,
     ),
-  getNews: (limit = 30) => api.get<{ articles: NewsEntry[] }>(`/market/news?limit=${limit}`),
+  getNews: (limit = 30, source?: string, symbol?: string) => {
+    const params = new URLSearchParams({ limit: String(limit) })
+    if (source) params.set('source', source)
+    if (symbol) params.set('symbol', symbol)
+    return api.get<{ articles: NewsEntry[] }>(`/market/news?${params.toString()}`)
+  },
   getSymbols: () => api.get<{ symbols: SymbolEntry[] }>('/market/symbols'),
   getHealth: () => api.get<HealthResult>('/health'),
   runAnalysis: (symbol: string, interval: string, limit = 200, withNews = true) =>

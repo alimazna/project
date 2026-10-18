@@ -349,6 +349,21 @@ input:focus {
   font-size: 0.8rem;
   text-transform: uppercase;
 }
+.news-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.news-filter {
+  background: var(--c-bg-input, inherit);
+  color: inherit;
+  border: 1px solid var(--c-border);
+  border-radius: 0.375rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+}
 .news-list {
   list-style: none;
   margin: 0;

@@ -39,6 +39,8 @@ export function Dashboard() {
   const [health, setHealth] = useState<HealthResult | null>(null)
   const [tickers, setTickers] = useState<TickerEntry[]>([])
   const [news, setNews] = useState<NewsEntry[]>([])
+  const [allNews, setAllNews] = useState<NewsEntry[]>([])
+  const [newsSource, setNewsSource] = useState('')
   const [error, setError] = useState<string | null>(null)
 
   const [selected, setSelected] = useState('BTC/USD')
@@ -54,6 +56,7 @@ export function Dashboard() {
       .then(([h, s, t, n]) => {
         setHealth(h)
         setTickers(t.tickers)
+        setAllNews(n.articles)
         setNews(n.articles)
         if (s.symbols.length > 0) {
           setSelected((prev) =>
@@ -63,6 +66,17 @@ export function Dashboard() {
       })
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load market data'))
   }, [])
+
+  useEffect(() => {
+    if (!newsSource) {
+      setNews(allNews)
+      return
+    }
+    api
+      .getNews(12, newsSource)
+      .then((r) => setNews(r.articles))
+      .catch((e) => setError(e instanceof Error ? e.message : 'Failed to filter news'))
+  }, [newsSource, allNews])
 
   useEffect(() => {
     if (!selected) return
@@ -272,7 +286,24 @@ export function Dashboard() {
 
         {/* News card */}
         <div className="card">
-          <h3>Recent news</h3>
+          <div className="news-header">
+            <h3>Recent news</h3>
+            {allNews.length > 1 && (
+              <select
+                className="news-filter"
+                value={newsSource}
+                onChange={(e) => setNewsSource(e.target.value)}
+                aria-label="Filter news by source"
+              >
+                <option value="">All sources</option>
+                {[...new Set(allNews.map((a) => a.source))].map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
           {news.length === 0 && <p className="muted">No articles ingested yet.</p>}
           <ul className="news-list">
             {news.map((a) => (
