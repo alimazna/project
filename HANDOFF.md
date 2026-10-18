@@ -89,6 +89,8 @@ any blockers — so a new developer or buyer can take over without a phone call.
   (POST /analysis/run, GET /scenarios, GET /analysis/backtest) — deterministic.
 - Dashboard: "Scenario — explainable" card (direction, alignment, entry/stop/
   targets, per-signal reasons) wired to POST /analysis/run with Re-run button.
+- Web pages: Signal Scanner (tickers × last scenario + walk-forward backtest
+  stats per symbol) and Scenario history (persisted scenarios with filter).
 
 ---
 
@@ -97,7 +99,7 @@ any blockers — so a new developer or buyer can take over without a phone call.
 1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold backend/web, auth, tests).
 2. ~~**Stage 2 — Real data pipeline**~~ — DONE (Kraken/OKX/RSS → DB → read API; live dashboard).
 3. **Stage 3 — Analytical engine** — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
-4. **Stage 4 — Web product** — STARTED (dashboard live; charts, watchlist, scanner, scenario view pending).
+4. **Stage 4 — Web product** — IN PROGRESS (dashboard live incl. scenario card, signal scanner + backtest stats, scenario history; charts/watchlist pending).
 5. **Stage 5 — SaaS + Super Admin.**
 6. **Stage 6 — Mobile + push.**
 7. **Stage 7 — Validation & handover.**

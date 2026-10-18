@@ -4,6 +4,8 @@ import { Landing } from './pages/Landing'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Plans } from './pages/Plans'
+import { Scanner } from './pages/Scanner'
+import { Scenarios } from './pages/Scenarios'
 
 export function App() {
   return (
@@ -16,6 +18,8 @@ export function App() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/plans">Pricing</NavLink>
           <NavLink to="/dashboard">App</NavLink>
+          <NavLink to="/scanner">Scanner</NavLink>
+          <NavLink to="/scenarios">Scenarios</NavLink>
           <NavLink to="/login">Sign in</NavLink>
         </nav>
       </header>
@@ -26,6 +30,8 @@ export function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/scanner" element={<Scanner />} />
+          <Route path="/scenarios" element={<Scenarios />} />
         </Routes>
       </main>
     </div>
