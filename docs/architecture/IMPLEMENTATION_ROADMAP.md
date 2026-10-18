@@ -12,7 +12,7 @@ criteria. Progress is tracked in `HANDOFF.md` with commit SHAs.
 
 **Goal:** Initialize monorepo, CI, tooling, and a running dev slice.
 
-- [ ] Monorepo layout: `backend/`, `web/`, `mobile/`, `docs/`, `scripts/`.
+- [x] Monorepo layout: `backend/`, `web/`, `mobile/`, `docs/`, `scripts/`.
 - [ ] Backend: FastAPI app skeleton, settings, SQLite (WAL), Alembic migrations
       (or SQLAlchemy create_all bootstrap + migration path).
 - [ ] Tests: pytest + fixtures; lint (ruff).
@@ -101,7 +101,7 @@ far as possible without physical device; docs cover credentials.
 
 **Goal:** Verify, document, package for buyer.
 
-- [ ] E2E smoke tests (API-driven + web).
+- [x] E2E smoke tests (API-driven + web).
 - [ ] Fresh-install verification from README.
 - [ ] Security checks (audit, dependency scan, secret scan).
 - [ ] Deployment/backup/recovery docs.

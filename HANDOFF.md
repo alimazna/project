@@ -10,33 +10,38 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 **Stages 1–5: COMPLETE and pushed** (foundation, data pipeline, analytical
 engine, web product, SaaS+admin system overview).
-**Stage 6 (Mobile + push): IN PROGRESS** — backend push abstraction committed and
-pushed; Expo mobile app built and validated, commit pending this push.
+**Stage 6 (Mobile + push): DONE** (except physical-device push delivery) —
+backend push abstraction pushed (`716bd71`); Expo app pushed (`b1a6e16`); mobile
+dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
+**Stage 7 (Validation & handover): STARTED** — API-driven E2E smoke test added
+(`scripts/smoke_test.py`, 36 steps green) and web news feed+filter completed
+(`5b5d910`).
 
 - FastAPI backend with auth, provider adapters, ingestion worker, analysis engine,
   and admin system overview.
-- Web product: dashboard, asset detail + charts, scanner, scenarios, watchlist,
+- Web product: dashboard (tickers + charts + scenario card + **news feed with
+  source filter**), asset detail + charts, scanner, scenarios, watchlist,
   alerts, account, plans, admin panel.
-- Mobile (Expo/React Native): auth (login/register), dashboard, watchlist,
-  scenarios, alerts, account with push registration, asset detail (candles +
-  analysis run / watchlist add), analysis detail. Push: expo-notifications +
-  provider abstraction (log default).
+- Mobile (Expo/React Native): auth (login/register), dashboard (**tickers +
+  market news list**), watchlist, scenarios, alerts, account with push
+  registration, asset detail (candles + analysis run / watchlist add),
+  analysis detail. Push: expo-notifications + provider abstraction (log default).
 - CI workflow added: `.github/workflows/ci.yml`.
 
 ### Latest verified commit (checkpoint)
 
 | Key | Value |
 |---|---|
-| Last commit | `b1a6e16` — `feat(mobile): Expo React Native app — auth, dashboard, watchlist, scenarios, alerts, account with push registration, asset/analysis detail (Stage 6)` |
+| Last commit | `5b5d910` — `feat(web): news feed source filter on dashboard — getNews accepts source/symbol params (Stage 4 roadmap: news feed+filter)` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git ls-remote origin main` == local HEAD == `b1a6e16ae18047153f74820e4f41856eb0997b33` (confirmed after push) |
+| Verified | `git ls-remote origin main` == local HEAD == `5b5d910d3530bfc4de3ec5657296e386d5b2983e` (confirmed after push); CI green on `39126824314` for `9b7309d` |
 
 > **History note (reset):** the remote `main` was force-pushed/re-written at
 > some point during Stage 6 delivery. HANDOFF previously documented commit
 > `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
 > `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
-> push dispatch — Stage 6`). The current remote HEAD is `b1a6e16`; any
+> push dispatch — Stage 6`). The current remote HEAD is `5b5d910`; any
 > references to `021bf30` are stale and should be ignored.
 
 ---
@@ -91,16 +96,22 @@ pushed; Expo mobile app built and validated, commit pending this push.
 
 - **Real end-to-end push delivery** — requires a physical device + platform
   accounts (documented under Blockers); the codebase plumbing is in place.
-- **Stage 7 — validation & handover** (E2E smoke, fresh-install verification,
-  security audit, license inventory publish, buyer package).
+- **Stage 7 — validation & handover** (in progress: E2E smoke test done; still
+  pending fresh-install verification, security audit follow-through, license
+  inventory publish, deployment/backup docs, buyer package).
 
 ## Testing status
 
-- Backend: `128 passed` (pytest), `ruff check` clean.
+- Backend: `136 passed` (pytest), `ruff check` clean.
 - Web: `5 passed` (vitest); ESLint 9 flat config clean; production build passes.
+- **E2E smoke test: `scripts/smoke_test.py`** — 36 steps green (deterministic,
+  isolated SQLite): public endpoints, auth (register→login→me→refresh),
+  market data, news+source-filter, analysis run/persist/detail/backtest,
+  watchlists, alerts CRUD+evaluate, notification prefs, device registration,
+  subscription, admin overview/users/plans, and unauthorized-access rejection.
 - CI workflow: **green on GitHub Actions** — confirmed 2026-10-18 for commits
-  `716bd71`, `b1a6e16`, and `83a81bc` (backend tests+lint, web build+lint+tests,
-  license report all pass).
+  `716bd71`, `b1a6e16`, `83a81bc`, `4e88ab3`, and `9b7309d` (backend tests+lint,
+  web build+lint+tests, license report all pass).
 - Engine: indicators (EMA/RSI/ATR/vol/S-R), news classifier, decision-matrix
   scenario builder, leakage-guarded walk-forward backtest, analysis API
   (POST /analysis/run, GET /scenarios, GET /analysis/backtest) — deterministic.
@@ -121,11 +132,14 @@ pushed; Expo mobile app built and validated, commit pending this push.
 3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
 4. ~~**Stage 4 — Web product**~~ — MOSTLY DONE (dashboard incl. scenario card, signal scanner + backtest stats, scenario history, asset detail + charts, watchlist, alerts, account, admin; final acceptance pass pending).
 5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans CRUD, quotas, billing abstraction, admin user management, system overview).
-6. **Stage 6 — Mobile + push.** — MOSTLY DONE — backend push abstraction pushed
-   (`716bd71`) + mobile app pushed (`b1a6e16`, verified on `origin/main`).
-   Remaining: real push E2E on physical device (non-blocking), then final
-   Stage 6 acceptance pass.
-7. **Stage 7 — Validation & handover.** — NEXT
+6. ~~**Stage 6 — Mobile + push.**~~ — DONE except physical-device push delivery:
+   backend push abstraction (`716bd71`), Expo app (`b1a6e16`) with dashboard news
+   list added (`9b7309d`). Remaining (non-blocking): real push E2E on a physical
+   device + final acceptance pass.
+7. **Stage 7 — Validation & handover.** — IN PROGRESS — API-driven E2E smoke
+   test done (`scripts/smoke_test.py`, 36 green); next: fresh-install
+   verification from README, security/dependency audit follow-through, license
+   inventory publish, deployment/backup docs, buyer package, final HANDOFF.
 
 ## Blockers / external dependencies
 
