@@ -23,6 +23,7 @@ from app.models import (
     Ticker,
 )
 from app.models import User as UserModel
+from app.services.push import alert_delivery_message, notify_user
 
 logger = logging.getLogger(__name__)
 
@@ -136,8 +137,23 @@ def evaluate_alert(db: Session, alert: Alert) -> AlertDelivery | None:
     alert.last_fired_at = now
     db.add(alert)
     db.add(delivery)
-    db.commit()
     logger.info("alert %s fired for %s (%s): %s", alert.id, alert.symbol, alert.kind, detail)
+
+    # Best-effort push delivery — the same dedup guard (cooldown) applies
+    # because we only reach here once per cooldown window.
+    try:
+        title, body = alert_delivery_message(alert, detail)
+        push_results = notify_user(
+            db, user_id=alert.user_id, title=title, body=body, data=detail, alert_id=alert.id
+        )
+        delivery.status = "delivered" if any(
+            r.get("status") == "attempted" for r in push_results
+        ) else "attempted"
+        logger.info("push dispatch for alert %s: %s", alert.id, push_results)
+    except Exception:  # noqa: BLE001 — push failure must never break alert evaluation
+        logger.exception("push dispatch failed for alert %s", alert.id)
+
+    db.commit()
     return delivery
 
 
