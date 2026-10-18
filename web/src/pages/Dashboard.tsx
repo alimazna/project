@@ -65,8 +65,10 @@ export function Dashboard() {
         setHealth(h)
         setTickers(t.tickers)
         setNews(n.articles)
-        if (s.symbols.length > 0 && !s.symbols.some((x) => x.symbol === selected)) {
-          setSelected(s.symbols[0].symbol)
+        if (s.symbols.length > 0) {
+          setSelected((prev) =>
+            s.symbols.some((x) => x.symbol === prev) ? prev : s.symbols[0].symbol,
+          )
         }
       })
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load market data'))
