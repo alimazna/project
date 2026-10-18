@@ -552,3 +552,16 @@ select {
   flex: 1;
   min-width: 170px;
 }
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 0.4rem;
+}
+.pref-row input[type='checkbox'] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--c-accent, #4f9dff);
+}

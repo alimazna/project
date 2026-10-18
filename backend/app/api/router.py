@@ -9,6 +9,7 @@ from app.api.routes import (
     health,
     market,
     plans,
+    settings,
     watchlists,
 )  # noqa: F401
 
@@ -20,3 +21,4 @@ api_router.include_router(auth.router)
 api_router.include_router(analysis.router)
 api_router.include_router(watchlists.router)
 api_router.include_router(alerts.router)
+api_router.include_router(settings.router)

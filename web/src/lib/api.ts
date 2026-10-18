@@ -14,6 +14,13 @@ export function setToken(token: string | null) {
   }
 }
 
+export interface Me {
+  id?: number
+  email: string
+  display_name?: string | null
+  roles?: string[]
+}
+
 export function getToken() {
   return accessToken
 }
@@ -149,6 +156,20 @@ export interface UserAlert {
   created_at: string | null
 }
 
+export interface NotifPref {
+  category: string
+  channel: string
+  enabled: boolean
+}
+
+export interface DeviceEntry {
+  id: number
+  platform: string
+  provider: string
+  push_token: string
+  created_at: string | null
+}
+
 export interface AlertDeliveryEntry {
   id: number
   alert_id: number
@@ -220,4 +241,16 @@ export const api = {
   evaluateAlert: (id: number) => api.post<{ fired: boolean; evaluated: boolean }>(`/alerts/${id}/evaluate`),
   getAlertDeliveries: (limit = 20) =>
     api.get<{ deliveries: AlertDeliveryEntry[] }>(`/alerts/deliveries?limit=${limit}`),
+  getNotificationPreferences: () => api.get<{ preferences: NotifPref[] }>('/notification-preferences'),
+  setNotificationPreferences: (prefs: NotifPref[]) =>
+    api.put<{ preferences: NotifPref[] }>('/notification-preferences', prefs),
+  getDevices: () => api.get<{ devices: DeviceEntry[] }>('/devices'),
+  registerDevice: (platform: string, pushToken: string, provider = 'expo') =>
+    api.post<{ device: { id: number; platform: string; provider: string } }>('/devices', {
+      platform,
+      push_token: pushToken,
+      provider,
+    }),
+  deleteDevice: (id: number) => api.del(`/devices/${id}`),
+  authMe: () => api.get<Me>('/auth/me'),
 }
