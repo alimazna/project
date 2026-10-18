@@ -7,6 +7,7 @@ import { Register } from './pages/Register'
 import { Plans } from './pages/Plans'
 import { Scanner } from './pages/Scanner'
 import { Scenarios } from './pages/Scenarios'
+import { WatchlistPage } from './pages/Watchlist'
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
           <NavLink to="/dashboard">App</NavLink>
           <NavLink to="/scanner">Scanner</NavLink>
           <NavLink to="/scenarios">Scenarios</NavLink>
+          <NavLink to="/watchlist">Watchlist</NavLink>
           <NavLink to="/login">Sign in</NavLink>
         </nav>
       </header>
@@ -34,6 +36,7 @@ export function App() {
           <Route path="/asset/:symbol" element={<AssetDetail />} />
           <Route path="/scanner" element={<Scanner />} />
           <Route path="/scenarios" element={<Scenarios />} />
+          <Route path="/watchlist" element={<WatchlistPage />} />
         </Routes>
       </main>
     </div>

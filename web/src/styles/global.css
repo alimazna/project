@@ -525,3 +525,12 @@ code {
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.4rem 0 0.9rem;
+}
+.picker .ticker-chip {
+  font-size: 0.8rem;
+}

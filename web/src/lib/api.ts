@@ -131,6 +131,13 @@ export interface ScenarioDetail {
   created_at?: string
 }
 
+export interface Watchlist {
+  id: number
+  name: string
+  is_default: boolean
+  symbols: string[]
+}
+
 export interface BacktestResult {
   results: { index: number; symbol: string; direction: string; entry: number; exit_price: number; pnl_pct: number; alignment: number; rule_version: string; hold_bars: number }[]
   stats: {
@@ -173,4 +180,10 @@ export const api = {
     api.get<BacktestResult>(
       `/analysis/backtest?symbol=${encodeURIComponent(symbol)}&interval=${interval}&limit=${limit}&hold_bars=${holdBars}`,
     ),
+  getWatchlists: () => api.get<{ watchlists: Watchlist[] }>('/watchlists'),
+  createWatchlist: (name: string, symbols: string[]) =>
+    api.post<{ watchlist: Watchlist }>('/watchlists', { name, symbols }),
+  updateWatchlist: (id: number, patch: { name?: string; symbols?: string[] }) =>
+    api.put<{ watchlist: Watchlist }>(`/watchlists/${id}`, patch),
+  deleteWatchlist: (id: number) => api.del(`/watchlists/${id}`),
 }
