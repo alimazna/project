@@ -45,9 +45,8 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - Routes guarded by auth: tabs layout and standalone asset/analysis screens redirect to `/login` when no token.
 
 ## Current stage
-Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) + mobile app (auth, dashboard, watchlist, scenarios, alerts, account w/ push, asset detail, analysis detail) DONE locally. Remote `main` reset — current HEAD `716bd71` (feat(push): provider abstraction, Stage 6); references to `021bf30`/squashed `e8dd9b3` are stale history. Mobile commit+push is the next deliverable. Next per IMPLEMENTATION_ROADMAP:
-- Push mobile code to GitHub (commit + verify).
-- CI verified green on GitHub (after first push).
+Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) + mobile app (auth, dashboard, watchlist, scenarios, alerts, account w/ push, asset detail, analysis detail) DONE and pushed. Remote `main` HEAD = `b1a6e16` (verified via ls-remote); parent `716bd71` (feat(push) backend); references to `021bf30`/squashed `e8dd9b3` are stale history. Next per IMPLEMENTATION_ROADMAP:
+- Check CI on GitHub (workflow runs on push — confirm green).
 - Stage 4 remaining polish (charts/watchlist already present — full acceptance pass pending).
 - Real push E2E: requires physical device + platform accounts.
 - Stage 7 validation/handover.

@@ -27,16 +27,16 @@ pushed; Expo mobile app built and validated, commit pending this push.
 
 | Key | Value |
 |---|---|
-| Last commit | `feat(admin): system overview — counts, provider health, billing (Stage 5f)` — see heading-level history below |
+| Last commit | `b1a6e16` — `feat(mobile): Expo React Native app — auth, dashboard, watchlist, scenarios, alerts, account with push registration, asset/analysis detail (Stage 6)` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git push` succeeded and was re-verified against the live `origin/main` ref. |
+| Verified | `git ls-remote origin main` == local HEAD == `b1a6e16ae18047153f74820e4f41856eb0997b33` (confirmed after push) |
 
 > **History note (reset):** the remote `main` was force-pushed/re-written at
 > some point during Stage 6 delivery. HANDOFF previously documented commit
 > `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
 > `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
-> push dispatch — Stage 6`). The current remote HEAD is `716bd71`; any
+> push dispatch — Stage 6`). The current remote HEAD is `b1a6e16`; any
 > references to `021bf30` are stale and should be ignored.
 
 ---
@@ -91,8 +91,6 @@ pushed; Expo mobile app built and validated, commit pending this push.
 
 - **CI verified green on GitHub** — workflow added and locally green; awaiting
   first GitHub Actions run after next push.
-- **Stage 6 mobile app pushed** — code complete and validated locally (see
-  Testing status); commit+push is the remaining deliverable of this batch.
 - **Real end-to-end push delivery** — requires a physical device + platform
   accounts (documented under Blockers); the codebase plumbing is in place.
 - **Stage 7 — validation & handover** (E2E smoke, fresh-install verification,
@@ -124,9 +122,10 @@ pushed; Expo mobile app built and validated, commit pending this push.
 3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
 4. ~~**Stage 4 — Web product**~~ — MOSTLY DONE (dashboard incl. scenario card, signal scanner + backtest stats, scenario history, asset detail + charts, watchlist, alerts, account, admin; final acceptance pass pending).
 5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans CRUD, quotas, billing abstraction, admin user management, system overview).
-6. **Stage 6 — Mobile + push.** — IN PROGRESS — backend push abstraction pushed
-   (`716bd71`); mobile app code complete and locally validated — commit+push to
-   GitHub is the next deliverable; then a backed-up checkpoint.
+6. **Stage 6 — Mobile + push.** — MOSTLY DONE — backend push abstraction pushed
+   (`716bd71`) + mobile app pushed (`b1a6e16`, verified on `origin/main`).
+   Remaining: real push E2E on physical device (non-blocking), then final
+   Stage 6 acceptance pass.
 7. **Stage 7 — Validation & handover.** — NEXT
 
 ## Blockers / external dependencies
