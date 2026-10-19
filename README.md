@@ -42,6 +42,10 @@ scripts/   Dev/ops helper scripts
 
 ### Run & operate (buyer)
 
+- **Start here (buyer walk-through):** `docs/BUYER_PACKAGE.md`
+- **Setup from scratch:** `docs/SETUP_INSTRUCTIONS.md`
+- **Release checklist:** `docs/RELEASE_CHECKLIST.md`
+- **How to sell it:** `docs/SELLER_GUIDE.md`
 - **Deploy (one command, Docker Compose):** `docs/setup/DEPLOYMENT.md`
 - **Rebrand in 5 minutes:** `docs/REBRAND.md`
 - **Backup & restore:** `docs/setup/BACKUP_RECOVERY.md`
