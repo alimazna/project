@@ -1,0 +1,2272 @@
+├─ @adobe/css-tools@4.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/adobe/css-tools
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /workspace/project/project/web/node_modules/@adobe/css-tools
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@adobe/css-tools/LICENSE
+├─ @asamuzakjp/css-color@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/asamuzaK/cssColor
+│  ├─ publisher: asamuzaK
+│  ├─ path: /workspace/project/project/web/node_modules/@asamuzakjp/css-color
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@asamuzakjp/css-color/LICENSE
+├─ @babel/code-frame@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/code-frame
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/code-frame/LICENSE
+├─ @babel/compat-data@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/compat-data
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/compat-data/LICENSE
+├─ @babel/core@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/core
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/core/LICENSE
+├─ @babel/generator@7.29.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/generator
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/generator/LICENSE
+├─ @babel/helper-compilation-targets@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-compilation-targets
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-compilation-targets/LICENSE
+├─ @babel/helper-globals@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-globals
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-globals/LICENSE
+├─ @babel/helper-module-imports@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-module-imports
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-module-imports/LICENSE
+├─ @babel/helper-module-transforms@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-module-transforms
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-module-transforms/LICENSE
+├─ @babel/helper-plugin-utils@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-plugin-utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-plugin-utils/LICENSE
+├─ @babel/helper-string-parser@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-string-parser
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-string-parser/LICENSE
+├─ @babel/helper-validator-identifier@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-validator-identifier
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-validator-identifier/LICENSE
+├─ @babel/helper-validator-option@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helper-validator-option
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helper-validator-option/LICENSE
+├─ @babel/helpers@7.29.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/helpers
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/helpers/LICENSE
+├─ @babel/parser@7.29.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/parser
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/parser/LICENSE
+├─ @babel/plugin-transform-react-jsx-self@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/plugin-transform-react-jsx-self
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/plugin-transform-react-jsx-self/LICENSE
+├─ @babel/plugin-transform-react-jsx-source@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/plugin-transform-react-jsx-source
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/plugin-transform-react-jsx-source/LICENSE
+├─ @babel/runtime@7.29.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/runtime
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/runtime/LICENSE
+├─ @babel/template@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/template
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/template/LICENSE
+├─ @babel/traverse@7.29.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/traverse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/traverse/LICENSE
+├─ @babel/types@7.29.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ url: https://babel.dev/team
+│  ├─ path: /workspace/project/project/web/node_modules/@babel/types
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@babel/types/LICENSE
+├─ @csstools/color-helpers@5.1.0
+│  ├─ licenses: MIT-0
+│  ├─ repository: https://github.com/csstools/postcss-plugins
+│  ├─ path: /workspace/project/project/web/node_modules/@csstools/color-helpers
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@csstools/color-helpers/LICENSE.md
+├─ @csstools/css-calc@2.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/csstools/postcss-plugins
+│  ├─ path: /workspace/project/project/web/node_modules/@csstools/css-calc
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@csstools/css-calc/LICENSE.md
+├─ @csstools/css-color-parser@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/csstools/postcss-plugins
+│  ├─ path: /workspace/project/project/web/node_modules/@csstools/css-color-parser
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@csstools/css-color-parser/LICENSE.md
+├─ @csstools/css-parser-algorithms@3.0.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/csstools/postcss-plugins
+│  ├─ path: /workspace/project/project/web/node_modules/@csstools/css-parser-algorithms
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@csstools/css-parser-algorithms/LICENSE.md
+├─ @csstools/css-tokenizer@3.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/csstools/postcss-plugins
+│  ├─ path: /workspace/project/project/web/node_modules/@csstools/css-tokenizer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@csstools/css-tokenizer/LICENSE.md
+├─ @esbuild/linux-x64@0.21.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/evanw/esbuild
+│  ├─ path: /workspace/project/project/web/node_modules/@esbuild/linux-x64
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@esbuild/linux-x64/README.md
+├─ @eslint-community/eslint-utils@4.10.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint-community/eslint-utils
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint-community/eslint-utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint-community/eslint-utils/LICENSE
+├─ @eslint-community/regexpp@4.12.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint-community/regexpp
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint-community/regexpp
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint-community/regexpp/LICENSE
+├─ @eslint/config-array@0.21.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/config-array
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/config-array/LICENSE
+├─ @eslint/config-helpers@0.4.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/config-helpers
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/config-helpers/LICENSE
+├─ @eslint/core@0.17.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/core
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/core/LICENSE
+├─ @eslint/eslintrc@3.3.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint/eslintrc
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/eslintrc
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/eslintrc/LICENSE
+├─ @eslint/js@9.39.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint/eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/js
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/js/LICENSE
+├─ @eslint/object-schema@2.1.7
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/object-schema
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/object-schema/LICENSE
+├─ @eslint/plugin-kit@0.4.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint/plugin-kit
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint/plugin-kit/LICENSE
+├─ @humanfs/core@0.19.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@humanfs/core
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@humanfs/core/LICENSE
+├─ @humanfs/node@0.16.8
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@humanfs/node
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@humanfs/node/LICENSE
+├─ @humanfs/types@0.15.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: /workspace/project/project/web/node_modules/@humanfs/types
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@humanfs/types/README.md
+├─ @humanwhocodes/module-importer@1.0.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/module-importer
+│  ├─ publisher: Nicholas C. Zaks
+│  ├─ path: /workspace/project/project/web/node_modules/@humanwhocodes/module-importer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@humanwhocodes/module-importer/LICENSE
+├─ @humanwhocodes/retry@0.4.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/retry
+│  ├─ publisher: Nicholas C. Zaks
+│  ├─ path: /workspace/project/project/web/node_modules/@humanwhocodes/retry
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@humanwhocodes/retry/LICENSE
+├─ @jridgewell/gen-mapping@0.3.13
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /workspace/project/project/web/node_modules/@jridgewell/gen-mapping
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@jridgewell/gen-mapping/LICENSE
+├─ @jridgewell/remapping@2.3.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /workspace/project/project/web/node_modules/@jridgewell/remapping
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@jridgewell/remapping/LICENSE
+├─ @jridgewell/resolve-uri@3.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/resolve-uri
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /workspace/project/project/web/node_modules/@jridgewell/resolve-uri
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@jridgewell/resolve-uri/LICENSE
+├─ @jridgewell/sourcemap-codec@1.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /workspace/project/project/web/node_modules/@jridgewell/sourcemap-codec
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@jridgewell/sourcemap-codec/LICENSE
+├─ @jridgewell/trace-mapping@0.3.31
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: /workspace/project/project/web/node_modules/@jridgewell/trace-mapping
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@jridgewell/trace-mapping/LICENSE
+├─ @napi-rs/lzma-linux-x64-gnu@1.5.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Brooooooklyn/lzma
+│  ├─ path: /workspace/project/project/web/node_modules/@napi-rs/lzma-linux-x64-gnu
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@napi-rs/lzma-linux-x64-gnu/README.md
+├─ @rolldown/pluginutils@1.0.0-beta.27
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rolldown/rolldown
+│  ├─ path: /workspace/project/project/web/node_modules/@rolldown/pluginutils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@rolldown/pluginutils/LICENSE
+├─ @rollup/rollup-linux-x64-gnu@4.64.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rollup/rollup
+│  ├─ publisher: Lukas Taegert-Atkinson
+│  ├─ path: /workspace/project/project/web/node_modules/@rollup/rollup-linux-x64-gnu
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@rollup/rollup-linux-x64-gnu/README.md
+├─ @testing-library/dom@10.4.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/testing-library/dom-testing-library
+│  ├─ publisher: Kent C. Dodds
+│  ├─ email: me@kentcdodds.com
+│  ├─ url: https://kentcdodds.com
+│  ├─ path: /workspace/project/project/web/node_modules/@testing-library/dom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@testing-library/dom/LICENSE
+├─ @testing-library/jest-dom@6.9.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/testing-library/jest-dom
+│  ├─ publisher: Ernesto Garcia
+│  ├─ email: gnapse@gmail.com
+│  ├─ url: http://gnapse.github.io
+│  ├─ path: /workspace/project/project/web/node_modules/@testing-library/jest-dom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@testing-library/jest-dom/LICENSE
+├─ @testing-library/react@16.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/testing-library/react-testing-library
+│  ├─ publisher: Kent C. Dodds
+│  ├─ email: me@kentcdodds.com
+│  ├─ url: https://kentcdodds.com
+│  ├─ path: /workspace/project/project/web/node_modules/@testing-library/react
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@testing-library/react/LICENSE
+├─ @types/aria-query@5.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/aria-query
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/aria-query/LICENSE
+├─ @types/babel__core@7.20.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/babel__core
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/babel__core/LICENSE
+├─ @types/babel__generator@7.27.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/babel__generator
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/babel__generator/LICENSE
+├─ @types/babel__template@7.4.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/babel__template
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/babel__template/LICENSE
+├─ @types/babel__traverse@7.28.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/babel__traverse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/babel__traverse/LICENSE
+├─ @types/estree@1.0.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/estree
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/estree/LICENSE
+├─ @types/json-schema@7.0.15
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/json-schema
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/json-schema/LICENSE
+├─ @types/prop-types@15.7.15
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/prop-types
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/prop-types/LICENSE
+├─ @types/react-dom@18.3.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/react-dom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/react-dom/LICENSE
+├─ @types/react@18.3.31
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: /workspace/project/project/web/node_modules/@types/react
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@types/react/LICENSE
+├─ @typescript-eslint/eslint-plugin@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/eslint-plugin
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/eslint-plugin/LICENSE
+├─ @typescript-eslint/parser@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/parser
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/parser/LICENSE
+├─ @typescript-eslint/project-service@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/project-service
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/project-service/LICENSE
+├─ @typescript-eslint/scope-manager@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/scope-manager
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/scope-manager/LICENSE
+├─ @typescript-eslint/tsconfig-utils@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/tsconfig-utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/tsconfig-utils/LICENSE
+├─ @typescript-eslint/type-utils@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/type-utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/type-utils/LICENSE
+├─ @typescript-eslint/types@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/types
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/types/LICENSE
+├─ @typescript-eslint/typescript-estree@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/LICENSE
+├─ @typescript-eslint/utils@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/utils/LICENSE
+├─ @typescript-eslint/visitor-keys@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/visitor-keys
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/visitor-keys/LICENSE
+├─ @vitejs/plugin-react@4.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitejs/vite-plugin-react
+│  ├─ publisher: Evan You
+│  ├─ path: /workspace/project/project/web/node_modules/@vitejs/plugin-react
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitejs/plugin-react/LICENSE
+├─ @vitest/expect@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/expect
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/expect/LICENSE
+├─ @vitest/mocker@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/mocker
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/mocker/LICENSE
+├─ @vitest/pretty-format@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/pretty-format
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/pretty-format/LICENSE
+├─ @vitest/runner@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/runner
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/runner/LICENSE
+├─ @vitest/snapshot@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/snapshot
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/snapshot/LICENSE
+├─ @vitest/spy@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/spy
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/spy/LICENSE
+├─ @vitest/utils@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: /workspace/project/project/web/node_modules/@vitest/utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@vitest/utils/LICENSE
+├─ abbrev@1.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/abbrev-js
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/abbrev
+│  └─ licenseFile: /workspace/project/project/web/node_modules/abbrev/LICENSE
+├─ acorn-jsx@5.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn-jsx
+│  ├─ path: /workspace/project/project/web/node_modules/acorn-jsx
+│  └─ licenseFile: /workspace/project/project/web/node_modules/acorn-jsx/LICENSE
+├─ acorn@8.19.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn
+│  ├─ path: /workspace/project/project/web/node_modules/acorn
+│  └─ licenseFile: /workspace/project/project/web/node_modules/acorn/LICENSE
+├─ agent-base@7.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /workspace/project/project/web/node_modules/agent-base
+│  └─ licenseFile: /workspace/project/project/web/node_modules/agent-base/LICENSE
+├─ ajv@6.15.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ajv-validator/ajv
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: /workspace/project/project/web/node_modules/ajv
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ajv/LICENSE
+├─ ansi-regex@5.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-regex
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/ansi-regex
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ansi-regex/license
+├─ ansi-styles@3.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-styles
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/ansi-styles
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/ansi-styles/license
+├─ ansi-styles@4.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-styles
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/ansi-styles
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ansi-styles/license
+├─ ansi-styles@5.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-styles
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/pretty-format/node_modules/ansi-styles
+│  └─ licenseFile: /workspace/project/project/web/node_modules/pretty-format/node_modules/ansi-styles/license
+├─ argparse@2.0.1
+│  ├─ licenses: Python-2.0
+│  ├─ repository: https://github.com/nodeca/argparse
+│  ├─ path: /workspace/project/project/web/node_modules/argparse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/argparse/LICENSE
+├─ aria-query@5.3.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/A11yance/aria-query
+│  ├─ publisher: Jesse Beach
+│  ├─ email: splendidnoise@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/aria-query
+│  └─ licenseFile: /workspace/project/project/web/node_modules/aria-query/LICENSE
+├─ array-find-index@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/array-find-index
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/array-find-index
+│  └─ licenseFile: /workspace/project/project/web/node_modules/array-find-index/license
+├─ asap@2.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kriskowal/asap
+│  ├─ path: /workspace/project/project/web/node_modules/asap
+│  └─ licenseFile: /workspace/project/project/web/node_modules/asap/LICENSE.md
+├─ assertion-error@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/assertion-error
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@qualiancy.com
+│  ├─ url: http://qualiancy.com
+│  ├─ path: /workspace/project/project/web/node_modules/assertion-error
+│  └─ licenseFile: /workspace/project/project/web/node_modules/assertion-error/LICENSE
+├─ asynckit@0.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/alexindigo/asynckit
+│  ├─ publisher: Alex Indigo
+│  ├─ email: iam@alexindigo.com
+│  ├─ path: /workspace/project/project/web/node_modules/asynckit
+│  └─ licenseFile: /workspace/project/project/web/node_modules/asynckit/LICENSE
+├─ balanced-match@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/balanced-match
+│  ├─ publisher: Julian Gruber
+│  ├─ email: mail@juliangruber.com
+│  ├─ url: http://juliangruber.com
+│  ├─ path: /workspace/project/project/web/node_modules/balanced-match
+│  └─ licenseFile: /workspace/project/project/web/node_modules/balanced-match/LICENSE.md
+├─ balanced-match@4.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/balanced-match
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/balanced-match
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/balanced-match/LICENSE.md
+├─ baseline-browser-mapping@2.11.29
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/web-platform-dx/baseline-browser-mapping
+│  ├─ path: /workspace/project/project/web/node_modules/baseline-browser-mapping
+│  └─ licenseFile: /workspace/project/project/web/node_modules/baseline-browser-mapping/LICENSE.txt
+├─ brace-expansion@1.1.21
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/brace-expansion
+│  ├─ publisher: Julian Gruber
+│  ├─ email: mail@juliangruber.com
+│  ├─ url: http://juliangruber.com
+│  ├─ path: /workspace/project/project/web/node_modules/brace-expansion
+│  └─ licenseFile: /workspace/project/project/web/node_modules/brace-expansion/LICENSE
+├─ brace-expansion@5.0.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/brace-expansion
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion/LICENSE
+├─ browserslist@4.29.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/browserslist/browserslist
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: /workspace/project/project/web/node_modules/browserslist
+│  └─ licenseFile: /workspace/project/project/web/node_modules/browserslist/LICENSE
+├─ cac@6.7.14
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/egoist/cac
+│  ├─ publisher: egoist
+│  ├─ email: 0x142857@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/cac
+│  └─ licenseFile: /workspace/project/project/web/node_modules/cac/LICENSE
+├─ call-bind-apply-helpers@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/call-bind-apply-helpers
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/call-bind-apply-helpers
+│  └─ licenseFile: /workspace/project/project/web/node_modules/call-bind-apply-helpers/LICENSE
+├─ callsites@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/callsites
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/callsites
+│  └─ licenseFile: /workspace/project/project/web/node_modules/callsites/license
+├─ caniuse-lite@1.0.30001816
+│  ├─ licenses: CC-BY-4.0
+│  ├─ repository: https://github.com/browserslist/caniuse-lite
+│  ├─ publisher: Ben Briggs
+│  ├─ email: beneb.info@gmail.com
+│  ├─ url: http://beneb.info
+│  ├─ path: /workspace/project/project/web/node_modules/caniuse-lite
+│  └─ licenseFile: /workspace/project/project/web/node_modules/caniuse-lite/LICENSE
+├─ chai@5.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/chai
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ path: /workspace/project/project/web/node_modules/chai
+│  └─ licenseFile: /workspace/project/project/web/node_modules/chai/LICENSE
+├─ chalk@2.4.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/chalk
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/chalk
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/chalk/license
+├─ chalk@4.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/chalk
+│  ├─ path: /workspace/project/project/web/node_modules/chalk
+│  └─ licenseFile: /workspace/project/project/web/node_modules/chalk/license
+├─ check-error@2.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/check-error
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ url: http://alogicalparadox.com
+│  ├─ path: /workspace/project/project/web/node_modules/check-error
+│  └─ licenseFile: /workspace/project/project/web/node_modules/check-error/LICENSE
+├─ color-convert@1.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-convert
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/color-convert
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/color-convert/LICENSE
+├─ color-convert@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-convert
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/color-convert
+│  └─ licenseFile: /workspace/project/project/web/node_modules/color-convert/LICENSE
+├─ color-name@1.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dfcreative/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/color-name
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/color-name/LICENSE
+├─ color-name@1.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/colorjs/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/color-name
+│  └─ licenseFile: /workspace/project/project/web/node_modules/color-name/LICENSE
+├─ combined-stream@1.0.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/felixge/node-combined-stream
+│  ├─ publisher: Felix Geisendörfer
+│  ├─ email: felix@debuggable.com
+│  ├─ url: http://debuggable.com/
+│  ├─ path: /workspace/project/project/web/node_modules/combined-stream
+│  └─ licenseFile: /workspace/project/project/web/node_modules/combined-stream/License
+├─ concat-map@0.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/node-concat-map
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/concat-map
+│  └─ licenseFile: /workspace/project/project/web/node_modules/concat-map/LICENSE
+├─ convert-source-map@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thlorenz/convert-source-map
+│  ├─ publisher: Thorsten Lorenz
+│  ├─ email: thlorenz@gmx.de
+│  ├─ url: http://thlorenz.com
+│  ├─ path: /workspace/project/project/web/node_modules/convert-source-map
+│  └─ licenseFile: /workspace/project/project/web/node_modules/convert-source-map/LICENSE
+├─ cookie@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jshttp/cookie
+│  ├─ publisher: Roman Shtylman
+│  ├─ email: shtylman@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/cookie
+│  └─ licenseFile: /workspace/project/project/web/node_modules/cookie/LICENSE
+├─ cross-spawn@7.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/moxystudio/node-cross-spawn
+│  ├─ publisher: André Cruz
+│  ├─ email: andre@moxy.studio
+│  ├─ path: /workspace/project/project/web/node_modules/cross-spawn
+│  └─ licenseFile: /workspace/project/project/web/node_modules/cross-spawn/LICENSE
+├─ css.escape@1.5.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/CSS.escape
+│  ├─ publisher: Mathias Bynens
+│  ├─ url: https://mathiasbynens.be/
+│  ├─ path: /workspace/project/project/web/node_modules/css.escape
+│  └─ licenseFile: /workspace/project/project/web/node_modules/css.escape/LICENSE-MIT.txt
+├─ cssstyle@4.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/cssstyle
+│  ├─ path: /workspace/project/project/web/node_modules/cssstyle
+│  └─ licenseFile: /workspace/project/project/web/node_modules/cssstyle/LICENSE
+├─ csstype@3.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/frenic/csstype
+│  ├─ publisher: Fredrik Nicol
+│  ├─ email: fredrik.nicol@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/csstype
+│  └─ licenseFile: /workspace/project/project/web/node_modules/csstype/LICENSE
+├─ data-urls@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/data-urls
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/data-urls
+│  └─ licenseFile: /workspace/project/project/web/node_modules/data-urls/LICENSE.txt
+├─ debug@3.2.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/visionmedia/debug
+│  ├─ publisher: TJ Holowaychuk
+│  ├─ email: tj@vision-media.ca
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/debug
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/debug/LICENSE
+├─ debug@4.4.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/debug-js/debug
+│  ├─ publisher: Josh Junon
+│  ├─ url: https://github.com/qix-
+│  ├─ path: /workspace/project/project/web/node_modules/debug
+│  └─ licenseFile: /workspace/project/project/web/node_modules/debug/LICENSE
+├─ debuglog@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sam-github/node-debuglog
+│  ├─ publisher: Sam Roberts
+│  ├─ email: sam@strongloop.com
+│  ├─ path: /workspace/project/project/web/node_modules/debuglog
+│  └─ licenseFile: /workspace/project/project/web/node_modules/debuglog/LICENSE
+├─ decimal.js@10.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/MikeMcl/decimal.js
+│  ├─ publisher: Michael Mclaughlin
+│  ├─ email: M8ch88l@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/decimal.js
+│  └─ licenseFile: /workspace/project/project/web/node_modules/decimal.js/LICENCE.md
+├─ deep-eql@5.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/deep-eql
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ path: /workspace/project/project/web/node_modules/deep-eql
+│  └─ licenseFile: /workspace/project/project/web/node_modules/deep-eql/LICENSE
+├─ deep-is@0.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thlorenz/deep-is
+│  ├─ publisher: Thorsten Lorenz
+│  ├─ email: thlorenz@gmx.de
+│  ├─ url: http://thlorenz.com
+│  ├─ path: /workspace/project/project/web/node_modules/deep-is
+│  └─ licenseFile: /workspace/project/project/web/node_modules/deep-is/LICENSE
+├─ delayed-stream@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/felixge/node-delayed-stream
+│  ├─ publisher: Felix Geisendörfer
+│  ├─ email: felix@debuggable.com
+│  ├─ url: http://debuggable.com/
+│  ├─ path: /workspace/project/project/web/node_modules/delayed-stream
+│  └─ licenseFile: /workspace/project/project/web/node_modules/delayed-stream/License
+├─ dequal@2.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lukeed/dequal
+│  ├─ publisher: Luke Edwards
+│  ├─ email: luke.edwards05@gmail.com
+│  ├─ url: https://lukeed.com
+│  ├─ path: /workspace/project/project/web/node_modules/dequal
+│  └─ licenseFile: /workspace/project/project/web/node_modules/dequal/license
+├─ dezalgo@1.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/dezalgo
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/dezalgo
+│  └─ licenseFile: /workspace/project/project/web/node_modules/dezalgo/LICENSE
+├─ dom-accessibility-api@0.5.16
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eps1lon/dom-accessibility-api
+│  ├─ path: /workspace/project/project/web/node_modules/dom-accessibility-api
+│  └─ licenseFile: /workspace/project/project/web/node_modules/dom-accessibility-api/LICENSE.md
+├─ dom-accessibility-api@0.6.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eps1lon/dom-accessibility-api
+│  ├─ path: /workspace/project/project/web/node_modules/@testing-library/jest-dom/node_modules/dom-accessibility-api
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@testing-library/jest-dom/node_modules/dom-accessibility-api/LICENSE.md
+├─ dunder-proto@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/es-shims/dunder-proto
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/dunder-proto
+│  └─ licenseFile: /workspace/project/project/web/node_modules/dunder-proto/LICENSE
+├─ electron-to-chromium@1.5.459
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/Kilian/electron-to-chromium
+│  ├─ publisher: Kilian Valkhof
+│  ├─ path: /workspace/project/project/web/node_modules/electron-to-chromium
+│  └─ licenseFile: /workspace/project/project/web/node_modules/electron-to-chromium/LICENSE
+├─ entities@6.0.1
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/fb55/entities
+│  ├─ publisher: Felix Boehm
+│  ├─ email: me@feedic.com
+│  ├─ path: /workspace/project/project/web/node_modules/entities
+│  └─ licenseFile: /workspace/project/project/web/node_modules/entities/LICENSE
+├─ es-define-property@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/es-define-property
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/es-define-property
+│  └─ licenseFile: /workspace/project/project/web/node_modules/es-define-property/LICENSE
+├─ es-errors@1.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/es-errors
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/es-errors
+│  └─ licenseFile: /workspace/project/project/web/node_modules/es-errors/LICENSE
+├─ es-module-lexer@1.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/guybedford/es-module-lexer
+│  ├─ publisher: Guy Bedford
+│  ├─ path: /workspace/project/project/web/node_modules/es-module-lexer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/es-module-lexer/LICENSE
+├─ es-object-atoms@1.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/es-object-atoms
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/es-object-atoms
+│  └─ licenseFile: /workspace/project/project/web/node_modules/es-object-atoms/LICENSE
+├─ es-set-tostringtag@2.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/es-shims/es-set-tostringtag
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/es-set-tostringtag
+│  └─ licenseFile: /workspace/project/project/web/node_modules/es-set-tostringtag/LICENSE
+├─ esbuild@0.21.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/evanw/esbuild
+│  ├─ path: /workspace/project/project/web/node_modules/esbuild
+│  └─ licenseFile: /workspace/project/project/web/node_modules/esbuild/LICENSE.md
+├─ escalade@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lukeed/escalade
+│  ├─ publisher: Luke Edwards
+│  ├─ email: luke.edwards05@gmail.com
+│  ├─ url: https://lukeed.com
+│  ├─ path: /workspace/project/project/web/node_modules/escalade
+│  └─ licenseFile: /workspace/project/project/web/node_modules/escalade/license
+├─ escape-string-regexp@1.0.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/escape-string-regexp
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/escape-string-regexp
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/escape-string-regexp/license
+├─ escape-string-regexp@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/escape-string-regexp
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/escape-string-regexp
+│  └─ licenseFile: /workspace/project/project/web/node_modules/escape-string-regexp/license
+├─ eslint-plugin-react-hooks@5.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/eslint-plugin-react-hooks
+│  └─ licenseFile: /workspace/project/project/web/node_modules/eslint-plugin-react-hooks/LICENSE
+├─ eslint-plugin-react-refresh@0.4.26
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ArnaudBarre/eslint-plugin-react-refresh
+│  ├─ publisher: Arnaud Barré
+│  ├─ url: https://github.com/ArnaudBarre
+│  ├─ path: /workspace/project/project/web/node_modules/eslint-plugin-react-refresh
+│  └─ licenseFile: /workspace/project/project/web/node_modules/eslint-plugin-react-refresh/LICENSE
+├─ eslint-scope@8.4.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ path: /workspace/project/project/web/node_modules/eslint-scope
+│  └─ licenseFile: /workspace/project/project/web/node_modules/eslint-scope/LICENSE
+├─ eslint-visitor-keys@3.4.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/eslint-visitor-keys
+│  ├─ publisher: Toru Nagashima
+│  ├─ url: https://github.com/mysticatea
+│  ├─ path: /workspace/project/project/web/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys/LICENSE
+├─ eslint-visitor-keys@4.2.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ publisher: Toru Nagashima
+│  ├─ url: https://github.com/mysticatea
+│  ├─ path: /workspace/project/project/web/node_modules/eslint-visitor-keys
+│  └─ licenseFile: /workspace/project/project/web/node_modules/eslint-visitor-keys/LICENSE
+├─ eslint-visitor-keys@5.0.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ publisher: Toru Nagashima
+│  ├─ url: https://github.com/mysticatea
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/visitor-keys/node_modules/eslint-visitor-keys
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/visitor-keys/node_modules/eslint-visitor-keys/LICENSE
+├─ eslint@9.39.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint/eslint
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ email: nicholas+npm@nczconsulting.com
+│  ├─ path: /workspace/project/project/web/node_modules/eslint
+│  └─ licenseFile: /workspace/project/project/web/node_modules/eslint/LICENSE
+├─ espree@10.4.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ email: nicholas+npm@nczconsulting.com
+│  ├─ path: /workspace/project/project/web/node_modules/espree
+│  └─ licenseFile: /workspace/project/project/web/node_modules/espree/LICENSE
+├─ esquery@1.7.0
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/estools/esquery
+│  ├─ publisher: Joel Feenstra
+│  ├─ email: jrfeenst+esquery@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/esquery
+│  └─ licenseFile: /workspace/project/project/web/node_modules/esquery/license.txt
+├─ esrecurse@4.3.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/esrecurse
+│  ├─ path: /workspace/project/project/web/node_modules/esrecurse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/esrecurse/README.md
+├─ estraverse@5.3.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/estraverse
+│  ├─ path: /workspace/project/project/web/node_modules/estraverse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/estraverse/LICENSE.BSD
+├─ estree-walker@3.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Rich-Harris/estree-walker
+│  ├─ publisher: Rich Harris
+│  ├─ path: /workspace/project/project/web/node_modules/estree-walker
+│  └─ licenseFile: /workspace/project/project/web/node_modules/estree-walker/LICENSE
+├─ esutils@2.0.3
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/esutils
+│  ├─ path: /workspace/project/project/web/node_modules/esutils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/esutils/LICENSE.BSD
+├─ expect-type@1.4.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/mmkal/expect-type
+│  ├─ path: /workspace/project/project/web/node_modules/expect-type
+│  └─ licenseFile: /workspace/project/project/web/node_modules/expect-type/LICENSE
+├─ fancy-canvas@2.1.0
+│  ├─ licenses: MIT
+│  ├─ publisher: smakarov@tradingview.com
+│  └─ path: /workspace/project/project/web/node_modules/fancy-canvas
+├─ fast-deep-equal@3.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/fast-deep-equal
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: /workspace/project/project/web/node_modules/fast-deep-equal
+│  └─ licenseFile: /workspace/project/project/web/node_modules/fast-deep-equal/LICENSE
+├─ fast-json-stable-stringify@2.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/fast-json-stable-stringify
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/fast-json-stable-stringify
+│  └─ licenseFile: /workspace/project/project/web/node_modules/fast-json-stable-stringify/LICENSE
+├─ fast-levenshtein@2.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/hiddentao/fast-levenshtein
+│  ├─ publisher: Ramesh Nair
+│  ├─ email: ram@hiddentao.com
+│  ├─ url: http://www.hiddentao.com/
+│  ├─ path: /workspace/project/project/web/node_modules/fast-levenshtein
+│  └─ licenseFile: /workspace/project/project/web/node_modules/fast-levenshtein/LICENSE.md
+├─ fdir@6.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thecodrr/fdir
+│  ├─ publisher: thecodrr
+│  ├─ email: thecodrr@protonmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/fdir
+│  └─ licenseFile: /workspace/project/project/web/node_modules/fdir/LICENSE
+├─ file-entry-cache@8.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/file-entry-cache
+│  ├─ publisher: Jared Wray
+│  ├─ url: https://jaredwray.com
+│  ├─ path: /workspace/project/project/web/node_modules/file-entry-cache
+│  └─ licenseFile: /workspace/project/project/web/node_modules/file-entry-cache/LICENSE
+├─ find-up@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/find-up
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/find-up
+│  └─ licenseFile: /workspace/project/project/web/node_modules/find-up/license
+├─ flat-cache@4.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/flat-cache
+│  ├─ publisher: Jared Wray
+│  ├─ url: https://jaredwray.com
+│  ├─ path: /workspace/project/project/web/node_modules/flat-cache
+│  └─ licenseFile: /workspace/project/project/web/node_modules/flat-cache/LICENSE
+├─ flatted@3.4.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/WebReflection/flatted
+│  ├─ publisher: Andrea Giammarchi
+│  ├─ path: /workspace/project/project/web/node_modules/flatted
+│  └─ licenseFile: /workspace/project/project/web/node_modules/flatted/LICENSE
+├─ form-data@4.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/form-data/form-data
+│  ├─ publisher: Felix Geisendörfer
+│  ├─ email: felix@debuggable.com
+│  ├─ url: http://debuggable.com/
+│  ├─ path: /workspace/project/project/web/node_modules/form-data
+│  └─ licenseFile: /workspace/project/project/web/node_modules/form-data/License
+├─ fs.realpath@1.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/fs.realpath
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/fs.realpath
+│  └─ licenseFile: /workspace/project/project/web/node_modules/fs.realpath/LICENSE
+├─ function-bind@1.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Raynos/function-bind
+│  ├─ publisher: Raynos
+│  ├─ email: raynos2@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/function-bind
+│  └─ licenseFile: /workspace/project/project/web/node_modules/function-bind/LICENSE
+├─ gensync@1.0.0-beta.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/loganfsmyth/gensync
+│  ├─ publisher: Logan Smyth
+│  ├─ email: loganfsmyth@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/gensync
+│  └─ licenseFile: /workspace/project/project/web/node_modules/gensync/LICENSE
+├─ get-intrinsic@1.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/get-intrinsic
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/get-intrinsic
+│  └─ licenseFile: /workspace/project/project/web/node_modules/get-intrinsic/LICENSE
+├─ get-proto@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/get-proto
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/get-proto
+│  └─ licenseFile: /workspace/project/project/web/node_modules/get-proto/LICENSE
+├─ glob-parent@6.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/gulpjs/glob-parent
+│  ├─ publisher: Gulp Team
+│  ├─ email: team@gulpjs.com
+│  ├─ url: https://gulpjs.com/
+│  ├─ path: /workspace/project/project/web/node_modules/glob-parent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/glob-parent/LICENSE
+├─ glob@7.2.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-glob
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/glob
+│  └─ licenseFile: /workspace/project/project/web/node_modules/glob/LICENSE
+├─ globals@14.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/globals
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/globals
+│  └─ licenseFile: /workspace/project/project/web/node_modules/globals/license
+├─ gopd@1.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ljharb/gopd
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/gopd
+│  └─ licenseFile: /workspace/project/project/web/node_modules/gopd/LICENSE
+├─ graceful-fs@4.2.11
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-graceful-fs
+│  ├─ path: /workspace/project/project/web/node_modules/graceful-fs
+│  └─ licenseFile: /workspace/project/project/web/node_modules/graceful-fs/LICENSE
+├─ has-flag@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/has-flag
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/has-flag
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/has-flag/license
+├─ has-flag@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/has-flag
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/has-flag
+│  └─ licenseFile: /workspace/project/project/web/node_modules/has-flag/license
+├─ has-symbols@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inspect-js/has-symbols
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ url: http://ljharb.codes
+│  ├─ path: /workspace/project/project/web/node_modules/has-symbols
+│  └─ licenseFile: /workspace/project/project/web/node_modules/has-symbols/LICENSE
+├─ has-tostringtag@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inspect-js/has-tostringtag
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ url: http://ljharb.codes
+│  ├─ path: /workspace/project/project/web/node_modules/has-tostringtag
+│  └─ licenseFile: /workspace/project/project/web/node_modules/has-tostringtag/LICENSE
+├─ hasown@2.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inspect-js/hasOwn
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/hasown
+│  └─ licenseFile: /workspace/project/project/web/node_modules/hasown/LICENSE
+├─ hosted-git-info@2.8.9
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/hosted-git-info
+│  ├─ publisher: Rebecca Turner
+│  ├─ email: me@re-becca.org
+│  ├─ url: http://re-becca.org
+│  ├─ path: /workspace/project/project/web/node_modules/hosted-git-info
+│  └─ licenseFile: /workspace/project/project/web/node_modules/hosted-git-info/LICENSE
+├─ html-encoding-sniffer@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/html-encoding-sniffer
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/html-encoding-sniffer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/html-encoding-sniffer/LICENSE.txt
+├─ http-proxy-agent@7.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /workspace/project/project/web/node_modules/http-proxy-agent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/http-proxy-agent/LICENSE
+├─ https-proxy-agent@7.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ url: http://n8.io/
+│  ├─ path: /workspace/project/project/web/node_modules/https-proxy-agent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/https-proxy-agent/LICENSE
+├─ iconv-lite@0.6.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ashtuchkin/iconv-lite
+│  ├─ publisher: Alexander Shtuchkin
+│  ├─ email: ashtuchkin@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/iconv-lite
+│  └─ licenseFile: /workspace/project/project/web/node_modules/iconv-lite/LICENSE
+├─ ignore@5.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kaelzhang/node-ignore
+│  ├─ publisher: kael
+│  ├─ path: /workspace/project/project/web/node_modules/ignore
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ignore/LICENSE-MIT
+├─ ignore@7.0.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kaelzhang/node-ignore
+│  ├─ publisher: kael
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore/LICENSE-MIT
+├─ import-fresh@3.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/import-fresh
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/import-fresh
+│  └─ licenseFile: /workspace/project/project/web/node_modules/import-fresh/license
+├─ imurmurhash@0.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jensyt/imurmurhash-js
+│  ├─ publisher: Jens Taylor
+│  ├─ email: jensyt@gmail.com
+│  ├─ url: https://github.com/homebrewing
+│  ├─ path: /workspace/project/project/web/node_modules/imurmurhash
+│  └─ licenseFile: /workspace/project/project/web/node_modules/imurmurhash/README.md
+├─ indent-string@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/indent-string
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/indent-string
+│  └─ licenseFile: /workspace/project/project/web/node_modules/indent-string/license
+├─ inflight@1.0.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/inflight
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/inflight
+│  └─ licenseFile: /workspace/project/project/web/node_modules/inflight/LICENSE
+├─ inherits@2.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/inherits
+│  ├─ path: /workspace/project/project/web/node_modules/inherits
+│  └─ licenseFile: /workspace/project/project/web/node_modules/inherits/LICENSE
+├─ is-core-module@2.17.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inspect-js/is-core-module
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/is-core-module
+│  └─ licenseFile: /workspace/project/project/web/node_modules/is-core-module/LICENSE
+├─ is-extglob@2.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jonschlinkert/is-extglob
+│  ├─ publisher: Jon Schlinkert
+│  ├─ url: https://github.com/jonschlinkert
+│  ├─ path: /workspace/project/project/web/node_modules/is-extglob
+│  └─ licenseFile: /workspace/project/project/web/node_modules/is-extglob/LICENSE
+├─ is-glob@4.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/micromatch/is-glob
+│  ├─ publisher: Jon Schlinkert
+│  ├─ url: https://github.com/jonschlinkert
+│  ├─ path: /workspace/project/project/web/node_modules/is-glob
+│  └─ licenseFile: /workspace/project/project/web/node_modules/is-glob/LICENSE
+├─ is-potential-custom-element-name@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/is-potential-custom-element-name
+│  ├─ publisher: Mathias Bynens
+│  ├─ url: https://mathiasbynens.be/
+│  ├─ path: /workspace/project/project/web/node_modules/is-potential-custom-element-name
+│  └─ licenseFile: /workspace/project/project/web/node_modules/is-potential-custom-element-name/LICENSE-MIT.txt
+├─ isexe@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/isexe
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/isexe
+│  └─ licenseFile: /workspace/project/project/web/node_modules/isexe/LICENSE
+├─ js-tokens@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lydell/js-tokens
+│  ├─ publisher: Simon Lydell
+│  ├─ path: /workspace/project/project/web/node_modules/js-tokens
+│  └─ licenseFile: /workspace/project/project/web/node_modules/js-tokens/LICENSE
+├─ js-yaml@4.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodeca/js-yaml
+│  ├─ publisher: Vladimir Zapparov
+│  ├─ email: dervus.grim@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/js-yaml
+│  └─ licenseFile: /workspace/project/project/web/node_modules/js-yaml/LICENSE
+├─ jsdom@25.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/jsdom
+│  ├─ path: /workspace/project/project/web/node_modules/jsdom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/jsdom/LICENSE.txt
+├─ jsesc@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/jsesc
+│  ├─ publisher: Mathias Bynens
+│  ├─ url: https://mathiasbynens.be/
+│  ├─ path: /workspace/project/project/web/node_modules/jsesc
+│  └─ licenseFile: /workspace/project/project/web/node_modules/jsesc/LICENSE-MIT.txt
+├─ json-buffer@3.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dominictarr/json-buffer
+│  ├─ publisher: Dominic Tarr
+│  ├─ email: dominic.tarr@gmail.com
+│  ├─ url: http://dominictarr.com
+│  ├─ path: /workspace/project/project/web/node_modules/json-buffer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/json-buffer/LICENSE
+├─ json-parse-even-better-errors@2.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/npm/json-parse-even-better-errors
+│  ├─ publisher: Kat Marchán
+│  ├─ email: kzm@zkat.tech
+│  ├─ path: /workspace/project/project/web/node_modules/json-parse-even-better-errors
+│  └─ licenseFile: /workspace/project/project/web/node_modules/json-parse-even-better-errors/LICENSE.md
+├─ json-schema-traverse@0.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/json-schema-traverse
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: /workspace/project/project/web/node_modules/json-schema-traverse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/json-schema-traverse/LICENSE
+├─ json-stable-stringify-without-jsonify@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/samn/json-stable-stringify
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/json-stable-stringify-without-jsonify
+│  └─ licenseFile: /workspace/project/project/web/node_modules/json-stable-stringify-without-jsonify/LICENSE
+├─ json5@2.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/json5/json5
+│  ├─ publisher: Aseem Kishore
+│  ├─ email: aseem.kishore@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/json5
+│  └─ licenseFile: /workspace/project/project/web/node_modules/json5/LICENSE.md
+├─ keyv@4.5.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/keyv
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ url: http://jaredwray.com
+│  ├─ path: /workspace/project/project/web/node_modules/keyv
+│  └─ licenseFile: /workspace/project/project/web/node_modules/keyv/README.md
+├─ levn@0.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/levn
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: /workspace/project/project/web/node_modules/levn
+│  └─ licenseFile: /workspace/project/project/web/node_modules/levn/LICENSE
+├─ license-checker@25.0.1
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/davglass/license-checker
+│  ├─ publisher: Dav Glass
+│  ├─ email: davglass@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/LICENSE
+├─ lightweight-charts@4.2.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/tradingview/lightweight-charts
+│  ├─ publisher: TradingView, Inc.
+│  ├─ path: /workspace/project/project/web/node_modules/lightweight-charts
+│  └─ licenseFile: /workspace/project/project/web/node_modules/lightweight-charts/LICENSE
+├─ locate-path@6.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/locate-path
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/locate-path
+│  └─ licenseFile: /workspace/project/project/web/node_modules/locate-path/license
+├─ lodash.merge@4.6.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lodash/lodash
+│  ├─ publisher: John-David Dalton
+│  ├─ email: john.david.dalton@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/lodash.merge
+│  └─ licenseFile: /workspace/project/project/web/node_modules/lodash.merge/LICENSE
+├─ loose-envify@1.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/zertosh/loose-envify
+│  ├─ publisher: Andres Suarez
+│  ├─ email: zertosh@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/loose-envify
+│  └─ licenseFile: /workspace/project/project/web/node_modules/loose-envify/LICENSE
+├─ loupe@3.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/loupe
+│  ├─ publisher: Veselin Todorov
+│  ├─ email: hi@vesln.com
+│  ├─ path: /workspace/project/project/web/node_modules/loupe
+│  └─ licenseFile: /workspace/project/project/web/node_modules/loupe/LICENSE
+├─ lru-cache@10.4.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-lru-cache
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/@asamuzakjp/css-color/node_modules/lru-cache
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@asamuzakjp/css-color/node_modules/lru-cache/LICENSE
+├─ lru-cache@5.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-lru-cache
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/lru-cache
+│  └─ licenseFile: /workspace/project/project/web/node_modules/lru-cache/LICENSE
+├─ lz-string@1.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/pieroxy/lz-string
+│  ├─ publisher: pieroxy
+│  ├─ email: pieroxy@pieroxy.net
+│  ├─ path: /workspace/project/project/web/node_modules/lz-string
+│  └─ licenseFile: /workspace/project/project/web/node_modules/lz-string/LICENSE
+├─ magic-string@0.30.21
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Rich-Harris/magic-string
+│  ├─ publisher: Rich Harris
+│  ├─ path: /workspace/project/project/web/node_modules/magic-string
+│  └─ licenseFile: /workspace/project/project/web/node_modules/magic-string/LICENSE
+├─ math-intrinsics@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/es-shims/math-intrinsics
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/math-intrinsics
+│  └─ licenseFile: /workspace/project/project/web/node_modules/math-intrinsics/LICENSE
+├─ mime-db@1.52.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jshttp/mime-db
+│  ├─ path: /workspace/project/project/web/node_modules/mime-db
+│  └─ licenseFile: /workspace/project/project/web/node_modules/mime-db/LICENSE
+├─ mime-types@2.1.35
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jshttp/mime-types
+│  ├─ path: /workspace/project/project/web/node_modules/mime-types
+│  └─ licenseFile: /workspace/project/project/web/node_modules/mime-types/LICENSE
+├─ min-indent@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thejameskyle/min-indent
+│  ├─ publisher: James Kyle
+│  ├─ email: me@thejameskyle.com
+│  ├─ url: thejameskyle.com
+│  ├─ path: /workspace/project/project/web/node_modules/min-indent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/min-indent/license
+├─ minimatch@10.2.6
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/minimatch
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch/LICENSE.md
+├─ minimatch@3.1.5
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/minimatch
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/minimatch
+│  └─ licenseFile: /workspace/project/project/web/node_modules/minimatch/LICENSE
+├─ minimist@1.2.8
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/minimistjs/minimist
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/minimist
+│  └─ licenseFile: /workspace/project/project/web/node_modules/minimist/LICENSE
+├─ mkdirp@0.5.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/substack/node-mkdirp
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/mkdirp
+│  └─ licenseFile: /workspace/project/project/web/node_modules/mkdirp/LICENSE
+├─ ms@2.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vercel/ms
+│  ├─ path: /workspace/project/project/web/node_modules/ms
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ms/license.md
+├─ nanoid@3.3.20
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ai/nanoid
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.ru
+│  ├─ path: /workspace/project/project/web/node_modules/nanoid
+│  └─ licenseFile: /workspace/project/project/web/node_modules/nanoid/LICENSE
+├─ natural-compare@1.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/litejs/natural-compare-lite
+│  ├─ publisher: Lauri Rooden
+│  ├─ url: https://github.com/litejs/natural-compare-lite
+│  ├─ path: /workspace/project/project/web/node_modules/natural-compare
+│  └─ licenseFile: /workspace/project/project/web/node_modules/natural-compare/README.md
+├─ node-releases@2.0.59
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chicoxyzzy/node-releases
+│  ├─ publisher: Sergey Rubanov
+│  ├─ email: chi187@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/node-releases
+│  └─ licenseFile: /workspace/project/project/web/node_modules/node-releases/LICENSE
+├─ nopt@4.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/nopt
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/nopt
+│  └─ licenseFile: /workspace/project/project/web/node_modules/nopt/LICENSE
+├─ normalize-package-data@2.5.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/npm/normalize-package-data
+│  ├─ publisher: Meryn Stol
+│  ├─ email: merynstol@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/normalize-package-data
+│  └─ licenseFile: /workspace/project/project/web/node_modules/normalize-package-data/LICENSE
+├─ npm-normalize-package-bin@1.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-normalize-package-bin
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: https://izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/npm-normalize-package-bin
+│  └─ licenseFile: /workspace/project/project/web/node_modules/npm-normalize-package-bin/LICENSE
+├─ nwsapi@2.2.28
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dperini/nwsapi
+│  ├─ publisher: Diego Perini
+│  ├─ email: diego.perini@gmail.com
+│  ├─ url: https://www.iport.it/
+│  ├─ path: /workspace/project/project/web/node_modules/nwsapi
+│  └─ licenseFile: /workspace/project/project/web/node_modules/nwsapi/LICENSE
+├─ once@1.4.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/once
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/once
+│  └─ licenseFile: /workspace/project/project/web/node_modules/once/LICENSE
+├─ optionator@0.9.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/optionator
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: /workspace/project/project/web/node_modules/optionator
+│  └─ licenseFile: /workspace/project/project/web/node_modules/optionator/LICENSE
+├─ os-homedir@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/os-homedir
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/os-homedir
+│  └─ licenseFile: /workspace/project/project/web/node_modules/os-homedir/license
+├─ os-tmpdir@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/os-tmpdir
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/os-tmpdir
+│  └─ licenseFile: /workspace/project/project/web/node_modules/os-tmpdir/license
+├─ osenv@0.1.5
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/osenv
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/osenv
+│  └─ licenseFile: /workspace/project/project/web/node_modules/osenv/LICENSE
+├─ p-limit@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/p-limit
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/p-limit
+│  └─ licenseFile: /workspace/project/project/web/node_modules/p-limit/license
+├─ p-locate@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/p-locate
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/p-locate
+│  └─ licenseFile: /workspace/project/project/web/node_modules/p-locate/license
+├─ parent-module@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/parent-module
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/parent-module
+│  └─ licenseFile: /workspace/project/project/web/node_modules/parent-module/license
+├─ parse5@7.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inikulin/parse5
+│  ├─ publisher: Ivan Nikulin
+│  ├─ email: ifaaan@gmail.com
+│  ├─ url: https://github.com/inikulin
+│  ├─ path: /workspace/project/project/web/node_modules/parse5
+│  └─ licenseFile: /workspace/project/project/web/node_modules/parse5/LICENSE
+├─ path-exists@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-exists
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/path-exists
+│  └─ licenseFile: /workspace/project/project/web/node_modules/path-exists/license
+├─ path-is-absolute@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-is-absolute
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/path-is-absolute
+│  └─ licenseFile: /workspace/project/project/web/node_modules/path-is-absolute/license
+├─ path-key@3.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-key
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/path-key
+│  └─ licenseFile: /workspace/project/project/web/node_modules/path-key/license
+├─ path-parse@1.0.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jbgutierrez/path-parse
+│  ├─ publisher: Javier Blanco
+│  ├─ email: http://jbgutierrez.info
+│  ├─ path: /workspace/project/project/web/node_modules/path-parse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/path-parse/LICENSE
+├─ pathe@1.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unjs/pathe
+│  ├─ path: /workspace/project/project/web/node_modules/pathe
+│  └─ licenseFile: /workspace/project/project/web/node_modules/pathe/LICENSE
+├─ pathval@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/pathval
+│  ├─ publisher: Veselin Todorov
+│  ├─ email: hi@vesln.com
+│  ├─ path: /workspace/project/project/web/node_modules/pathval
+│  └─ licenseFile: /workspace/project/project/web/node_modules/pathval/LICENSE
+├─ picocolors@1.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/alexeyraspopov/picocolors
+│  ├─ publisher: Alexey Raspopov
+│  ├─ path: /workspace/project/project/web/node_modules/picocolors
+│  └─ licenseFile: /workspace/project/project/web/node_modules/picocolors/LICENSE
+├─ picomatch@4.0.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/micromatch/picomatch
+│  ├─ publisher: Jon Schlinkert
+│  ├─ url: https://github.com/jonschlinkert
+│  ├─ path: /workspace/project/project/web/node_modules/picomatch
+│  └─ licenseFile: /workspace/project/project/web/node_modules/picomatch/LICENSE
+├─ postcss@8.5.30
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/postcss/postcss
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: /workspace/project/project/web/node_modules/postcss
+│  └─ licenseFile: /workspace/project/project/web/node_modules/postcss/LICENSE
+├─ prelude-ls@1.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/prelude-ls
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: /workspace/project/project/web/node_modules/prelude-ls
+│  └─ licenseFile: /workspace/project/project/web/node_modules/prelude-ls/LICENSE
+├─ pretty-format@27.5.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/jest
+│  ├─ publisher: James Kyle
+│  ├─ email: me@thejameskyle.com
+│  ├─ path: /workspace/project/project/web/node_modules/pretty-format
+│  └─ licenseFile: /workspace/project/project/web/node_modules/pretty-format/LICENSE
+├─ punycode@2.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/punycode.js
+│  ├─ publisher: Mathias Bynens
+│  ├─ url: https://mathiasbynens.be/
+│  ├─ path: /workspace/project/project/web/node_modules/punycode
+│  └─ licenseFile: /workspace/project/project/web/node_modules/punycode/LICENSE-MIT.txt
+├─ react-dom@18.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/react-dom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react-dom/LICENSE
+├─ react-is@17.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/react-is
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react-is/LICENSE
+├─ react-refresh@0.17.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/react-refresh
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react-refresh/LICENSE
+├─ react-router-dom@7.18.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remix-run/react-router
+│  ├─ publisher: Remix Software
+│  ├─ email: hello@remix.run
+│  ├─ path: /workspace/project/project/web/node_modules/react-router-dom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react-router-dom/LICENSE.md
+├─ react-router@7.18.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remix-run/react-router
+│  ├─ publisher: Remix Software
+│  ├─ email: hello@remix.run
+│  ├─ path: /workspace/project/project/web/node_modules/react-router
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react-router/LICENSE.md
+├─ react@18.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/react
+│  └─ licenseFile: /workspace/project/project/web/node_modules/react/LICENSE
+├─ read-installed@4.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/read-installed
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/read-installed
+│  └─ licenseFile: /workspace/project/project/web/node_modules/read-installed/LICENSE
+├─ read-package-json@2.1.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/read-package-json
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/read-package-json
+│  └─ licenseFile: /workspace/project/project/web/node_modules/read-package-json/LICENSE
+├─ readdir-scoped-modules@1.1.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/readdir-scoped-modules
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/readdir-scoped-modules
+│  └─ licenseFile: /workspace/project/project/web/node_modules/readdir-scoped-modules/LICENSE
+├─ redent@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/redent
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/redent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/redent/license
+├─ resolve-from@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/resolve-from
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/resolve-from
+│  └─ licenseFile: /workspace/project/project/web/node_modules/resolve-from/license
+├─ resolve@1.22.13
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/browserify/resolve
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ url: http://substack.net
+│  ├─ path: /workspace/project/project/web/node_modules/resolve
+│  └─ licenseFile: /workspace/project/project/web/node_modules/resolve/LICENSE
+├─ rollup@4.64.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rollup/rollup
+│  ├─ publisher: Rich Harris
+│  ├─ path: /workspace/project/project/web/node_modules/rollup
+│  └─ licenseFile: /workspace/project/project/web/node_modules/rollup/LICENSE.md
+├─ rrweb-cssom@0.7.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rrweb-io/CSSOM
+│  ├─ publisher: Nikita Vasilyev
+│  ├─ email: me@elv1s.ru
+│  ├─ path: /workspace/project/project/web/node_modules/rrweb-cssom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/rrweb-cssom/LICENSE.txt
+├─ rrweb-cssom@0.8.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rrweb-io/CSSOM
+│  ├─ publisher: Nikita Vasilyev
+│  ├─ email: me@elv1s.ru
+│  ├─ path: /workspace/project/project/web/node_modules/cssstyle/node_modules/rrweb-cssom
+│  └─ licenseFile: /workspace/project/project/web/node_modules/cssstyle/node_modules/rrweb-cssom/LICENSE.txt
+├─ safer-buffer@2.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ChALkeR/safer-buffer
+│  ├─ publisher: Nikita Skovoroda
+│  ├─ email: chalkerx@gmail.com
+│  ├─ url: https://github.com/ChALkeR
+│  ├─ path: /workspace/project/project/web/node_modules/safer-buffer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/safer-buffer/LICENSE
+├─ saxes@6.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/lddubeau/saxes
+│  ├─ publisher: Louis-Dominique Dubeau
+│  ├─ email: ldd@lddubeau.com
+│  ├─ path: /workspace/project/project/web/node_modules/saxes
+│  └─ licenseFile: /workspace/project/project/web/node_modules/saxes/README.md
+├─ scheduler@0.23.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /workspace/project/project/web/node_modules/scheduler
+│  └─ licenseFile: /workspace/project/project/web/node_modules/scheduler/LICENSE
+├─ semver@5.7.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: /workspace/project/project/web/node_modules/normalize-package-data/node_modules/semver
+│  └─ licenseFile: /workspace/project/project/web/node_modules/normalize-package-data/node_modules/semver/LICENSE
+├─ semver@6.3.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: /workspace/project/project/web/node_modules/semver
+│  └─ licenseFile: /workspace/project/project/web/node_modules/semver/LICENSE
+├─ semver@7.8.5
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/semver
+│  └─ licenseFile: /workspace/project/project/web/node_modules/@typescript-eslint/typescript-estree/node_modules/semver/LICENSE
+├─ set-cookie-parser@2.7.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nfriedly/set-cookie-parser
+│  ├─ publisher: Nathan Friedly
+│  ├─ url: http://nfriedly.com/
+│  ├─ path: /workspace/project/project/web/node_modules/set-cookie-parser
+│  └─ licenseFile: /workspace/project/project/web/node_modules/set-cookie-parser/LICENSE
+├─ shebang-command@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kevva/shebang-command
+│  ├─ publisher: Kevin Mårtensson
+│  ├─ email: kevinmartensson@gmail.com
+│  ├─ url: github.com/kevva
+│  ├─ path: /workspace/project/project/web/node_modules/shebang-command
+│  └─ licenseFile: /workspace/project/project/web/node_modules/shebang-command/license
+├─ shebang-regex@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/shebang-regex
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/shebang-regex
+│  └─ licenseFile: /workspace/project/project/web/node_modules/shebang-regex/license
+├─ siginfo@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/emilbayes/siginfo
+│  ├─ publisher: Emil Bay
+│  ├─ email: github@tixz.dk
+│  ├─ path: /workspace/project/project/web/node_modules/siginfo
+│  └─ licenseFile: /workspace/project/project/web/node_modules/siginfo/LICENSE
+├─ slide@1.1.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/slide-flow-control
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/slide
+│  └─ licenseFile: /workspace/project/project/web/node_modules/slide/LICENSE
+├─ source-map-js@1.2.2
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/7rulnik/source-map-js
+│  ├─ publisher: Valentin 7rulnik Semirulnik
+│  ├─ email: v7rulnik@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/source-map-js
+│  └─ licenseFile: /workspace/project/project/web/node_modules/source-map-js/LICENSE
+├─ spdx-compare@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kemitchell/spdx-compare.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ url: https://kemitchell.com
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-compare
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-compare/LICENSE.md
+├─ spdx-correct@3.2.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/jslicense/spdx-correct.js
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-correct
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-correct/LICENSE
+├─ spdx-exceptions@2.5.0
+│  ├─ licenses: CC-BY-3.0
+│  ├─ repository: https://github.com/kemitchell/spdx-exceptions.json
+│  ├─ publisher: The Linux Foundation
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-exceptions
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-exceptions/README.md
+├─ spdx-expression-parse@3.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jslicense/spdx-expression-parse.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ url: https://kemitchell.com
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-expression-parse
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-expression-parse/LICENSE
+├─ spdx-license-ids@3.0.24
+│  ├─ licenses: CC0-1.0
+│  ├─ repository: https://github.com/jslicense/spdx-license-ids
+│  ├─ publisher: Shinnosuke Watanabe
+│  ├─ url: https://github.com/shinnn
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-license-ids
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-license-ids/README.md
+├─ spdx-ranges@2.1.1
+│  ├─ licenses: (MIT AND CC-BY-3.0)
+│  ├─ repository: https://github.com/kemitchell/spdx-ranges.js
+│  ├─ publisher: The Linux Foundation
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-ranges
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-ranges/LICENSE.md
+├─ spdx-satisfies@4.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kemitchell/spdx-satisfies.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ url: https://kemitchell.com
+│  ├─ path: /workspace/project/project/web/node_modules/spdx-satisfies
+│  └─ licenseFile: /workspace/project/project/web/node_modules/spdx-satisfies/LICENSE
+├─ stackback@0.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/shtylman/node-stackback
+│  ├─ publisher: Roman Shtylman
+│  ├─ email: shtylman@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/stackback
+│  └─ licenseFile: /workspace/project/project/web/node_modules/stackback/README.md
+├─ std-env@3.10.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unjs/std-env
+│  ├─ path: /workspace/project/project/web/node_modules/std-env
+│  └─ licenseFile: /workspace/project/project/web/node_modules/std-env/LICENCE
+├─ strip-indent@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/strip-indent
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/strip-indent
+│  └─ licenseFile: /workspace/project/project/web/node_modules/strip-indent/license
+├─ strip-json-comments@3.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/strip-json-comments
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: https://sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/strip-json-comments
+│  └─ licenseFile: /workspace/project/project/web/node_modules/strip-json-comments/license
+├─ supports-color@5.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/supports-color
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/license-checker/node_modules/supports-color
+│  └─ licenseFile: /workspace/project/project/web/node_modules/license-checker/node_modules/supports-color/license
+├─ supports-color@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/supports-color
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ url: sindresorhus.com
+│  ├─ path: /workspace/project/project/web/node_modules/supports-color
+│  └─ licenseFile: /workspace/project/project/web/node_modules/supports-color/license
+├─ supports-preserve-symlinks-flag@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/inspect-js/node-supports-preserve-symlinks-flag
+│  ├─ publisher: Jordan Harband
+│  ├─ email: ljharb@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/supports-preserve-symlinks-flag
+│  └─ licenseFile: /workspace/project/project/web/node_modules/supports-preserve-symlinks-flag/LICENSE
+├─ symbol-tree@3.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/js-symbol-tree
+│  ├─ publisher: Joris van der Wel
+│  ├─ email: joris@jorisvanderwel.com
+│  ├─ path: /workspace/project/project/web/node_modules/symbol-tree
+│  └─ licenseFile: /workspace/project/project/web/node_modules/symbol-tree/LICENSE
+├─ tinybench@2.9.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinybench
+│  ├─ path: /workspace/project/project/web/node_modules/tinybench
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinybench/LICENSE
+├─ tinyexec@0.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyexec
+│  ├─ publisher: James Garbutt
+│  ├─ url: https://github.com/43081j
+│  ├─ path: /workspace/project/project/web/node_modules/tinyexec
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinyexec/LICENSE
+├─ tinyglobby@0.2.17
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/SuperchupuDev/tinyglobby
+│  ├─ publisher: Superchupu
+│  ├─ path: /workspace/project/project/web/node_modules/tinyglobby
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinyglobby/LICENSE
+├─ tinypool@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinypool
+│  ├─ path: /workspace/project/project/web/node_modules/tinypool
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinypool/LICENSE
+├─ tinyrainbow@1.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyrainbow
+│  ├─ path: /workspace/project/project/web/node_modules/tinyrainbow
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinyrainbow/LICENCE
+├─ tinyspy@3.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyspy
+│  ├─ path: /workspace/project/project/web/node_modules/tinyspy
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tinyspy/LICENCE
+├─ tldts-core@6.1.86
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remusao/tldts
+│  ├─ publisher: Rémi Berson
+│  ├─ path: /workspace/project/project/web/node_modules/tldts-core
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tldts-core/LICENSE
+├─ tldts@6.1.86
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remusao/tldts
+│  ├─ publisher: Rémi Berson
+│  ├─ path: /workspace/project/project/web/node_modules/tldts
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tldts/LICENSE
+├─ tough-cookie@5.1.2
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/salesforce/tough-cookie
+│  ├─ publisher: Jeremy Stashewsky
+│  ├─ email: jstash@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/tough-cookie
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tough-cookie/LICENSE
+├─ tr46@5.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/tr46
+│  ├─ publisher: Sebastian Mayr
+│  ├─ email: npm@smayr.name
+│  ├─ path: /workspace/project/project/web/node_modules/tr46
+│  └─ licenseFile: /workspace/project/project/web/node_modules/tr46/LICENSE.md
+├─ treeify@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/notatestuser/treeify
+│  ├─ publisher: Luke Plaster
+│  ├─ email: notatestuser@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/treeify
+│  └─ licenseFile: /workspace/project/project/web/node_modules/treeify/LICENSE
+├─ trendcipher-web@0.1.0
+│  ├─ licenses: UNLICENSED
+│  ├─ private: true
+│  └─ path: /workspace/project/project/web
+├─ ts-api-utils@2.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/JoshuaKGoldberg/ts-api-utils
+│  ├─ publisher: JoshuaKGoldberg
+│  ├─ email: npm@joshuakgoldberg.com
+│  ├─ path: /workspace/project/project/web/node_modules/ts-api-utils
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ts-api-utils/LICENSE.md
+├─ type-check@0.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/type-check
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: /workspace/project/project/web/node_modules/type-check
+│  └─ licenseFile: /workspace/project/project/web/node_modules/type-check/LICENSE
+├─ typescript-eslint@8.71.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: /workspace/project/project/web/node_modules/typescript-eslint
+│  └─ licenseFile: /workspace/project/project/web/node_modules/typescript-eslint/LICENSE
+├─ typescript@5.9.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/microsoft/TypeScript
+│  ├─ publisher: Microsoft Corp.
+│  ├─ path: /workspace/project/project/web/node_modules/typescript
+│  └─ licenseFile: /workspace/project/project/web/node_modules/typescript/LICENSE.txt
+├─ update-browserslist-db@1.3.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/browserslist/update-db
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: /workspace/project/project/web/node_modules/update-browserslist-db
+│  └─ licenseFile: /workspace/project/project/web/node_modules/update-browserslist-db/LICENSE
+├─ uri-js@4.4.1
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/garycourt/uri-js
+│  ├─ publisher: Gary Court
+│  ├─ email: gary.court@gmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/uri-js
+│  └─ licenseFile: /workspace/project/project/web/node_modules/uri-js/LICENSE
+├─ util-extend@1.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/isaacs/util-extend
+│  ├─ path: /workspace/project/project/web/node_modules/util-extend
+│  └─ licenseFile: /workspace/project/project/web/node_modules/util-extend/LICENSE
+├─ validate-npm-package-license@3.0.4
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/kemitchell/validate-npm-package-license.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ url: https://kemitchell.com
+│  ├─ path: /workspace/project/project/web/node_modules/validate-npm-package-license
+│  └─ licenseFile: /workspace/project/project/web/node_modules/validate-npm-package-license/LICENSE
+├─ vite-node@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ publisher: Anthony Fu
+│  ├─ email: anthonyfu117@hotmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/vite-node
+│  └─ licenseFile: /workspace/project/project/web/node_modules/vite-node/LICENSE
+├─ vite@5.4.21
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitejs/vite
+│  ├─ publisher: Evan You
+│  ├─ path: /workspace/project/project/web/node_modules/vite
+│  └─ licenseFile: /workspace/project/project/web/node_modules/vite/LICENSE.md
+├─ vitest@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ publisher: Anthony Fu
+│  ├─ email: anthonyfu117@hotmail.com
+│  ├─ path: /workspace/project/project/web/node_modules/vitest
+│  └─ licenseFile: /workspace/project/project/web/node_modules/vitest/LICENSE.md
+├─ w3c-xmlserializer@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/w3c-xmlserializer
+│  ├─ path: /workspace/project/project/web/node_modules/w3c-xmlserializer
+│  └─ licenseFile: /workspace/project/project/web/node_modules/w3c-xmlserializer/LICENSE.md
+├─ webidl-conversions@7.0.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/jsdom/webidl-conversions
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/webidl-conversions
+│  └─ licenseFile: /workspace/project/project/web/node_modules/webidl-conversions/LICENSE.md
+├─ whatwg-encoding@3.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/whatwg-encoding
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/whatwg-encoding
+│  └─ licenseFile: /workspace/project/project/web/node_modules/whatwg-encoding/LICENSE.txt
+├─ whatwg-mimetype@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/whatwg-mimetype
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/whatwg-mimetype
+│  └─ licenseFile: /workspace/project/project/web/node_modules/whatwg-mimetype/LICENSE.txt
+├─ whatwg-url@14.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jsdom/whatwg-url
+│  ├─ publisher: Sebastian Mayr
+│  ├─ email: github@smayr.name
+│  ├─ path: /workspace/project/project/web/node_modules/whatwg-url
+│  └─ licenseFile: /workspace/project/project/web/node_modules/whatwg-url/LICENSE.txt
+├─ which@2.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-which
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me
+│  ├─ path: /workspace/project/project/web/node_modules/which
+│  └─ licenseFile: /workspace/project/project/web/node_modules/which/LICENSE
+├─ why-is-node-running@2.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mafintosh/why-is-node-running
+│  ├─ publisher: Mathias Buus
+│  ├─ url: @mafintosh
+│  ├─ path: /workspace/project/project/web/node_modules/why-is-node-running
+│  └─ licenseFile: /workspace/project/project/web/node_modules/why-is-node-running/LICENSE
+├─ word-wrap@1.2.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jonschlinkert/word-wrap
+│  ├─ publisher: Jon Schlinkert
+│  ├─ url: https://github.com/jonschlinkert
+│  ├─ path: /workspace/project/project/web/node_modules/word-wrap
+│  └─ licenseFile: /workspace/project/project/web/node_modules/word-wrap/LICENSE
+├─ wrappy@1.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/wrappy
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/wrappy
+│  └─ licenseFile: /workspace/project/project/web/node_modules/wrappy/LICENSE
+├─ ws@8.22.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/websockets/ws
+│  ├─ publisher: Einar Otto Stangvik
+│  ├─ email: einaros@gmail.com
+│  ├─ url: http://2x.io
+│  ├─ path: /workspace/project/project/web/node_modules/ws
+│  └─ licenseFile: /workspace/project/project/web/node_modules/ws/LICENSE
+├─ xml-name-validator@5.0.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/jsdom/xml-name-validator
+│  ├─ publisher: Domenic Denicola
+│  ├─ email: d@domenic.me
+│  ├─ url: https://domenic.me/
+│  ├─ path: /workspace/project/project/web/node_modules/xml-name-validator
+│  └─ licenseFile: /workspace/project/project/web/node_modules/xml-name-validator/LICENSE.txt
+├─ xmlchars@2.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lddubeau/xmlchars
+│  ├─ publisher: Louis-Dominique Dubeau
+│  ├─ email: ldd@lddubeau.com
+│  ├─ path: /workspace/project/project/web/node_modules/xmlchars
+│  └─ licenseFile: /workspace/project/project/web/node_modules/xmlchars/LICENSE
+├─ yallist@3.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/yallist
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ url: http://blog.izs.me/
+│  ├─ path: /workspace/project/project/web/node_modules/yallist
+│  └─ licenseFile: /workspace/project/project/web/node_modules/yallist/LICENSE
+└─ yocto-queue@0.1.0
+   ├─ licenses: MIT
+   ├─ repository: https://github.com/sindresorhus/yocto-queue
+   ├─ publisher: Sindre Sorhus
+   ├─ email: sindresorhus@gmail.com
+   ├─ url: https://sindresorhus.com
+   ├─ path: /workspace/project/project/web/node_modules/yocto-queue
+   └─ licenseFile: /workspace/project/project/web/node_modules/yocto-queue/license
+

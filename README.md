@@ -39,6 +39,14 @@ scripts/   Dev/ops helper scripts
 - **Roadmap:** `docs/architecture/IMPLEMENTATION_ROADMAP.md`
 - **Decision records:** `docs/architecture/ARCHITECTURE_DECISIONS.md`
 - **Definition of done:** `docs/architecture/DEFINITION_OF_DONE.md`
+
+### Run & operate (buyer)
+
+- **Deploy (one command, Docker Compose):** `docs/setup/DEPLOYMENT.md`
+- **Rebrand in 5 minutes:** `docs/REBRAND.md`
+- **Backup & restore:** `docs/setup/BACKUP_RECOVERY.md`
+- **Secret scan procedure:** `docs/setup/SECRET_SCAN.md`
+- **Third-party licenses:** `docs/licenses/LICENSE_SUMMARY.md` (+ inventories in `docs/licenses/`)
 - **Handoff / progress log:** `HANDOFF.md`
 
 ## Status
