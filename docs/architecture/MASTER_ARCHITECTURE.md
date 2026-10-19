@@ -393,7 +393,7 @@ See `SECURITY_AND_PRIVACY.md`. Summary:
 | PostgreSQL host (managed) | ~$0–$15/mo | High traffic, HA |
 | VPS/host | ~$5–$20/mo | Public SaaS hosting |
 | Domain | ~$10/yr | Rebranding |
-| Apple Developer ($99/yr) + Google Play ($25 one-time) | required | Mobile store publication + real push on iOS |
+| Apple Developer ($99/yr) + Google Play ($25 one-time) | NOT wanted | Store publication is out of scope (Expo Go / side-loaded APK instead); only real push on iOS would need it |
 | Real payment gateway (Stripe etc.) | fees | Processing real payments |
 | Cloud push scale | ~$0 free tier → paid | 10k+ daily pushes |
 

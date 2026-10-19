@@ -50,6 +50,7 @@ scripts/   Dev/ops helper scripts
 - **Rebrand in 5 minutes:** `docs/REBRAND.md`
 - **Backup & restore:** `docs/setup/BACKUP_RECOVERY.md`
 - **Secret scan procedure:** `docs/setup/SECRET_SCAN.md`
+- **Mobile access (no app stores):** `docs/setup/EXPO_GO_HOWTO.md`
 - **Third-party licenses:** `docs/licenses/LICENSE_SUMMARY.md` (+ inventories in `docs/licenses/`)
 - **Handoff / progress log:** `HANDOFF.md`
 

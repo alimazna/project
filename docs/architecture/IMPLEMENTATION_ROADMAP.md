@@ -92,7 +92,8 @@ quotas enforced at API level; auth tests pass.
 - [ ] Alerts + notification preference screens.
 - [ ] Device token registration endpoint integration.
 - [ ] Push provider abstraction (Expo/log) + delivery attempts.
-- [ ] Build instructions (EAS/local) + honest verification notes.
+- [ ] Build instructions (Expo Go / side-loaded APK — no app stores) + honest
+      verification notes.
 
 **Acceptance:** app launches in Expo dev with backend URL; push flow verified as
 far as possible without physical device; docs cover credentials.

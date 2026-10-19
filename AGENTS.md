@@ -60,10 +60,13 @@ Remote `main` chain (all certified green): `f8549e5` (compose deploy, live-verif
 > `docs/architecture/SALES_READINESS_PLAN.md` (Waves 0–6) is fully executed and
 > verified. The buyer-facing entry point is `docs/BUYER_PACKAGE.md`; launch gate
 > is `docs/RELEASE_CHECKLIST.md`. Only buyer-side decisions remain (domain, TLS,
-> push accounts, EAS build) — never invent them, ask the owner.
+> push accounts) — never invent them, ask the owner.
+
+**Store publishing decision (owner, 2026-10): NO Google Play / App Store.**
+The product ships web-first; the Expo app runs via Expo Go or a side-loaded APK
+(`docs/setup/EXPO_GO_HOWTO.md`). No Apple/Google developer accounts, no EAS builds.
 
 What remains (non-blocking, buyer-scoped):
-- Real push E2E: physical device + platform accounts (`PUSH_PROVIDER=expo`).
-- Mobile binaries via EAS under a buyer's own Apple/Google accounts.
+- Real push E2E: physical device + Expo account (`PUSH_PROVIDER=expo`).
 - Postgres deployment if the buyer outgrows SQLite (documented path).
 - Terms/privacy pages + legal review before a public launch (per RELEASE_CHECKLIST).

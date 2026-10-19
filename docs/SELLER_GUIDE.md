@@ -60,7 +60,8 @@ How to position, package, and sell this product — written for the current owne
 - [ ] **Pre-sale punch list** (run before handing keys):
       - [ ] Rebranded demo instance on your own domain.
       - [ ] `.env` in the demo has a **fresh** SECRET_KEY.
-      - [ ] Mobile binaries built (EAS) or Expo Go path documented for the buyer.
+      - [ ] Expo Go / side-loaded APK path documented for the buyer
+            (`docs/setup/EXPO_GO_HOWTO.md`) — store publishing is intentionally out of scope.
       - [ ] Terms/privacy placeholder pages filled if the buyer is launching publicly.
 
 ## 6. Handling the “is it real?” question

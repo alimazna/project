@@ -166,8 +166,8 @@ satisfying the Release DoD in `docs/architecture/DEFINITION_OF_DONE.md`.
    super_admin — in under 30 lines.
 2. `docs/RELEASE_CHECKLIST.md` — the 10 Release-DoD items, each with an
    evidence pointer (file/command). Mark everything fulfilled; the only
-   items that may be marked "partial" are push E2E (device) and mobile store
-   publication — with their exact blockers.
+   items that may be marked "partial" are push E2E (device) and the exposed
+   Expo Go / side-loaded APK path — with their exact blockers.
 3. Update `README.md` "Documentation" list with both files.
 
 **Check:** `test -f docs/SETUP_INSTRUCTIONS.md && test -f docs/RELEASE_CHECKLIST.md && grep -n "RELEASE_CHECKLIST" README.md`
@@ -184,9 +184,10 @@ satisfying the Release DoD in `docs/architecture/DEFINITION_OF_DONE.md`.
    - Current milestone: Stage 7 complete (all remaining items above done).
    - New checkpoint table: last commit SHA (use `git rev-parse --short HEAD`),
      verified via `git ls-remote origin main`.
-   - Remaining/blocked list shrinks to: real push E2E on device, Expo store
-     publication, optional future upgrades (vite 5→8 / vitest 2→5, Expo/RN
-     toolchain majors) — none blocking handover.
+   - Remaining/blocked list shrinks to: real push E2E on device, optional
+     future upgrades (vite 5→8 / vitest 2→5, Expo/RN toolchain majors) — none
+     blocking handover. (Expo Go / side-loaded APK path is the distribution
+     channel; store publication is out of scope.)
 2. Update `docs/architecture/IMPLEMENTATION_ROADMAP.md` Stage 7 checklist:
    mark `[x]` every item completed (fresh-install ✓, security ✓, deployment/
    backup docs ✓, license inventory ✓, buyer package ✓, final handoff ✓).
@@ -234,7 +235,7 @@ After each commit: `git push origin main` then verify with
 | Item | Reason |
 |---|---|
 | Real push-notification delivery E2E | Requires physical device + Expo/Apple/Google accounts |
-| iOS/Android store publication | Requires paid platform accounts, signing keys |
+| iOS/Android store publication | Out of scope by owner decision — product is web-first; mobile ships via Expo Go / side-loaded APK (`docs/setup/EXPO_GO_HOWTO.md`) |
 | vite 5→8, vitest 2→5 major upgrades | Breaking; dev-toolchain-only risk |
 | Expo SDK / RN major upgrades | Transitive, non-shipping toolchain advisories |
 | Real payment gateway (Stripe etc.) | Buyer's business decision; demo mode is sufficient |

@@ -60,8 +60,9 @@ Full version: `docs/setup/DEPLOYMENT.md` · plain-process variant included there
 - **Real push delivery**: default `PUSH_PROVIDER=log` is a labeled stub. Setting it
   to `expo` requires an Expo account token + Apple/Google dev accounts + a physical
   device test. (Backend logs requests today; wiring exists.)
-- **Mobile binaries**: build & signing happen via EAS (or local Xcode/Android Studio)
-  with YOUR Apple/Google accounts. Not included.
+- **Store publishing (Google Play / App Store)**: intentionally out of scope — the
+  product ships **web-first**, and the mobile app runs via **Expo Go** or a side-loaded
+  APK (see `docs/setup/EXPO_GO_HOWTO.md`). No Apple/Google developer accounts needed.
 - **CI on your account**: `.github/workflows/ci.yml` will run once the repo is under
   your GitHub namespace (standard Actions quota).
 - **Postgres hosting**: SQLite works and is default; scaling to PG is buyer-side.

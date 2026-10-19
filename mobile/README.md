@@ -43,11 +43,15 @@ machine's LAN IP, e.g. `http://192.168.1.20:8000/api/v1`.
 `POST /api/v1/devices`. Actual remote delivery through Expo's push service
 requires:
 
-- a **development build** (`npx expo run:ios|android` or `eas build --profile
-  development`) — Expo Go does not reliably deliver remote push to a token
-- push credentials configured in the Expo/EAS project
+- a dev/local build (`npx expo run:ios|android`) — Expo Go does not reliably
+  deliver remote push to a token
+- push credentials configured in the Expo project
 - `PUSH_PROVIDER=expo` on the backend plus a real Expo access token in the
   `ExpoPushProvider` configuration
+
+> Distribution note (owner decision): the app is NOT published to Google Play or
+> the App Store. It runs via **Expo Go** or a side-loaded APK — see
+> `docs/setup/EXPO_GO_HOWTO.md`. Store publication / EAS is out of scope.
 
 With the default `PUSH_PROVIDER=log` the backend records delivery attempts but
 does not contact a remote push service — that is the expected behavior in the

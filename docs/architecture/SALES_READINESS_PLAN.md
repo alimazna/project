@@ -184,8 +184,9 @@ buyer into an operating owner in one reading.
 2. `docs/SETUP_INSTRUCTIONS.md` — 30-line quickstart (clone, install, run,
    first-user super_admin, open web, run worker).
 3. `docs/RELEASE_CHECKLIST.md` — Release-DoD 10 items with evidence pointers;
-   mark push-E2E + mobile-store publication as "buyer-owned" with exact blocker
-   text (physical device + platform accounts).
+   mark push-E2E as "buyer-owned" with exact blocker text (physical device +
+   platform accounts). Store publication is out of scope (owner decision) —
+   the mobile distribution path is `docs/setup/EXPO_GO_HOWTO.md`.
 4. `docs/SELLER_GUIDE.md` — the 6 sales-product gaps from the review and the
    one-line answer for each (e.g., "push not device-proven — plugin is complete,
    delivery verification requires a $0 Expo dev build + your phone/accounts").
@@ -244,7 +245,7 @@ After each push: verify `git ls-remote origin main` == local `git rev-parse HEAD
 | Company/legal name, logo, tagline, colors | Buyer | Brand identity — inventory exists after W2 |
 | Public hosting / domain / SSL | Buyer | Money + account needed |
 | Real payment gateway (Stripe/Paddle) | Buyer | Business decision + bank account |
-| iOS/Android store publication + signing | Buyer | Paid accounts, device, legal |
+| iOS/Android store publication + signing | Out of scope | Owner decision — web-first; Expo Go / side-loaded APK path documented |
 | Real push E2E on a physical device | Buyer | Physical device + platform accounts |
 | Binance/Bybit providers | Buyer choice | Geo-blocked here; ToS redistribution check |
 | Postgres migration in production | Buyer | Option; documented |

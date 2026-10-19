@@ -121,7 +121,8 @@ route instead); Vue/Svelte (viable but React maximizes buyer-pool familiarity).
 
 **Rationale:** One codebase for both platforms; free local dev; Expo Push
 provides a zero-cost notification path; documented SDK 53+ requirement for dev
-builds. Store publication remains out of $0 scope.
+builds. Store publication remains out of scope (owner decision: web-first,
+Expo Go / side-loaded APK — see `docs/setup/EXPO_GO_HOWTO.md`).
 
 ---
 
