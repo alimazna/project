@@ -51,6 +51,12 @@ Backend (auth, providers, ingestion, analysis engine, admin) + web product (dash
 > authoritative loop-proof task list with exact commands and DoD checks. Follow
 > §1 operating rules (time boxes, no scope creep, verify-before-DONE) and never
 > touch §6 Deferred items without the user's explicit instruction.**
+>
+> **SALE READINESS:** to make the project as complete and sale-ready as possible,
+> the authoritative add-on plan is `docs/architecture/SALES_READINESS_PLAN.md`
+> (Waves 0–6: docker deploy, rebrand config, ops docs, web test bump, buyer
+> package, final acceptance). Follow its Wave order; buyer-only decisions are
+> documented, never invented.
 
 Next per IMPLEMENTATION_ROADMAP / EXECUTION_PLAN:
 - CI verified green on GitHub (2026-10-18: runs for 716bd71, b1a6e16, 83a81bc).
