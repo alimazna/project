@@ -5,7 +5,10 @@ export function Landing() {
   return (
     <section className="landing">
       <div className="hero">
-        <h1>Explainable crypto market intelligence</h1>
+        <h1>
+          Unlock predictive insight.
+          <div className="margin-note">no black boxes — every signal is auditable ✍</div>
+        </h1>
         <p className="lead">
           {appName()} fuses news intelligence with deterministic technical analysis to
           produce conditional, traceable scenarios — entry zones, targets, and stop-losses

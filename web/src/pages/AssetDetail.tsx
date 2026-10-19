@@ -167,6 +167,24 @@ export function AssetDetail() {
                 </tbody>
               </table>
             )}
+            {scenario.open_window ? (
+              <p className="scenario-window">
+                <span className="muted small">Trading window</span>{' '}
+                <span className="small">{scenario.open_window}</span>
+              </p>
+            ) : null}
+            {scenario.advisor_tips && scenario.advisor_tips.length > 0 && (
+              <div className="scenario-advisor">
+                <h4>Smart advisor</h4>
+                <ul>
+                  {scenario.advisor_tips.map((tip, i) => (
+                    <li key={`${tip}-${i}`} className="small">
+                      <span className="badge badge-ok">tip</span> {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="scenario-drivers">
               <h4>Why?</h4>
               <ul>

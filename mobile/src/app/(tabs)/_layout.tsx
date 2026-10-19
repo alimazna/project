@@ -2,23 +2,24 @@ import { Redirect, Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../context/AuthContext';
 
-const ACTIVE = '#58a6ff';
-const INACTIVE = '#8b949e';
+const ACTIVE = '#2563eb';
+const INACTIVE = '#93a0c4';
 
 function iconColor(color: unknown): string {
   return typeof color === 'string' ? color : String(color);
 }
 
 export default function TabsLayout() {
-  const { loading, accessToken } = useAuth();
+  const { loading, accessToken, user } = useAuth();
   if (loading) return null;
   if (!accessToken) return <Redirect href="/login" />;
+  const isAdmin = user?.roles?.some((r) => r === 'admin' || r === 'super_admin') ?? false;
   return (
     <Tabs
       screenOptions={{
-        headerStyle: { backgroundColor: '#0d1117' },
-        headerTintColor: '#e6edf3',
-        tabBarStyle: { backgroundColor: '#0d1117', borderTopColor: '#30363d' },
+        headerStyle: { backgroundColor: '#0b0f17' },
+        headerTintColor: '#eef2ff',
+        tabBarStyle: { backgroundColor: '#0b0f17', borderTopColor: 'rgba(148,163,220,0.16)' },
         tabBarActiveTintColor: ACTIVE,
         tabBarInactiveTintColor: INACTIVE,
       }}
@@ -51,6 +52,15 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="notifications-outline" size={size} color={iconColor(color)} />,
         }}
       />
+      {isAdmin && (
+        <Tabs.Screen
+          name="admin"
+          options={{
+            title: 'Symbols admin',
+            tabBarIcon: ({ color, size }) => <Ionicons name="settings-outline" size={size} color={iconColor(color)} />,
+          }}
+        />
+      )}
       <Tabs.Screen
         name="account"
         options={{

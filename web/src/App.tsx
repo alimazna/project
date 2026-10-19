@@ -39,6 +39,10 @@ export function App() {
           <NavLink to="/account">Account</NavLink>
           <NavLink to="/admin">Admin</NavLink>
           <NavLink to="/login">Sign in</NavLink>
+          <span className="live-line">
+            <span className="live-dot" />
+            live
+          </span>
         </nav>
       </header>
       <main className="app-main">

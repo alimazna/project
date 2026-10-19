@@ -85,6 +85,19 @@ export default function AnalysisDetailScreen() {
             Invalidation: {Object.entries(invalidation).map(([k, v]) => `${k}=${String(v)}`).join(' ')}
           </Text>
         )}
+        {scenario.open_window ? (
+          <Text style={styles.window}>Trading window: {scenario.open_window}</Text>
+        ) : null}
+        {scenario.advisor_tips && scenario.advisor_tips.length > 0 && (
+          <View style={styles.advisor}>
+            <Text style={styles.advisorTitle}>Smart advisor</Text>
+            {scenario.advisor_tips.map((tip, i) => (
+              <Text key={`${tip}-${i}`} style={styles.advisorTip}>
+                · {tip}
+              </Text>
+            ))}
+          </View>
+        )}
       </Card>
 
       <Card>
@@ -140,6 +153,22 @@ const styles = StyleSheet.create({
   stats: { marginBottom: 10 },
   plan: { color: colors.muted, fontSize: 13, marginTop: 4 },
   invalidation: { color: colors.yellow, fontSize: 13, marginTop: 4 },
+  window: { color: colors.yellow, fontSize: 13, marginTop: 8, fontWeight: '600' },
+  advisor: {
+    marginTop: 10,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.accent,
+    paddingLeft: 10,
+    gap: 4,
+  },
+  advisorTitle: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  advisorTip: { color: colors.text, fontSize: 13, lineHeight: 18 },
   sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '600', marginBottom: 10 },
   evidenceRow: { flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 4 },
   mutedBig: { color: colors.muted, fontSize: 14, textTransform: 'capitalize' },

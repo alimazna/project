@@ -8,12 +8,12 @@ function RootNavigator() {
   if (loading) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size="large" color="#58a6ff" />
+        <ActivityIndicator size="large" color="#2563eb" />
       </View>
     );
   }
   return (
-    <Stack screenOptions={{ headerStyle: { backgroundColor: '#0d1117' }, headerTintColor: '#e6edf3' }} />
+    <Stack screenOptions={{ headerStyle: { backgroundColor: '#0b0f17' }, headerTintColor: '#eef2ff' }} />
   );
 }
 
@@ -27,5 +27,5 @@ export default function Layout() {
 }
 
 const styles = StyleSheet.create({
-  loading: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0d1117' },
+  loading: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0b0f17' },
 });

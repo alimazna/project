@@ -22,7 +22,7 @@ describe('App shell', () => {
         <App />
       </MemoryRouter>,
     )
-    expect(screen.getByRole('heading', { name: /Explainable crypto market intelligence/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Unlock predictive insight/i })).toBeInTheDocument()
     expect(screen.getByText(/TrendCipher fuses news intelligence/i)).toBeInTheDocument()
   })
 

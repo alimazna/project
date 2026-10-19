@@ -49,7 +49,8 @@ export function Button({
       disabled={disabled || loading}
       style={({ pressed }) => [
         styles.button,
-        { backgroundColor: bg, opacity: disabled ? 0.5 : pressed ? 0.8 : 1 },
+        variant === 'primary' ? styles.buttonPrimary : { backgroundColor: bg },
+        { opacity: disabled ? 0.5 : pressed ? 0.85 : 1 },
         style,
       ]}
     >
@@ -138,9 +139,20 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderColor: colors.border,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 12,
     padding: 16,
     marginBottom: 12,
+    overflow: 'hidden',
+  },
+  buttonPrimary: {
+    backgroundColor: colors.accent,
+    borderWidth: 1,
+    borderColor: 'rgba(148,163,220,0.25)',
+    shadowColor: '#2563eb',
+    shadowOpacity: 0.45,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 6,
   },
   row: { flexDirection: 'row', alignItems: 'center' },
   button: {

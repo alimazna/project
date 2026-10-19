@@ -71,6 +71,14 @@ export default function ScenariosScreen() {
               <Text style={styles.evidence}>
                 {item.evidence.bullish ?? 0} bullish / {item.evidence.bearish ?? 0} bearish signals
               </Text>
+              {item.open_window ? (
+                <Text style={styles.window}>Trading window: {item.open_window}</Text>
+              ) : null}
+              {item.advisor_tips && item.advisor_tips.length > 0 ? (
+                <Text numberOfLines={1} style={styles.tip}>
+                  ⚡ {item.advisor_tips[0]}
+                </Text>
+              ) : null}
             </Card>
           </Link>
         )}
@@ -88,5 +96,7 @@ const styles = StyleSheet.create({
   muted: { color: colors.muted, fontSize: 13 },
   dot: { color: colors.muted },
   evidence: { color: colors.text, fontSize: 13 },
+  window: { color: colors.yellow, fontSize: 12, marginTop: 6, fontWeight: '600' },
+  tip: { color: colors.accent, fontSize: 12, marginTop: 4 },
   error: { color: colors.red, paddingHorizontal: 16, paddingTop: 8 },
 });

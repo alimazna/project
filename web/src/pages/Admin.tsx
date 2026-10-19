@@ -3,6 +3,7 @@ import {
   api,
   getToken,
   type AdminPlan,
+  type AdminSymbol,
   type AdminSystem,
   type AdminUser,
   type PlanVersionEntry,
@@ -17,9 +18,11 @@ export function Admin() {
   const [versions, setVersions] = useState<Record<number, PlanVersionEntry[]>>({})
   const [expanded, setExpanded] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [tab, setTab] = useState<'plans' | 'users' | 'system'>('plans')
+  const [tab, setTab] = useState<'plans' | 'users' | 'system' | 'symbols'>('plans')
   const [users, setUsers] = useState<AdminUser[]>([])
   const [system, setSystem] = useState<AdminSystem | null>(null)
+  const [symbols, setSymbols] = useState<AdminSymbol[]>([])
+  const [symbolBusy, setSymbolBusy] = useState('')
   const [editing, setEditing] = useState<AdminPlan | null>(null)
   const [form, setForm] = useState({
     code: '',
@@ -56,6 +59,10 @@ export function Admin() {
       .adminSystem()
       .then(setSystem)
       .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load system status'))
+    api
+      .listAdminSymbols()
+      .then((r) => setSymbols(r.symbols))
+      .catch((e) => setError(e instanceof Error ? e.message : 'Failed to load symbols'))
   }
 
   const toggleSuspension = async (u: AdminUser) => {
@@ -103,6 +110,21 @@ export function Admin() {
       setForm({ code: '', name: '', description: '', display_price: '', billing_interval: 'monthly', sort_order: '0', features: '', quotas: '{}' })
     }
     setEditing(p ?? null)
+  }
+
+  const toggleSymbol = async (s: AdminSymbol) => {
+    setError(null)
+    setSymbolBusy(s.symbol)
+    try {
+      await api.toggleAdminSymbol(s.symbol, !s.is_active)
+      setSymbols((prev) =>
+        prev.map((x) => (x.symbol === s.symbol ? { ...x, is_active: !x.is_active } : x)),
+      )
+    } catch (e2) {
+      setError(e2 instanceof Error ? e2.message : 'Failed to toggle symbol')
+    } finally {
+      setSymbolBusy('')
+    }
   }
 
   const submit = async (e: React.FormEvent) => {
@@ -182,6 +204,9 @@ export function Admin() {
         </button>
         <button className={`tab ${tab === 'system' ? 'tab-active' : ''}`} onClick={() => setTab('system')}>
           System
+        </button>
+        <button className={`tab ${tab === 'symbols' ? 'tab-active' : ''}`} onClick={() => setTab('symbols')}>
+          Symbols ({symbols.length})
         </button>
       </div>
 
@@ -287,6 +312,73 @@ export function Admin() {
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {tab === 'symbols' && (
+        <div className="card">
+          <h3>Trading symbols</h3>
+          <p className="muted" style={{ marginBottom: 12 }}>
+            Supported markets used across the product. Disabling a symbol hides it from the
+            dashboard, scanner, watchlist and analysis entry points.
+          </p>
+          {!isSuper && (
+            <div className="alert">
+              Read-only view — only a super admin can enable or disable symbols.
+            </div>
+          )}
+          <div className="table-wrap" style={{ maxHeight: '60vh', overflowY: 'auto' }}>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Pair</th>
+                  <th>Provider</th>
+                  <th>State</th>
+                  {isSuper && <th>Actions</th>}
+                </tr>
+              </thead>
+              <tbody>
+                {symbols.length === 0 ? (
+                  <tr>
+                    <td colSpan={isSuper ? 5 : 4} className="muted">
+                      No symbols yet — sync the catalog from the backend.
+                    </td>
+                  </tr>
+                ) : (
+                  symbols.map((s) => (
+                    <tr key={s.symbol}>
+                      <td className="mono">{s.symbol}</td>
+                      <td>
+                        {s.display_name || `${s.base}/${s.quote}`}
+                      </td>
+                      <td>{s.provider}</td>
+                      <td>
+                        <span className={`badge ${s.is_active ? 'badge-ok' : 'badge-unknown'}`}>
+                          {s.is_active ? 'Active' : 'Inactive'}
+                        </span>
+                      </td>
+                      {isSuper && (
+                        <td>
+                          <button
+                            className="btn btn-sm"
+                            disabled={symbolBusy === s.symbol}
+                            onClick={() => toggleSymbol(s)}
+                          >
+                            {symbolBusy === s.symbol
+                              ? '…'
+                              : s.is_active
+                                ? 'Disable'
+                                : 'Enable'}
+                          </button>
+                        </td>
+                      )}
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 

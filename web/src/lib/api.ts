@@ -95,6 +95,18 @@ export interface SymbolEntry {
   quote: string
   display_name: string | null
   provider: string
+  is_active?: boolean
+  tier?: string | null
+}
+
+export interface AdminSymbol {
+  symbol: string
+  base: string
+  quote: string
+  display_name: string | null
+  provider: string
+  is_active: boolean
+  tier?: string | null
 }
 
 export interface HealthResult {
@@ -136,6 +148,8 @@ export interface ScenarioDetail {
   last_close?: number
   generated_at?: string
   created_at?: string
+  open_window?: string | null
+  advisor_tips?: string[] | null
 }
 
 export interface Watchlist {
@@ -325,4 +339,7 @@ export const api = {
   listAdminUsers: () => api.get<{ items: AdminUser[]; total: number }>('/admin/users'),
   updateAdminUser: (id: number, payload: Partial<AdminUser>) =>
     api.put<{ item: AdminUser }>(`/admin/users/${id}`, payload),
+  listAdminSymbols: () => api.get<{ symbols: AdminSymbol[] }>('/admin/symbols'),
+  toggleAdminSymbol: (symbol: string, is_active: boolean) =>
+    api.put<{ item: AdminSymbol }>(`/admin/symbols/${encodeURIComponent(symbol)}`, { is_active }),
 }

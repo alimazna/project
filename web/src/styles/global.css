@@ -1,22 +1,28 @@
-/* TrendCipher design system — baseline tokens (ADR: design system) */
+/* TrendCipher design system — brand tokens (identity: #0B0F17 / #FF2A55 / #2563EB) */
 
 :root {
-  --c-bg: #0b0e14;
-  --c-surface: #12161f;
-  --c-surface-2: #1a2130;
-  --c-border: #262f40;
-  --c-text: #e6ebf5;
-  --c-muted: #8b96a8;
-  --c-primary: #4f8cff;
-  --c-primary-strong: #2f6fdd;
+  --c-bg: #0b0f17;
+  --c-surface: rgba(255, 255, 255, 0.045);
+  --c-surface-2: rgba(255, 255, 255, 0.09);
+  --c-border: rgba(148, 163, 220, 0.16);
+  --c-text: #eef2ff;
+  --c-muted: #93a0c4;
+  --c-primary: #2563eb;
+  --c-primary-strong: #1e50d8;
+  --c-electric: #ff2a55;
+  --c-accent: #2563eb;
   --c-bull: #22c55e;
-  --c-bear: #ef4444;
+  --c-bear: #ff2a55;
   --c-neutral: #f59e0b;
-  --c-error: #ef4444;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --c-error: #ff2a55;
+  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Sora', 'Manrope', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
   --font-num: 'SF Mono', 'Roboto Mono', ui-monospace, monospace;
-  --radius: 10px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --glow-blue: 0 0 24px rgba(37, 99, 235, 0.35);
+  --glow-red: 0 0 24px rgba(255, 42, 85, 0.3);
 }
 
 * {
@@ -29,7 +35,12 @@ body {
   padding: 0;
   font-family: var(--font-sans);
   color: var(--c-text);
-  background: var(--c-bg);
+  background:
+    radial-gradient(800px 420px at 85% -10%, rgba(255, 42, 85, 0.16), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(37, 99, 235, 0.18), transparent 60%),
+    radial-gradient(720px 420px at 50% 115%, rgba(37, 99, 235, 0.1), transparent 55%),
+    var(--c-bg);
+  background-attachment: fixed;
   line-height: 1.5;
 }
 
@@ -54,20 +65,29 @@ a:hover {
   gap: 1rem;
   padding: 0.9rem 1.5rem;
   border-bottom: 1px solid var(--c-border);
-  background: var(--c-surface);
+  background: rgba(11, 15, 23, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
 .brand {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 0.02em;
   color: var(--c-text);
+  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15rem;
 }
 .brand span {
-  color: var(--c-primary);
+  background: linear-gradient(90deg, #ff2a55, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .app-nav {
@@ -98,13 +118,16 @@ a:hover {
   padding: 3rem 1rem 2rem;
 }
 .hero h1 {
-  font-size: 2.6rem;
-  line-height: 1.15;
+  font-size: 2.9rem;
+  line-height: 1.12;
   margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 .lead {
   color: var(--c-muted);
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   max-width: 720px;
   margin: 0 auto 1.5rem;
 }
@@ -137,35 +160,46 @@ a:hover {
 
 /* Cards & forms */
 .card {
-  background: var(--c-surface);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   padding: 1.4rem;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 .card h3 {
   margin-top: 0;
+  font-family: var(--font-display);
 }
 
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
   font-weight: 600;
   cursor: pointer;
   font-size: 0.95rem;
   text-align: center;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .btn:hover {
   text-decoration: none;
+  transform: rotate(-1deg) translateY(-1px);
+}
+.btn:active {
+  transform: rotate(0deg) translateY(0);
 }
 .btn-primary {
-  background: var(--c-primary);
+  background: linear-gradient(90deg, #ff2a55, #2563eb);
+  background-size: 160% 100%;
   color: #fff;
+  box-shadow: var(--glow-red);
 }
 .btn-primary:hover {
-  background: var(--c-primary-strong);
+  background-position: 100% 0;
+  box-shadow: var(--glow-blue);
 }
 .btn-outline {
   border-color: var(--c-border);
@@ -186,13 +220,16 @@ a:hover {
 .auth-card {
   width: 100%;
   max-width: 400px;
-  background: var(--c-surface);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
   border: 1px solid var(--c-border);
   border-radius: var(--radius);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
 }
 label {
   display: flex;
@@ -202,9 +239,9 @@ label {
   color: var(--c-muted);
 }
 input {
-  background: var(--c-bg);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--c-border);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--c-text);
   padding: 0.6rem 0.8rem;
   font-size: 1rem;
@@ -278,7 +315,8 @@ input:focus {
 }
 .ticker-chip-active {
   border-color: var(--c-primary);
-  background: rgba(79, 140, 255, 0.1);
+  background: rgba(37, 99, 235, 0.18);
+  box-shadow: var(--glow-blue);
 }
 .ticker-symbol {
   color: var(--c-muted);
@@ -474,6 +512,37 @@ code {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+.scenario-window {
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px dashed rgba(255, 42, 85, 0.35);
+  background: rgba(255, 42, 85, 0.06);
+  border-radius: 8px;
+}
+.scenario-advisor {
+  margin-top: 0.8rem;
+}
+.scenario-advisor h4 {
+  color: var(--c-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.scenario-advisor ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.scenario-advisor li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 .badge-vote {
   min-width: 1.4rem;
   text-align: center;
@@ -617,4 +686,61 @@ select {
   width: 1.2rem;
   height: 1.2rem;
   accent-color: var(--c-accent, #4f9dff);
+}
+
+/* TrendCipher identity — electric red/blue + human touch */
+.margin-note {
+  font-family: var(--font-hand);
+  color: var(--c-electric);
+  font-size: 1.05rem;
+  line-height: 1.2;
+  transform: rotate(-2deg);
+  display: inline-block;
+  max-width: 220px;
+}
+.live-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-family: var(--font-num);
+  color: var(--c-muted);
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+.hand-underline {
+  display: inline-block;
+  font-family: var(--font-hand);
+  color: var(--c-electric);
+  font-size: 0.9em;
+  transform: rotate(-1.5deg);
+}
+.card-glow-blue {
+  box-shadow: var(--shadow), var(--glow-blue);
+}
+.card-glow-red {
+  box-shadow: var(--shadow), var(--glow-red);
+}
+.bg-red-blue {
+  background:
+    radial-gradient(800px 420px at 85% -10%, rgba(255, 42, 85, 0.18), transparent 60%),
+    radial-gradient(900px 540px at -10% 20%, rgba(37, 99, 235, 0.2), transparent 60%),
+    var(--c-bg);
 }

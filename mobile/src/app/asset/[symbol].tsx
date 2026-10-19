@@ -133,6 +133,41 @@ export default function AssetScreen() {
               <Stat title="Status" value={scenario.status} />
               <Stat title="Rule" value={scenario.rule_version} />
             </Row>
+
+            {scenario.direction !== 'NEUTRAL' &&
+              scenario.entry_low != null &&
+              scenario.stop_loss != null && (
+                <View style={styles.planBox}>
+                  <Text style={styles.planLine}>
+                    Entry {formatPrice(scenario.entry_low)}
+                    {scenario.entry_high != null && scenario.entry_high !== scenario.entry_low
+                      ? ` – ${formatPrice(scenario.entry_high)}`
+                      : ''}
+                  </Text>
+                  <Text style={styles.planLine}>
+                    Stop {formatPrice(scenario.stop_loss)} · TPs{' '}
+                    {scenario.take_profits.length > 0
+                      ? scenario.take_profits.map(formatPrice).join(' / ')
+                      : '—'}
+                  </Text>
+                </View>
+              )}
+
+            {scenario.open_window ? (
+              <Text style={styles.window}>Trading window: {scenario.open_window}</Text>
+            ) : null}
+
+            {scenario.advisor_tips && scenario.advisor_tips.length > 0 && (
+              <View style={styles.advisor}>
+                <Text style={styles.advisorTitle}>Smart advisor</Text>
+                {scenario.advisor_tips.map((tip, i) => (
+                  <Text key={`${tip}-${i}`} style={styles.advisorTip}>
+                    · {tip}
+                  </Text>
+                ))}
+              </View>
+            )}
+
             <Text style={styles.hint}>
               Explained decisions and evidence are available in the full analysis view.
             </Text>
@@ -165,4 +200,35 @@ const styles = StyleSheet.create({
   hint: { color: colors.muted, fontSize: 12, marginBottom: 12 },
   ok: { color: colors.green, marginTop: 8 },
   error: { color: colors.red, marginTop: 8 },
+  planBox: {
+    marginTop: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    padding: 10,
+    gap: 4,
+  },
+  planLine: { color: colors.text, fontSize: 13, fontWeight: '500' },
+  window: {
+    marginTop: 10,
+    color: colors.yellow,
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  advisor: {
+    marginTop: 10,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.accent,
+    paddingLeft: 10,
+    gap: 4,
+  },
+  advisorTitle: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  advisorTip: { color: colors.text, fontSize: 13, lineHeight: 18 },
 });

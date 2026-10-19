@@ -102,6 +102,16 @@ export interface SymbolEntry {
   quote: string;
   display_name: string | null;
   provider: string;
+  is_active?: boolean;
+}
+
+export interface AdminSymbol {
+  symbol: string;
+  base: string;
+  quote: string;
+  display_name: string | null;
+  provider: string;
+  is_active: boolean;
 }
 
 export interface ScenarioDetail {
@@ -133,6 +143,8 @@ export interface ScenarioDetail {
     reason: string;
   }[];
   created_at?: string;
+  open_window?: string | null;
+  advisor_tips?: string[] | null;
 }
 
 export interface Watchlist {
@@ -238,4 +250,7 @@ export const api = {
     }),
   getPlans: () => api.get<{ items: PlanEntry[] }>('/plans'),
   getHealth: () => api.get<{ status: string; providers: unknown[] }>('/health'),
+  listAdminSymbols: () => api.get<{ symbols: AdminSymbol[] }>('/admin/symbols'),
+  toggleAdminSymbol: (symbol: string, is_active: boolean) =>
+    api.put<{ item: AdminSymbol }>(`/admin/symbols/${encodeURIComponent(symbol)}`, { is_active }),
 };

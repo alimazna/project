@@ -1,16 +1,17 @@
-// Minimal design tokens shared across screens — mirrors the web dark theme.
+// Design tokens shared across screens — brand identity (#0B0F17 / #FF2A55 / #2563EB).
 
 export const colors = {
-  bg: '#0d1117',
-  surface: '#161b22',
-  border: '#30363d',
-  text: '#e6edf3',
-  muted: '#8b949e',
-  accent: '#58a6ff',
-  green: '#3fb950',
-  red: '#f85149',
-  yellow: '#d29922',
-  cardBg: '#161b22',
+  bg: '#0b0f17',
+  surface: 'rgba(255,255,255,0.05)',
+  border: 'rgba(148,163,220,0.16)',
+  text: '#eef2ff',
+  muted: '#93a0c4',
+  accent: '#2563eb',
+  electric: '#ff2a55',
+  green: '#22c55e',
+  red: '#ff2a55',
+  yellow: '#f59e0b',
+  cardBg: 'rgba(255,255,255,0.05)',
 };
 
 export const spacing = {
