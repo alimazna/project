@@ -1,0 +1,85 @@
+# TrendCipher — one-command production stack
+#   docker compose -f deploy/docker-compose.yml up -d --build
+# Services: web (nginx, port 80) → backend (FastAPI, port 8000, internal)
+#           + worker (ingestion loop) + persistent SQLite volume.
+# Everything runs with $0 paid resources; env comes from deploy/.env (copy
+# .env.example) or repository-root .env.
+name: trendcipher
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backend
+    image: trendcipher-backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: sqlite:////app/data/trendcipher.db
+      # Allow the nginx proxy origin to call the API from the browser.
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost}
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production-32-bytes-minimum}
+    volumes:
+      - trendcipher-data:/app/data
+    networks:
+      - trendcipher-net
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backend
+    image: trendcipher-backend
+    command: ["python", "-m", "app.workers.ingestion"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: sqlite:////app/data/trendcipher.db
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production-32-bytes-minimum}
+    volumes:
+      - trendcipher-data:/app/data
+    networks:
+      - trendcipher-net
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.web
+      args:
+        VITE_API_BASE_URL: /api/v1
+    image: trendcipher-web
+    ports:
+      - "80:80"
+    networks:
+      - trendcipher-net
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  trendcipher-data:
+
+networks:
+  trendcipher-net:

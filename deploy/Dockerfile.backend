@@ -1,0 +1,23 @@
+# TrendCipher backend — production image (FastAPI + uvicorn)
+# Usage: docker build -f deploy/Dockerfile.backend -t trendcipher-backend .
+FROM python:3.13-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+# Install the backend package (dependencies via pyproject.toml).
+COPY backend/pyproject.toml ./
+COPY backend/app ./app
+
+RUN pip install --no-cache-dir -e . \
+    && chmod +x /usr/local/bin/uvicorn
+
+# Runtime data lives on a mounted volume in production (see docker-compose.yml).
+ENV DATABASE_URL=sqlite:////app/data/trendcipher.db
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
