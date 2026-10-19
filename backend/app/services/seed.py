@@ -1,9 +1,10 @@
-"""Idempotent plan seeding for fresh databases."""
+"""Idempotent seeding for fresh databases (plans + symbol catalog)."""
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.models import Plan
+from app.core.symbols import default_symbols
+from app.models import Plan, Symbol
 
 DEFAULT_PLANS = [
     {
@@ -53,6 +54,30 @@ def seed_plans(db: Session) -> int:
         if data["code"] in known:
             continue
         db.add(Plan(**data))
+        created += 1
+    if created:
+        db.commit()
+    return created
+
+
+def seed_symbols(db: Session) -> int:
+    """Insert the full symbol catalog if missing. Returns how many were created."""
+    existing = db.execute(select(Symbol.symbol)).scalars().all()
+    known = set(existing)
+    created = 0
+    for info in default_symbols(tiers={1, 2}):
+        if info.symbol in known:
+            continue
+        db.add(
+            Symbol(
+                symbol=info.symbol,
+                base=info.base,
+                quote=info.quote,
+                display_name=info.display_name,
+                provider="kraken",
+                is_active=True,
+            )
+        )
         created += 1
     if created:
         db.commit()

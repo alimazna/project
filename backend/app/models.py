@@ -287,6 +287,8 @@ class Scenario(Base, TimestampMixin):
     evidence: Mapped[dict] = mapped_column(JSON, default=dict)
     decisions: Mapped[list] = mapped_column(JSON, default=list)
     expiry_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    open_window: Mapped[str | None] = mapped_column(String(200))
+    advisor_tips: Mapped[list] = mapped_column(JSON, default=list)
 
 
 class ScenarioEvent(Base):

@@ -354,6 +354,33 @@ def compute_scenario(
     else:
         risk_reward = None
 
+    # --- smart advisor tips + trade timing --------------------------------
+    atr_used = atr_val if direction != "NEUTRAL" else None
+    volatility_pct = (atr_used / last_close * 100) if atr_used else None
+    tips: list[str] = []
+    if direction == "NEUTRAL":
+        tips.append("No clear edge right now — stay flat or wait for the candles to pick a side.")
+        tips.append("Trend is ranging; a breakout above or below the recent structure is your trigger.")
+    else:
+        if volatility_pct is not None and volatility_pct < 1.0:
+            tips.append("Volatility is low — size up slightly with a wider stop to avoid being shaken out.")
+        elif volatility_pct is not None and volatility_pct > 3.0:
+            tips.append("Volatility is high — keep position size small and respect the stop strict.")
+        tips.append("Watch the invalidation level; if price hits it, the trade idea is dead — walk away.")
+        if risk_reward and risk_reward >= 2.0:
+            tips.append(f"Risk/reward is solid ({risk_reward}:1) — trail toward the second target once TP1 hits.")
+        else:
+            tips.append("Risk/reward is tight — consider skipping or reducing size until a better setup shows.")
+    # "when to open" — a deterministic session window judged from alignment strength
+    if direction == "NEUTRAL":
+        open_window = "No open window — wait for a directional signal."
+    elif alignment >= 0.6:
+        open_window = "Entry window NOW — strong alignment, open within 1–2 candles."
+    elif alignment >= 0.45:
+        open_window = "Entry window today — watch for a pullback into the entry zone."
+    else:
+        open_window = "Entry window on next confirmed candle — patience beats impulse."
+
     return {
         "symbol": symbol,
         "timeframe": timeframe,
@@ -368,6 +395,8 @@ def compute_scenario(
         "entry_high": entry_high,
         "stop_loss": stop_loss,
         "take_profits": take_profits,
+        "open_window": open_window,
+        "advisor_tips": tips,
         "invalidation": (
             {
                 "close_above": round(

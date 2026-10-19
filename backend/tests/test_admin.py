@@ -179,3 +179,48 @@ class TestSystemOverview:
         )
         headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
         assert client.get("/api/v1/admin/system", headers=headers).status_code == 403
+
+
+class TestSymbolAdmin:
+    def test_list_symbols_shows_active_state(self, client):
+        headers = _make_super(client)
+        resp = client.get("/api/v1/admin/symbols", headers=headers)
+        assert resp.status_code == 200
+        body = resp.json()
+        assert isinstance(body["symbols"], list)
+        assert any(s["symbol"] == "BTC/USD" for s in body["symbols"])
+        btc = next(s for s in body["symbols"] if s["symbol"] == "BTC/USD")
+        assert btc["is_active"] is True
+
+    def test_super_can_disable_and_reenable(self, client):
+        headers = _make_super(client)
+        resp = client.put("/api/v1/admin/symbols/BTC/USD", json={"is_active": False}, headers=headers)
+        assert resp.status_code == 200
+        assert resp.json()["item"]["is_active"] is False
+
+        resp = client.put("/api/v1/admin/symbols/BTC/USD", json={"is_active": True}, headers=headers)
+        assert resp.status_code == 200
+        assert resp.json()["item"]["is_active"] is True
+
+    def test_regular_admin_cannot_toggle(self, client):
+        _make_super(client)  # first user -> super_admin
+        headers = _register(client, "admin2@x.com")  # second user -> regular
+        # regular user cannot list admin symbols
+        assert client.get("/api/v1/admin/symbols", headers=headers).status_code == 403
+        # nor toggle them
+        resp = client.put("/api/v1/admin/symbols/BTC/USD", json={"is_active": False}, headers=headers)
+        assert resp.status_code == 403
+
+    def test_unknown_symbol_404(self, client):
+        headers = _make_super(client)
+        resp = client.put("/api/v1/admin/symbols/NOPE/USD", json={"is_active": False}, headers=headers)
+        assert resp.status_code == 404
+
+    def test_sync_catalog_loads_all_50plus(self, client):
+        headers = _make_super(client)
+        resp = client.post("/api/v1/admin/symbols/sync-catalog", headers=headers)
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["added"] >= 0
+        # catalog should hold more than the previous 17-21 baseline
+        assert body["catalog_size"] >= 50

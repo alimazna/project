@@ -14,12 +14,14 @@ from app.db.session import Base, engine, init_engine
 async def lifespan(app: FastAPI):
     init_engine()
     Base.metadata.create_all(bind=engine)
-    with engine.connect() as conn:
+    with engine.begin() as tx_conn:
         from sqlalchemy.orm import Session as OrmSession
 
-        from app.services.seed import seed_plans
+        from app.services.seed import seed_plans, seed_symbols
 
-        seed_plans(OrmSession(bind=conn))
+        db = OrmSession(bind=tx_conn)
+        seed_plans(db)
+        seed_symbols(db)
     yield
 
 

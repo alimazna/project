@@ -154,3 +154,18 @@ class TestValidation:
 
         with pytest.raises(ValueError):
             compute_scenario(_flat(10), symbol="BTC/USD")
+
+
+class TestSmartAdvisor:
+    def test_bullish_scenario_has_advisor_fields(self):
+        s = compute_scenario(_trend(120, start=100, step=0.5, vol=0.15), symbol="BTC/USD")
+        assert "open_window" in s
+        assert "advisor_tips" in s
+        assert isinstance(s["advisor_tips"], list)
+        assert s["advisor_tips"]
+
+    def test_neutral_scenario_has_ranging_advice(self):
+        s = compute_scenario(_flat(60, price=100.0), symbol="BTC/USD")
+        assert s["direction"] == "NEUTRAL"
+        assert s["open_window"].startswith("No open window")
+        assert any("ranging" in t for t in s["advisor_tips"])

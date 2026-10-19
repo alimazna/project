@@ -1,22 +1,33 @@
-"""Super-admin routes: plan CRUD with audit trail.
+"""Super-admin routes: plan CRUD, user management, symbol enable/disable.
 
-Only ``super_admin`` can mutate plans; ``admin``/``super_admin`` can list.
-Every mutation appends a ``PlanVersion`` row recording who changed what.
+Only ``super_admin`` can mutate plans/symbols; ``admin``/``super_admin`` can list.
+Every plan mutation appends a ``PlanVersion`` row recording who changed what.
 """
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.api.deps import require_admin, require_super_admin
 from app.db.session import get_db
-from app.models import Alert, Plan, PlanVersion, ProviderHealth, Role, Subscription, User, Watchlist
+from app.models import (
+    Alert,
+    Plan,
+    PlanVersion,
+    ProviderHealth,
+    Role,
+    Subscription,
+    Symbol,
+    User,
+    Watchlist,
+)
 from app.services.billing import billing_status
 
 plans_router = APIRouter(prefix="/admin/plans", tags=["admin"])
 users_router = APIRouter(prefix="/admin/users", tags=["admin"])
 system_router = APIRouter(prefix="/admin/system", tags=["admin"])
+symbols_router = APIRouter(prefix="/admin/symbols", tags=["admin"])
 
 
 class PlanPayload(BaseModel):
@@ -262,3 +273,88 @@ def admin_system_overview(
         ],
         "billing": billing_status(),
     }
+
+
+# ---------------------------------------------------------------- symbol enable/disable
+
+
+class SymbolTogglePayload(BaseModel):
+    is_active: bool
+
+
+def _symbol_out(s: Symbol) -> dict:
+    return {
+        "symbol": s.symbol,
+        "base": s.base,
+        "quote": s.quote,
+        "display_name": s.display_name,
+        "provider": s.provider,
+        "is_active": s.is_active,
+        "updated_at": s.updated_at.isoformat() if s.updated_at else None,
+    }
+
+
+@symbols_router.get("")
+def list_admin_symbols(
+    db: Session = Depends(get_db),
+    user: User = Depends(require_admin),
+    active: bool | None = Query(None, description="Filter by activation state"),
+) -> dict:
+    """List all known symbols with their activation state (admin/super)."""
+    q = select(Symbol).order_by(Symbol.symbol)
+    if active is not None:
+        q = q.where(Symbol.is_active == active)
+    rows = db.execute(q).scalars().all()
+    return {"symbols": [_symbol_out(s) for s in rows]}
+
+
+@symbols_router.put("/{symbol:path}", status_code=status.HTTP_200_OK)
+def toggle_symbol(
+    symbol: str,
+    payload: SymbolTogglePayload,
+    db: Session = Depends(get_db),
+    user: User = Depends(require_super_admin),
+) -> dict:
+    """Enable or disable a symbol (super_admin only)."""
+    from app.models import utcnow
+
+    row = db.get(Symbol, symbol.upper())
+    if row is None:
+        raise HTTPException(404, f"Symbol {symbol.upper()} not found")
+    row.is_active = payload.is_active
+    row.updated_at = utcnow()
+    db.add(row)
+    db.commit()
+    db.refresh(row)
+    return {"item": _symbol_out(row)}
+
+
+@symbols_router.post("/sync-catalog", status_code=status.HTTP_200_OK)
+def sync_symbol_catalog(
+    db: Session = Depends(get_db),
+    user: User = Depends(require_super_admin),
+    tier: int | None = Query(None, ge=1, le=2, description="Only sync a specific tier"),
+) -> dict:
+    """Insert any catalog symbols missing from DB and return totals."""
+    from app.core.symbols import default_symbols
+
+    tiers = {tier} if tier else {1, 2}
+    catalog = default_symbols(tiers=tiers)
+    added = 0
+    for s in catalog:
+        existing = db.get(Symbol, s.symbol)
+        if existing is None:
+            db.add(
+                Symbol(
+                    symbol=s.symbol,
+                    base=s.base,
+                    quote=s.quote,
+                    display_name=s.display_name,
+                    provider="kraken",
+                    is_active=True,
+                )
+            )
+            added += 1
+    db.commit()
+    total = len(db.execute(select(Symbol)).scalars().all())
+    return {"catalog_size": len(catalog), "added": added, "db_total": total}
