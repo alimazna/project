@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { appName } from '../lib/config'
 
 export function Landing() {
   return (
@@ -6,7 +7,7 @@ export function Landing() {
       <div className="hero">
         <h1>Explainable crypto market intelligence</h1>
         <p className="lead">
-          TrendCipher fuses news intelligence with deterministic technical analysis to
+          {appName()} fuses news intelligence with deterministic technical analysis to
           produce conditional, traceable scenarios — entry zones, targets, and stop-losses
           you can audit, not a black-box signal.
         </p>

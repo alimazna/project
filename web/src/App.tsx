@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
+import { brandParts } from './lib/config'
 import { Account } from './pages/Account'
 import { Admin } from './pages/Admin'
 import { Alerts } from './pages/Alerts'
@@ -17,7 +18,15 @@ export function App() {
     <div className="app-shell">
       <header className="app-header">
         <NavLink to="/" className="brand">
-          Trend<span>Cipher</span>
+          {(() => {
+            const [head, tail] = brandParts()
+            return (
+              <>
+                {head}
+                {tail && <span>{tail}</span>}
+              </>
+            )
+          })()}
         </NavLink>
         <nav className="app-nav">
           <NavLink to="/">Home</NavLink>
