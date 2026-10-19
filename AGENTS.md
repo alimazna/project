@@ -45,6 +45,7 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - Routes guarded by auth: tabs layout and standalone asset/analysis screens redirect to `/login` when no token.
 
 ## Current stage
+Latest green: `b3f8003` (brand identity web+mobile: Sora/Manrope/Caveat, #0B0F17/#FF2A55/#2563EB glow bg, live status line, margin notes, tilt buttons, hero slogan "Unlock predictive insight"; super-admin Symbols toggle; 7 skills). Web 11/11 tests, build+lint OK; mobile tsc+eslint OK; backend 143 passed.
 **Product COMPLETE + Sales Readiness Waves 1–6 ALL DONE and pushed on `main`.**
 Remote `main` chain (all certified green): `f8549e5` (compose deploy, live-verified)
 → `2aaa092` (rebrand) → `e171d27` (ops/secret-scan/licenses) → `ce52271` (web tests
