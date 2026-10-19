@@ -8,14 +8,26 @@ any blockers — so a new developer or buyer can take over without a phone call.
 
 ## Current milestone
 
-**Stages 1–5: COMPLETE and pushed** (foundation, data pipeline, analytical
-engine, web product, SaaS+admin system overview).
-**Stage 6 (Mobile + push): DONE** (except physical-device push delivery) —
-backend push abstraction pushed (`716bd71`); Expo app pushed (`b1a6e16`); mobile
-dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
-**Stage 7 (Validation & handover): STARTED** — API-driven E2E smoke test added
-(`scripts/smoke_test.py`, 36 steps green) and web news feed+filter completed
-(`5b5d910`).
+**Product: COMPLETE and pushed** — backend (auth, ingestion, deterministic
+analysis, admin), web SPA, and mobile (Expo) app are all shipped on `main`.
+
+**Sales readiness (Waves 1–6): COMPLETE and pushed** — this wave hardened the
+repo into a sellable package:
+
+- **Wave 1** — one-command Docker Compose deployment (`deploy/`) verified live
+  (backend + web/nginx + worker, SQLite volume; healthz/API/SPA all green).
+- **Wave 2** — config-driven rebrand (`VITE_APP_NAME`), verified with a
+  PulseSight build. See `docs/REBRAND.md`.
+- **Wave 3** — operator docs + secret scan (0 findings) + full license
+  inventories (0 copyleft). See `docs/setup/` and `docs/licenses/`.
+- **Wave 4** — web component tests (11 total), lint/tsc/build green.
+- **Wave 5** — buyer package: `docs/BUYER_PACKAGE.md`, `SETUP_INSTRUCTIONS.md`,
+  `RELEASE_CHECKLIST.md`, `SELLER_GUIDE.md`.
+- **Wave 6 (this commit)** — final polish: repo index, `AGENTS.md` updated,
+  fresh-clone verification, and close-out below.
+
+**Stage 7 (Validation & handover): ACTIVE** — smoke E2E (36 steps) green;
+per-release launch gate is `docs/RELEASE_CHECKLIST.md`.
 
 - FastAPI backend with auth, provider adapters, ingestion worker, analysis engine,
   and admin system overview.
@@ -34,17 +46,16 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 
 | Key | Value |
 |---|---|
-| Last commit | `57453ba` — `feat(stage7): dependency security scan — react-router v7 upgrade, CI security job` |
+| Last commit | `d4c922b` — `docs(sales): buyer ownership package (Wave 5)` |
 | Branch | `main` |
 | Remote | `https://github.com/alimazna/project` |
-| Verified | `git ls-remote origin main` == local HEAD == `57453ba41338746e62d7cf37256d2c0fd596d639` (confirmed after push) |
+| Verified | fresh clone (above) == local HEAD; pushed after every wave |
 
-> **History note (reset):** the remote `main` was force-pushed/re-written at
-> some point during Stage 6 delivery. HANDOFF previously documented commit
-> `021bf30` (a single squashed Stage 1–5 commit, `e8dd9b3`) and then advanced to
-> `716bd71` (`feat(push): provider abstraction with log/expo adapters + alert
-> push dispatch — Stage 6`). The current remote HEAD is `57453ba`; any
-> references to `021bf30` are stale and should be ignored.
+> **Sales-readiness chain (all certified green):** `f8549e5` (deploy) →
+> `2aaa092` (rebrand) → `e171d27` (ops/license) → `ce52271` (web tests) →
+> `d4c922b` (buyer package) → *Wave 6 final* commit. Anything before `f8549e5`
+> in this newer history belongs to Stage 6; references to `021bf30`/`716bd71`
+> are stale and should be ignored. Mobile was last touched in `57453ba`.
 
 ---
 
@@ -97,15 +108,19 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 ## What is NOT built yet
 
 - **Real end-to-end push delivery** — requires a physical device + platform
-  accounts (documented under Blockers); the codebase plumbing is in place.
-- **Stage 7 — validation & handover** (in progress: E2E smoke test + dependency
-  security scan done; still pending fresh-install verification, deployment/backup
-  docs, license inventory publish, buyer package).
+  accounts (documented under Blockers); the codebase plumbing (`expo` adapter +
+  device registration + dispatch) is in place and defaults to the `log` provider.
+- **Seller-side red tape** — terms-of-service and privacy-policy pages are not
+  part of the codebase yet (buyer adds them per their jurisdiction). Flagged in
+  `docs/RELEASE_CHECKLIST.md`.
+- **Postgres deployment** — SQLite is the default and works; scaling to external
+  Postgres is a documented buyer follow-up, not an in-repo blocker.
 
 ## Testing status
 
 - Backend: `136 passed` (pytest), `ruff check` clean.
-- Web: `5 passed` (vitest); ESLint 9 flat config clean; production build passes.
+- Web: `11 passed` (vitest — 5 API + 3 App shell + 3 Dashboard); ESLint 9 flat
+  config clean; `tsc -b` + production build pass.
 - **E2E smoke test: `scripts/smoke_test.py`** — 36 steps green (deterministic,
   isolated SQLite): public endpoints, auth (register→login→me→refresh),
   market data, news+source-filter, analysis run/persist/detail/backtest,
@@ -133,31 +148,40 @@ dashboard now includes the **news list** (`9b7309d`, roadmap checklist item).
 
 ---
 
-## Next milestones (in progress)
+## Next milestones (all shipped → maintenance mode)
 
-1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold backend/web, auth, tests, CI workflow added).
-2. ~~**Stage 2 — Real data pipeline**~~ — DONE (Kraken/OKX/RSS → DB → read API; live dashboard).
-3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, news classifier, decision matrix, backtest, analysis API, dashboard scenario card).
-4. ~~**Stage 4 — Web product**~~ — MOSTLY DONE (dashboard incl. scenario card, signal scanner + backtest stats, scenario history, asset detail + charts, watchlist, alerts, account, admin; final acceptance pass pending).
-5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans CRUD, quotas, billing abstraction, admin user management, system overview).
-6. ~~**Stage 6 — Mobile + push.**~~ — DONE except physical-device push delivery:
-   backend push abstraction (`716bd71`), Expo app (`b1a6e16`) with dashboard news
-   list added (`9b7309d`). Remaining (non-blocking): real push E2E on a physical
-   device + final acceptance pass.
-7. **Stage 7 — Validation & handover.** — IN PROGRESS — API-driven E2E smoke
-   test done (`scripts/smoke_test.py`, 36 green) and dependency security scan
-   done (pip-audit clean; web prod npm audit 0 vulns after react-router v7
-   upgrade; CI `security` job added). Next: fresh-install verification from
-   README, deployment/backup docs, license inventory publish, buyer package,
-   final HANDOFF.
+1. ~~**Stage 1 — Repository & foundation**~~ — DONE (scaffold, auth, tests, CI).
+2. ~~**Stage 2 — Real data pipeline**~~ — DONE (Kraken/OKX/RSS → DB → read API).
+3. ~~**Stage 3 — Analytical engine**~~ — DONE (indicators, classifier, decision
+   matrix, leakage-guarded backtest, analysis API).
+4. ~~**Stage 4 — Web product**~~ — DONE (dashboard + scenario card + charts,
+   scanner, scenario history, asset detail, watchlist, alerts, account, admin).
+   Charter-chart focus items were addressed in the earlier web pass; remaining
+   polish is optional UX work, tracked in `IMPLEMENTATION_ROADMAP.md`.
+5. ~~**Stage 5 — SaaS + Super Admin**~~ — DONE (RBAC, plans, quotas, billing
+   abstraction, admin user management, system overview).
+6. ~~**Stage 6 — Mobile + push**~~ — DONE (Expo app with auth/dashboard/
+   watchlist/scenarios/alerts/account/asset-detail/analysis-detail; push
+   plumbing + `log` default). Non-blocking: physical-device push E2E.
+7. ~~**Stage 7 — Validation & handover**~~ — DONE for the deliverable with the
+   **Sales Readiness Wave** on top: deploy stack + live E2E, rebrand
+   configurability, operator docs, secret scan, license audit, web test bump,
+   buyer package, fresh-clone gate (below).
+
+> Remaining after this checkpoint: buy-side prerequisites (domain, TLS, real
+> push accounts) and any buyer-requested white-label instance — handover
+> ownership moves to the new owner per `docs/RELEASE_CHECKLIST.md`.
 
 ## Blockers / external dependencies
 
 - Binance/Bybit geo-blocked from this dev environment — not required for the
   build (Kraken/OKX used).
 - Real push notification delivery requires a physical device + platform
-  accounts — documented; not blocking the codebase.
+  accounts — documented (`PUSH_PROVIDER=expo` path); not blocking the codebase.
 - No paid account is required to develop, test, or demonstrate the product at $0.
+- Docker daemon in this sandbox is manually started (no systemd) — deployment was
+  verified in this environment with `sudo dockerd`; on a real server the standard
+  `systemctl` path applies (see `docs/setup/DEPLOYMENT.md`).
 
 ---
 

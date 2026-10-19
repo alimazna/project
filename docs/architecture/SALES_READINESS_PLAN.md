@@ -1,6 +1,11 @@
 # TrendCipher — Sales-Readiness Plan (أكمل مشروع ممكن + جاهزية للبيع)
 
-**Status:** authoritative, living
+**Status:** **COMPLETE — all 6 waves delivered and verified on `main` (2026-10-18).**
+Wave results are recorded in `HANDOFF.md` §Current milestone. The buyer-facing
+entry point is `docs/BUYER_PACKAGE.md`; the per-release gate is
+`docs/RELEASE_CHECKLIST.md`. Waves below are kept for provenance; re-running one
+is safe and deterministic.
+**Previously:** authoritative, living
 **Date:** 2026-10-18
 **Applies to:** any agent or developer preparing this product for sale.
 

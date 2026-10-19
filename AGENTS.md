@@ -45,21 +45,24 @@ Explainable cryptocurrency market-intelligence product (news intelligence + dete
 - Routes guarded by auth: tabs layout and standalone asset/analysis screens redirect to `/login` when no token.
 
 ## Current stage
-Backend (auth, providers, ingestion, analysis engine, admin) + web product (dashboard, scanner, scenarios, watchlist, alerts, account, admin) + mobile app (auth, dashboard, watchlist, scenarios, alerts, account w/ push, asset detail, analysis detail) DONE and pushed.
+**Product COMPLETE + Sales Readiness Waves 1–6 ALL DONE and pushed on `main`.**
+Remote `main` chain (all certified green): `f8549e5` (compose deploy, live-verified)
+→ `2aaa092` (rebrand) → `e171d27` (ops/secret-scan/licenses) → `ce52271` (web tests
+11/11) → `d4c922b` (buyer package) → Wave 6 final (repo index + close-out).
 
 > **BEFORE doing anything: read `docs/architecture/EXECUTION_PLAN.md` — it is the
 > authoritative loop-proof task list with exact commands and DoD checks. Follow
 > §1 operating rules (time boxes, no scope creep, verify-before-DONE) and never
 > touch §6 Deferred items without the user's explicit instruction.**
 >
-> **SALE READINESS:** to make the project as complete and sale-ready as possible,
-> the authoritative add-on plan is `docs/architecture/SALES_READINESS_PLAN.md`
-> (Waves 0–6: docker deploy, rebrand config, ops docs, web test bump, buyer
-> package, final acceptance). Follow its Wave order; buyer-only decisions are
-> documented, never invented.
+> **SALE READINESS is FINISHED:** the authoritative add-on plan
+> `docs/architecture/SALES_READINESS_PLAN.md` (Waves 0–6) is fully executed and
+> verified. The buyer-facing entry point is `docs/BUYER_PACKAGE.md`; launch gate
+> is `docs/RELEASE_CHECKLIST.md`. Only buyer-side decisions remain (domain, TLS,
+> push accounts, EAS build) — never invent them, ask the owner.
 
-Next per IMPLEMENTATION_ROADMAP / EXECUTION_PLAN:
-- CI verified green on GitHub (2026-10-18: runs for 716bd71, b1a6e16, 83a81bc).
-- Stage 4 remaining polish (charts/watchlist already present — full acceptance pass pending).
-- Real push E2E: requires physical device + platform accounts.
-- Stage 7 validation/handover.
+What remains (non-blocking, buyer-scoped):
+- Real push E2E: physical device + platform accounts (`PUSH_PROVIDER=expo`).
+- Mobile binaries via EAS under a buyer's own Apple/Google accounts.
+- Postgres deployment if the buyer outgrows SQLite (documented path).
+- Terms/privacy pages + legal review before a public launch (per RELEASE_CHECKLIST).
