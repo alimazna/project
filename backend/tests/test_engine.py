@@ -40,6 +40,18 @@ def _flat(n: int = 60, price: float = 100.0) -> list[CandleData]:
     ]
 
 
+def _zigzag(n: float, lows, highs) -> list[CandleData]:
+    """Build candles with explicit low/high profiles."""
+    out = []
+    t = datetime(2026, 1, 1, tzinfo=UTC)
+    for i in range(n):
+        lo, hi = lows[i], highs[i]
+        out.append(
+            CandleData("BTC/USD", "1h", t, open=(lo + hi) / 2, high=hi, low=lo, close=(lo + hi) / 2, volume=50.0)
+        )
+    return out
+
+
 class TestDirection:
     def test_uptrend_is_bullish(self):
         candles = _trend(120, start=100, step=0.5, vol=0.15)
@@ -66,6 +78,60 @@ class TestDirection:
         s = compute_scenario(candles, symbol="BTC/USD")
         # neutral scenarios carry no entry/stop/targets
         assert s["stop_loss"] is None and s["take_profits"] == []
+
+
+class TestStructureLevels:
+    def _breakdown_series(self):
+        """Channel ~100/104 with two sharp V-dips then a final slump below all supports."""
+        n = 60
+        lows = [100.0] * n
+        highs = [104.0] * n
+        for j in range(4):
+            lows[18 + j] = 96.0
+            highs[18 + j] = 100.0
+        lows[20] = 90.0
+        highs[20] = 95.0
+        for j in range(4):
+            lows[38 + j] = 97.0
+            highs[38 + j] = 101.0
+        lows[40] = 92.0
+        highs[40] = 96.0
+        for j in range(5):
+            lows[55 + j] = 84.0
+            highs[55 + j] = 90.0
+        return _zigzag(n, lows, highs)
+
+    def _breakout_series(self):
+        """Channel ~96/100 with two sharp up-spikes then a final move above every resistance."""
+        n = 60
+        lows = [96.0] * n
+        highs = [100.0] * n
+        for j in range(4):
+            highs[18 + j] = 104.0
+            lows[18 + j] = 100.0
+        highs[20] = 110.0
+        lows[20] = 105.0
+        for j in range(4):
+            highs[38 + j] = 103.0
+            lows[38 + j] = 99.0
+        highs[40] = 108.0
+        lows[40] = 104.0
+        for j in range(5):
+            highs[55 + j] = 116.0
+            lows[55 + j] = 110.0
+        return _zigzag(n, lows, highs)
+
+    def test_breakdown_below_all_supports_is_bearish_signal(self):
+        """Price under every recent support must vote -1 in structure_levels."""
+        scenario = compute_scenario(self._breakdown_series(), symbol="BTC/USD", timeframe="1h")
+        struct = next(d for d in scenario["decisions"] if d["signal"] == "structure_levels")
+        assert struct["vote"] < 0
+
+    def test_breakout_above_all_resistances_is_bullish_signal(self):
+        """Price above every recent resistance must vote +1 in structure_levels."""
+        scenario = compute_scenario(self._breakout_series(), symbol="BTC/USD", timeframe="1h")
+        struct = next(d for d in scenario["decisions"] if d["signal"] == "structure_levels")
+        assert struct["vote"] > 0
 
 
 class TestEvidence:

@@ -221,16 +221,24 @@ def compute_scenario(
     )
     levels = support_resistance(pivots)
     if levels:
-        nearest_support = min((lv for lv, k in levels if k == "S"), default=None)
-        nearest_res = min((lv for lv, k in levels if k == "R" and lv > last_close), default=None)
+        # Support = highest level still below price (nearest floor); resistance =
+        # lowest level above price (nearest ceiling). When price clears every
+        # level of one polarity, that is the fresh breakout/breakdown signal.
+        supports = [lv for lv, k in levels if k == "S"]
+        resistances = [lv for lv, k in levels if k == "R"]
+        nearest_support = max((lv for lv in supports if lv < last_close), default=None)
+        nearest_res = min((lv for lv in resistances if lv > last_close), default=None)
         w = _RULES["structure"]["weight"]
-        # Distance to nearest S/R as a vote (-1 below S, +1 above R, else 0)
-        if nearest_support is not None and last_close < nearest_support:
+        if supports and (nearest_support is None or last_close < min(supports)):
+            # Price fell through every recent support.
+            rendered_support = nearest_support if nearest_support is not None else max(supports)
             vote = -1.0
-            reason = f"price {last_close:.2f} broke below support {nearest_support:.2f}"
-        elif nearest_res is not None and last_close > nearest_res:
+            reason = f"price {last_close:.2f} broke below support {rendered_support:.2f}"
+        elif resistances and (nearest_res is None or last_close > max(resistances)):
+            # Price rose above every recent resistance.
+            rendered_res = nearest_res if nearest_res is not None else min(resistances)
             vote = 1.0
-            reason = f"price {last_close:.2f} broke above resistance {nearest_res:.2f}"
+            reason = f"price {last_close:.2f} broke above resistance {rendered_res:.2f}"
         else:
             vote = 0.0
             reason = f"price inside {nearest_support or 'n/a'}–{nearest_res or 'n/a'} range"

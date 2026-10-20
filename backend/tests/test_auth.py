@@ -53,6 +53,25 @@ def test_me_requires_auth(client):
     assert client.get("/api/v1/auth/me", headers={"Authorization": "Bearer garbage"}).status_code == 401
 
 
+def test_me_rejects_token_with_non_numeric_sub(client):
+    """A well-signed access token with a non-numeric `sub` must 401 (not 500)."""
+    from datetime import UTC, datetime, timedelta
+
+    import jwt
+
+    from app.core.config import settings
+
+    payload = {
+        "sub": "abc",
+        "iat": datetime.now(UTC),
+        "exp": datetime.now(UTC) + timedelta(minutes=5),
+        "type": "access",
+    }
+    token = jwt.encode(payload, settings.secret_key, algorithm=settings.jwt_algorithm)
+    resp = client.get("/api/v1/auth/me", headers={"Authorization": f"Bearer {token}"})
+    assert resp.status_code == 401
+
+
 def test_second_user_is_not_admin(client):
     client.post("/api/v1/auth/register", json={"email": "first@b.com", "password": "password123"})
     resp = client.post("/api/v1/auth/register", json={"email": "second@b.com", "password": "password123"})

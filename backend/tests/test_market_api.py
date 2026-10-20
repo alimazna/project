@@ -63,6 +63,34 @@ class TestMarketEndpoints:
         tickers = resp.json()["tickers"]
         assert any(t["symbol"] == "BTC/USD" and t["last_price"] == 105.0 for t in tickers)
 
+    def test_tickers_returns_latest_per_symbol(self, client, db_session):
+        """With multiple fetches per symbol, the newest fetch must win."""
+        from datetime import UTC, datetime, timedelta
+
+        from sqlalchemy import select, update
+
+        from app.models import Ticker
+
+        upsert_ticker(db_session, TickerData("BTC/USD", 100.0))
+        upsert_ticker(db_session, TickerData("BTC/USD", 999.0))
+        rows = db_session.execute(select(Ticker)).scalars().all()
+        assert len(rows) == 2
+        # Force deterministic fetch order: oldest first, newest last.
+        base = datetime(2026, 5, 1, tzinfo=UTC)
+        for i, row in enumerate(rows):
+            db_session.execute(
+                update(Ticker)
+                .where(Ticker.id == row.id)
+                .values(fetched_at=base + timedelta(minutes=i))
+            )
+        db_session.commit()
+
+        resp = client.get("/api/v1/market/tickers")
+        assert resp.status_code == 200
+        btc = [t for t in resp.json()["tickers"] if t["symbol"] == "BTC/USD"]
+        assert len(btc) == 1
+        assert btc[0]["last_price"] == 999.0
+
     def test_news(self, client, db_session):
         _seed_market(db_session)
         resp = client.get("/api/v1/market/news")

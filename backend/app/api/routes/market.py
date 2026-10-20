@@ -3,7 +3,7 @@
 from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.db.session import get_db
@@ -91,8 +91,21 @@ def list_tickers(
     symbol: str | None = Query(None),
 ) -> dict:
     """Latest ticker per symbol (most recent fetch)."""
-    latest_ids = select(Ticker.id).group_by(Ticker.symbol).subquery()
-    q = select(Ticker).join(latest_ids, Ticker.id == latest_ids.c.id).order_by(Ticker.symbol)
+    # Window function ranks rows per symbol by fetch recency; keeps only rn=1.
+    ranked = (
+        select(
+            Ticker.id,
+            func.row_number()
+            .over(partition_by=Ticker.symbol, order_by=Ticker.fetched_at.desc())
+            .label("rn"),
+        ).subquery()
+    )
+    q = (
+        select(Ticker)
+        .join(ranked, Ticker.id == ranked.c.id)
+        .where(ranked.c.rn == 1)
+        .order_by(Ticker.symbol)
+    )
     if symbol:
         q = q.where(Ticker.symbol == symbol.upper())
     rows = db.execute(q).scalars().all()

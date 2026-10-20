@@ -20,7 +20,10 @@ def get_current_user(
     payload = decode_access_token(credentials.credentials)
     if payload is None or payload.get("type") != "access":
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Invalid or expired token")
-    user = db.get(User, int(payload["sub"]))
+    raw_sub = payload.get("sub")
+    if not isinstance(raw_sub, str) or not raw_sub.isdigit():
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Invalid token subject")
+    user = db.get(User, int(raw_sub))
     if user is None:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Unknown user")
     if not user.is_active or user.is_suspended:
