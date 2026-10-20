@@ -22,8 +22,8 @@ describe('App shell', () => {
         <App />
       </MemoryRouter>,
     )
-    expect(screen.getByRole('heading', { name: /Unlock predictive insight/i })).toBeInTheDocument()
-    expect(screen.getByText(/TrendCipher fuses news intelligence/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Maximize Market Opportunity/i })).toBeInTheDocument()
+    expect(screen.getByText(/predictive statistical platform/i)).toBeInTheDocument()
   })
 
   it('renders the pricing page (nav + section) for the plans route', () => {

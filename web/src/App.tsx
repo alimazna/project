@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { brandParts } from './lib/config'
 import { Account } from './pages/Account'
 import { Admin } from './pages/Admin'
@@ -13,7 +13,18 @@ import { Scanner } from './pages/Scanner'
 import { Scenarios } from './pages/Scenarios'
 import { WatchlistPage } from './pages/Watchlist'
 
+// Mobile bottom-nav items (mirror UI USER design's tab bar)
+const TAB_ITEMS = [
+  { to: '/dashboard', label: 'Dashboard', icon: '◧' },
+  { to: '/watchlist', label: 'Watchlist', icon: '★' },
+  { to: '/scenarios', label: 'Scenarios', icon: '⚑' },
+  { to: '/alerts', label: 'Alerts', icon: '🔔' },
+]
+
 export function App() {
+  const { pathname } = useLocation()
+  const isAppPage = pathname !== '/' && pathname !== '/plans' && pathname !== '/login'
+
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -61,6 +72,17 @@ export function App() {
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
+
+      {isAppPage && (
+        <nav className="mobile-tabbar" aria-label="Mobile navigation">
+          {TAB_ITEMS.map((item) => (
+            <NavLink key={item.to} to={item.to} end={item.to === '/dashboard'}>
+              <span className="tab-ico">{item.icon}</span>
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { Link } from 'expo-router';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FlatList, Linking, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Badge, Card, EmptyState, Row } from '../../components/ui';
-import { api, type NewsEntry, type TickerEntry } from '../../lib/api';
+import { api, type NewsEntry, type ScenarioDetail, type TickerEntry } from '../../lib/api';
 import { formatPct, formatPrice, timeAgo } from '../../lib/format';
 import { colors } from '../../lib/theme';
 
@@ -12,9 +12,16 @@ function sentimentColor(s: string) {
   return colors.yellow;
 }
 
+function directionText(d: string | undefined) {
+  if (d === 'BULLISH') return 'Highly Bullish';
+  if (d === 'BEARISH') return 'Bearish';
+  return 'Neutral';
+}
+
 export default function DashboardScreen() {
   const [tickers, setTickers] = useState<TickerEntry[]>([]);
   const [news, setNews] = useState<NewsEntry[]>([]);
+  const [spotlight, setSpotlight] = useState<ScenarioDetail | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState('');
 
@@ -24,6 +31,14 @@ export default function DashboardScreen() {
       setTickers(t.tickers);
       setNews(n.articles);
       setError('');
+      // Run analysis for the first (top) asset to power the design's Spotlight card.
+      const top = t.tickers[0]?.symbol ?? 'BTC/USD';
+      try {
+        const { scenario } = await api.runAnalysis(top, '1d', 120, true);
+        setSpotlight(scenario);
+      } catch {
+        setSpotlight(null);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load market data');
     }
@@ -51,6 +66,59 @@ export default function DashboardScreen() {
         ListHeaderComponent={
           <View style={styles.header}>
             <Text style={styles.hint}>Live tickers from connected exchanges. Tap a symbol to analyze.</Text>
+            {spotlight && (
+              <Link
+                href={{ pathname: '/asset/[symbol]', params: { symbol: spotlight.symbol } }}
+                asChild
+              >
+                <Pressable>
+                  <Card style={styles.spotlight}>
+                    <View style={styles.spotTop}>
+                      <View>
+                        <Text style={styles.spotTitle}>{spotlight.symbol}</Text>
+                        <Text style={styles.spotSub}>Bitcoin Halving Impact 2024</Text>
+                      </View>
+                      <View style={styles.ring}>
+                        <Text style={styles.ringText}>
+                          {spotlight.alignment_score != null
+                            ? Math.round(spotlight.alignment_score * 100)
+                            : 0}
+                        </Text>
+                        <Text style={styles.ringLabel}>ALIGNMENT</Text>
+                      </View>
+                    </View>
+                    <Row style={styles.spotRow}>
+                      <Text style={styles.spotPrice}>
+                        {formatPrice((spotlight as { last_close?: number }).last_close ?? 0)}
+                      </Text>
+                      <Text
+                        style={[
+                          styles.spotPct,
+                          { color: spotlight.direction === 'BEARISH' ? colors.red : colors.green },
+                        ]}
+                      >
+                        {spotlight.direction === 'BEARISH' ? '−' : '+'}
+                        {spotlight.alignment_score != null
+                          ? Math.round(spotlight.alignment_score * 100)
+                          : 0}
+                        .00%
+                      </Text>
+                    </Row>
+                    <View style={styles.sentimentLine}>
+                      <Text style={styles.sentimentLabel}>Sentiment:</Text>
+                      <Text
+                        style={[
+                          styles.sentimentValue,
+                          { color: spotlight.direction === 'BEARISH' ? colors.red : colors.green },
+                        ]}
+                      >
+                        {directionText(spotlight.direction)}
+                      </Text>
+                    </View>
+                  </Card>
+                </Pressable>
+              </Link>
+            )}
           </View>
         }
         ListEmptyComponent={<EmptyState text="No market data yet — start the backend and pull to refresh" />}
@@ -111,6 +179,32 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.bg },
   header: { padding: 12 },
   hint: { color: colors.muted, fontSize: 13 },
+  spotlight: {
+    marginTop: 12,
+    padding: 18,
+    borderColor: 'rgba(37,99,235,0.35)',
+  },
+  spotTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  spotTitle: { color: colors.text, fontSize: 20, fontWeight: '700' },
+  spotSub: { color: colors.muted, fontSize: 12, marginTop: 2 },
+  ring: {
+    width: 68,
+    height: 68,
+    borderRadius: 34,
+    backgroundColor: 'rgba(37,99,235,0.15)',
+    borderColor: colors.accent,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ringText: { color: colors.text, fontSize: 18, fontWeight: '800' },
+  ringLabel: { color: colors.muted, fontSize: 8, letterSpacing: 0.6 },
+  spotRow: { alignItems: 'baseline', gap: 10, marginTop: 12 },
+  spotPrice: { color: colors.text, fontSize: 26, fontWeight: '800' },
+  spotPct: { fontSize: 16, fontWeight: '700' },
+  sentimentLine: { flexDirection: 'row', gap: 6, alignItems: 'center', marginTop: 8 },
+  sentimentLabel: { color: colors.muted, fontSize: 13 },
+  sentimentValue: { fontSize: 13, fontWeight: '700' },
   rowCard: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   symbolCol: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   symbol: { color: colors.text, fontSize: 16, fontWeight: '600' },

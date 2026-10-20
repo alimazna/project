@@ -1,6 +1,7 @@
 import { Redirect, Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../context/AuthContext';
+import { colors } from '../../lib/theme';
 
 const ACTIVE = '#2563eb';
 const INACTIVE = '#93a0c4';
@@ -17,9 +18,9 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerStyle: { backgroundColor: '#0b0f17' },
-        headerTintColor: '#eef2ff',
-        tabBarStyle: { backgroundColor: '#0b0f17', borderTopColor: 'rgba(148,163,220,0.16)' },
+        headerStyle: { backgroundColor: colors.bg },
+        headerTintColor: colors.text,
+        tabBarStyle: { backgroundColor: colors.bg, borderTopColor: colors.border },
         tabBarActiveTintColor: ACTIVE,
         tabBarInactiveTintColor: INACTIVE,
       }}
@@ -41,7 +42,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="scenarios"
         options={{
-          title: 'Analyses',
+          title: 'Scenarios',
           tabBarIcon: ({ color, size }) => <Ionicons name="scan" size={size} color={iconColor(color)} />,
         }}
       />

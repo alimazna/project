@@ -141,6 +141,11 @@ export function Dashboard() {
           Market Overview{' '}
           <span className="hand-underline">where's the edge today?</span>
         </h2>
+        <div className="chip-row">
+          <span className="feature-chip">Real-time Processing</span>
+          <span className="feature-chip blue">Advanced Forecasting</span>
+          <span className="feature-chip green">Automated Insights</span>
+        </div>
         {selectedTicker && (
           <span className="header-price">
             {selectedTicker.symbol} ≈ {fmtPrice(selectedTicker.last_price)}
@@ -194,10 +199,44 @@ export function Dashboard() {
                 </span>
               </div>
 
+              <div className="score-ring-wrap">
+                <div
+                  className="score-ring"
+                  style={{ '--pct': Math.round((scenario.alignment_score ?? 0) * 100) } as React.CSSProperties}
+                  title={`Alignment ${fmtPct(scenario.alignment_score)}`}
+                >
+                  <span>{Math.round((scenario.alignment_score ?? 0) * 100)}</span>
+                </div>
+                <div className="score-meta">
+                  <span className="score-label">Alignment Score</span>
+                  <strong>{fmtPct(scenario.alignment_score)}</strong>
+                </div>
+              </div>
+
               <div className="price-row">
                 <span className="price-big">{fmtPrice(scenario.last_close)}</span>
                 <span className="muted">alignment {fmtPct(scenario.alignment_score)}</span>
               </div>
+
+              {scenario.decisions.length > 0 && (
+                <>
+                  <h4 style={{ marginBottom: '0.4rem' }}>Evidence Cards</h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.8rem' }}>
+                    {scenario.decisions.slice(0, 3).map((d) => (
+                      <div
+                        key={d.signal}
+                        className={`evidence-card ${d.vote > 0 ? 'ev-green' : d.vote < 0 ? 'ev-red' : ''}`}
+                      >
+                        <h4>
+                          {d.vote > 0 ? '✓ ' : d.vote < 0 ? '✗ ' : '· '}
+                          {(d.signal || '').replace(/_/g, ' ')}
+                        </h4>
+                        <p>{d.reason}</p>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {scenario.direction !== 'NEUTRAL' && (
                 <table className="data-table">

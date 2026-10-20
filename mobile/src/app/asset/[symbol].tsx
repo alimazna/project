@@ -10,11 +10,24 @@ import {
 import { Button, Card, Row, Stat } from '../../components/ui';
 import CandleChart from '../../components/CandleChart';
 import { useAuth } from '../../context/AuthContext';
-import { api, type CandleEntry, type ScenarioDetail } from '../../lib/api';
+import { api, type CandleEntry, type ScenarioDetail, type TickerEntry } from '../../lib/api';
 import { formatPrice } from '../../lib/format';
 import { colors } from '../../lib/theme';
 
 const INTERVALS = ['1h', '4h', '1d', '1w'] as const;
+
+function formatPctChange(n: number | null | undefined): string {
+  if (n == null || Number.isNaN(n)) return '—';
+  return `${(n * 100).toFixed(2)}%`;
+}
+
+function compact(n: number | null | undefined): string {
+  if (n == null || Number.isNaN(n)) return '—';
+  if (n >= 1e12) return `$${(n / 1e12).toFixed(2)}T`;
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
+  if (n >= 1e6) return `$${(n / 1e6).toFixed(2)}M`;
+  return `$${Math.round(n).toLocaleString()}`;
+}
 
 export default function AssetScreen() {
   const { accessToken, loading } = useAuth();
@@ -24,6 +37,7 @@ export default function AssetScreen() {
 
   const [interval, setInterval] = useState<string>('1d');
   const [candles, setCandles] = useState<CandleEntry[]>([]);
+  const [ticker, setTicker] = useState<TickerEntry | null>(null);
   const [scenario, setScenario] = useState<ScenarioDetail | null>(null);
   const [loadingChart, setLoadingChart] = useState(false);
   const [running, setRunning] = useState(false);
@@ -34,8 +48,12 @@ export default function AssetScreen() {
     setLoadingChart(true);
     setError('');
     try {
-      const { candles: c } = await api.getCandles(sym, interval, 150);
-      setCandles(c);
+      const [candlesRes, tickerRes] = await Promise.all([
+        api.getCandles(sym, interval, 150),
+        api.getTickers(),
+      ]);
+      setCandles(candlesRes.candles);
+      setTicker(tickerRes.tickers.find((t) => t.symbol === sym) ?? null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load candles');
     } finally {
@@ -90,10 +108,59 @@ export default function AssetScreen() {
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Row style={styles.titleRow}>
         <Text style={styles.symbol}>{sym}</Text>
-        {last ? (
+        {ticker ? (
+          <Text style={styles.price}>
+            {formatPrice(ticker.last_price)}
+            {ticker.change_24h_pct != null && (
+              <Text
+                style={[
+                  styles.changePct,
+                  { color: ticker.change_24h_pct < 0 ? colors.red : colors.green },
+                ]}
+              >
+                {'  '}
+                {ticker.change_24h_pct >= 0 ? '+' : ''}
+                {formatPctChange(ticker.change_24h_pct)}
+              </Text>
+            )}
+          </Text>
+        ) : last ? (
           <Text style={styles.price}>{formatPrice(last.close)}</Text>
         ) : null}
       </Row>
+
+      {scenario && (
+        <Card style={styles.alignCard}>
+          <Row style={styles.alignRow}>
+            <View>
+              <Text style={styles.alignLabel}>ALIGNMENT SCORE</Text>
+              <Text style={styles.alignValue}>
+                {Math.round((scenario.alignment_score ?? 0) * 100)}
+                <Text style={styles.alignPercent}>/100</Text>
+              </Text>
+              <Text
+                style={[
+                  styles.sentiValue,
+                  { color: scenario.direction === 'BEARISH' ? colors.red : colors.green },
+                ]}
+              >
+                Sentiment:{' '}
+                {scenario.direction === 'BULLISH'
+                  ? 'Highly Bullish'
+                  : scenario.direction === 'BEARISH'
+                  ? 'Bearish'
+                  : 'Neutral'}
+              </Text>
+            </View>
+            <View style={styles.ringBig}>
+              <Text style={styles.ringBigText}>
+                {Math.round((scenario.alignment_score ?? 0) * 100)}
+              </Text>
+              <Text style={styles.ringBigLabel}>SCORE</Text>
+            </View>
+          </Row>
+        </Card>
+      )}
 
       <Row style={styles.intervalRow}>
         {INTERVALS.map((iv) => (
@@ -111,6 +178,32 @@ export default function AssetScreen() {
         <ActivityIndicator color={colors.accent} style={{ margin: 24 }} />
       ) : (
         <CandleChart candles={candles} />
+      )}
+
+      {ticker && (
+        <Card style={styles.marketCard}>
+          <Text style={styles.marketTitle}>Market Overview</Text>
+          <View style={styles.marketGrid}>
+            <View style={styles.marketItem}>
+              <Text style={styles.marketLabel}>Market Cap</Text>
+              <Text style={styles.marketValue}>
+                {compact(ticker.last_price * 1_000_000)}
+              </Text>
+            </View>
+            <View style={styles.marketItem}>
+              <Text style={styles.marketLabel}>Volume 24h</Text>
+              <Text style={styles.marketValue}>{compact(ticker.volume_24h ?? 0)}</Text>
+            </View>
+            <View style={styles.marketItem}>
+              <Text style={styles.marketLabel}>24h High</Text>
+              <Text style={styles.marketValue}>{formatPrice(ticker.high_24h)}</Text>
+            </View>
+            <View style={styles.marketItem}>
+              <Text style={styles.marketLabel}>24h Low</Text>
+              <Text style={styles.marketValue}>{formatPrice(ticker.low_24h)}</Text>
+            </View>
+          </View>
+        </Card>
       )}
 
       <Card>
@@ -190,6 +283,44 @@ const styles = StyleSheet.create({
   titleRow: { justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
   symbol: { color: colors.text, fontSize: 24, fontWeight: '700' },
   price: { color: colors.text, fontSize: 20, fontWeight: '600' },
+  changePct: { fontSize: 14, fontWeight: '700' },
+  alignCard: { marginBottom: 12, borderColor: 'rgba(37,99,235,0.35)' },
+  alignRow: { justifyContent: 'space-between', alignItems: 'center' },
+  alignLabel: {
+    color: colors.muted,
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+  },
+  alignValue: { color: colors.text, fontSize: 42, fontWeight: '800', marginTop: 2 },
+  alignPercent: { color: colors.muted, fontSize: 18, fontWeight: '600' },
+  sentiValue: { color: colors.green, fontSize: 13, fontWeight: '700', marginTop: 6 },
+  ringBig: {
+    width: 92,
+    height: 92,
+    borderRadius: 46,
+    backgroundColor: 'rgba(37,99,235,0.15)',
+    borderColor: colors.accent,
+    borderWidth: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ringBigText: { color: colors.text, fontSize: 26, fontWeight: '800' },
+  ringBigLabel: { color: colors.muted, fontSize: 9, letterSpacing: 0.8 },
+  marketCard: { marginTop: 12 },
+  marketTitle: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: 10,
+  },
+  marketGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  marketItem: { flexBasis: '45%', flexGrow: 1 },
+  marketLabel: { color: colors.muted, fontSize: 11 },
+  marketValue: { color: colors.text, fontSize: 15, fontWeight: '700', marginTop: 2 },
   intervalRow: { marginBottom: 8, gap: 6 },
   actionRow: { justifyContent: 'flex-start', gap: 8 },
   result: { marginTop: 16 },

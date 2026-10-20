@@ -1,7 +1,7 @@
 // Design tokens shared across screens — brand identity (#0B0F17 / #FF2A55 / #2563EB).
 
 export const colors = {
-  bg: '#0b0f17',
+  bg: '#151c26',
   surface: 'rgba(255,255,255,0.05)',
   border: 'rgba(148,163,220,0.16)',
   text: '#eef2ff',

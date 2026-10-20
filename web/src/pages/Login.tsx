@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api, setToken } from '../lib/api'
+import { appName } from '../lib/config'
 
 export function Login() {
   const [email, setEmail] = useState('')
@@ -30,7 +31,19 @@ export function Login() {
   }
 
   return (
-    <div className="auth-page">
+    <div className="auth-page auth-page-split">
+      <div className="auth-intro">
+        <h2>
+          Unlock Predictive <span className="emph">Insights</span> with AI-Powered
+          Statistical Analytics
+        </h2>
+        <p className="muted">{appName()}: an AI-powered statistical analytics platform.</p>
+        <div className="chip-row" style={{ justifyContent: 'flex-start' }}>
+          <span className="feature-chip">Real-time Processing</span>
+          <span className="feature-chip blue">Advanced Forecasting</span>
+          <span className="feature-chip green">Automated Insights</span>
+        </div>
+      </div>
       <form className="auth-card" onSubmit={submit}>
         <h2>Sign in</h2>
         {error && <div className="alert alert-error">{error}</div>}
@@ -40,6 +53,7 @@ export function Login() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
             required
           />
         </label>
@@ -49,6 +63,7 @@ export function Login() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
             required
           />
         </label>
@@ -56,8 +71,7 @@ export function Login() {
           {busy ? 'Signing in…' : 'Sign in'}
         </button>
         <p className="muted">
-          No account? <a href="/register">Register</a> — the first registered user
-          becomes the administrator.
+          Don't have an account? <a href="/register">Sign Up Free</a>
         </p>
       </form>
     </div>

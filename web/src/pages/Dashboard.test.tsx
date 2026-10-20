@@ -103,8 +103,8 @@ describe('Dashboard', () => {
     )
     expect(await screen.findByText('Scenario — explainable')).toBeInTheDocument()
     // "Why?" section renders each decision signal + reason.
-    expect(await screen.findByText(/trend ma/i)).toBeInTheDocument()
-    expect(screen.getByText(/above MA/i)).toBeInTheDocument()
+    expect((await screen.findAllByText(/trend ma/i)).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/above MA/i).length).toBeGreaterThan(0)
     expect(screen.getByRole('button', { name: /Re-run/i })).toBeInTheDocument()
   })
 

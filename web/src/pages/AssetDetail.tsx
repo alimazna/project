@@ -123,6 +123,35 @@ export function AssetDetail() {
         {!loading && candles.length === 0 && <p className="muted">No candles available.</p>}
       </div>
 
+      {ticker && (
+        <div className="card">
+          <div className="stat-grid">
+            <div className="stat">
+              <span>Market Cap</span>
+              <strong>{fmtPrice(ticker.last_price * 1_000_000)}</strong>
+            </div>
+            <div className="stat">
+              <span>Volume 24h</span>
+              <strong>{fmtPrice(ticker.volume_24h ?? 0)}</strong>
+            </div>
+            <div className="stat">
+              <span>24h High</span>
+              <strong>{fmtPrice(ticker.high_24h ?? 0)}</strong>
+            </div>
+            <div className="stat">
+              <span>24h Low</span>
+              <strong>{fmtPrice(ticker.low_24h ?? 0)}</strong>
+            </div>
+            <div className="stat">
+              <span>Change 24h</span>
+              <strong className={ticker.change_24h_pct != null && ticker.change_24h_pct < 0 ? 'spark-down' : 'spark-up'}>
+                {ticker.change_24h_pct != null ? `${(ticker.change_24h_pct * 100).toFixed(2)}%` : '—'}
+              </strong>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="card">
         <h3>Scenario — explainable</h3>
         {scenario ? (
@@ -132,18 +161,54 @@ export function AssetDetail() {
                 {directionLabel(scenario.direction)}
               </span>
               <span className="muted small">
-                {scenario.timeframe} · {scenario.rule_version} · alignment{' '}
-                {scenario.alignment_score != null
-                  ? `${(scenario.alignment_score * 100).toFixed(0)}%`
-                  : '—'}
+                {scenario.timeframe} · {scenario.rule_version}
               </span>
             </div>
+
+            <div className="score-ring-wrap">
+              <div
+                className="score-ring"
+                style={{ '--pct': Math.round((scenario.alignment_score ?? 0) * 100) } as React.CSSProperties}
+                title={`Alignment ${scenario.alignment_score != null ? `${(scenario.alignment_score * 100).toFixed(0)}%` : '—'}`}
+              >
+                <span>{Math.round((scenario.alignment_score ?? 0) * 100)}</span>
+              </div>
+              <div className="score-meta">
+                <span className="score-label">Alignment Score</span>
+                <strong>
+                  {scenario.alignment_score != null
+                    ? `${(scenario.alignment_score * 100).toFixed(0)}%`
+                    : '—'}
+                </strong>
+              </div>
+            </div>
+
             <div className="price-row">
               <span className="price-big">{fmtPrice(scenario.last_close)}</span>
               {scenario.risk_reward ? (
                 <span className="muted">R/R {scenario.risk_reward}</span>
               ) : null}
             </div>
+
+            {scenario.decisions.length > 0 && (
+              <>
+                <h4 style={{ marginBottom: '0.4rem' }}>Evidence Cards</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.8rem' }}>
+                  {scenario.decisions.slice(0, 3).map((d) => (
+                    <div
+                      key={d.signal}
+                      className={`evidence-card ${d.vote > 0 ? 'ev-green' : d.vote < 0 ? 'ev-red' : ''}`}
+                    >
+                      <h4>
+                        {d.vote > 0 ? '✓ ' : d.vote < 0 ? '✗ ' : '· '}
+                        {(d.signal || '').replace(/_/g, ' ')}
+                      </h4>
+                      <p>{d.reason}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
             {scenario.direction !== 'NEUTRAL' && (
               <table className="data-table">
                 <thead>

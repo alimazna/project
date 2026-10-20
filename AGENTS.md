@@ -70,3 +70,24 @@ What remains (non-blocking, buyer-scoped):
 - Real push E2E: physical device + Expo account (`PUSH_PROVIDER=expo`).
 - Postgres deployment if the buyer outgrows SQLite (documented path).
 - Terms/privacy pages + legal review before a public launch (per RELEASE_CHECKLIST).
+
+## Web UI responsiveness + design parity (owner uploads `UI WEB.jpg` + `UI USER/`)
+Owner feedback: web UI must be mobile-responsive AND match the uploaded design
+images (landing + mobile app screens). Implemented and pushed on `main`:
+- Web (React): new hero "Maximize Market Opportunity with AI-Powered Intelligence"
+  + 3 feature chips + stat cards (17K/3023/57) + $30/month pricing card to match
+  `UI WEB.jpg`. Login now matches `UI USER/login`: split layout with "Unlock
+  Predictive Insights with AI-Powered Statistical Analytics" + chips + Sign Up Free.
+- Web responsiveness: bottom mobile tab bar (Dashboard/Watchlist/Scenarios/Alerts)
+  on <860px via `.mobile-tabbar` in `web/src/App.tsx` + `global.css`; top nav
+  collapses to horizontal scroll; `.grid-2`/feature/plan grids stack to 1 column;
+  score-ring + evidence-card + stat-grid components added for design parity.
+- The web bundle must be built with the LIVE backend base URL for remote testing:
+  `VITE_API_BASE_URL=https://work-1-...prod-runtime.all-hands.dev/api/v1 npm run build`
+  (default `http://localhost:8000` only works when served behind a proxy).
+- Mobile (Expo): login screen shows the three feature chips
+  (REAL-TIME/ADVANCED/AUTOMATED), dashboard adds a Spotlight card (alignment ring
+  + Sentiment line) per `UI USER/dashboard`, asset detail adds ALIGNMENT SCORE
+  ring + Market Overview (Market Cap/Volume/High/Low) per `UI USER/asset`.
+  Theme `colors.bg` updated `#0b0f17` → `#151c26` (closer to uploaded mockups),
+  tab label "Analyses" renamed to "Scenarios". Mobile tsc+eslint+export all green.
