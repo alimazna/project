@@ -6,6 +6,13 @@ const apiBase = process.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 export default defineConfig({
   plugins: [react()],
+  preview: {
+    allowedHosts: [
+      'work-1-dxoeldxlkcclxbkr.prod-runtime.all-hands.dev',
+      'work-2-dxoeldxlkcclxbkr.prod-runtime.all-hands.dev',
+      '.all-hands.dev',
+    ],
+  },
   server: {
     port: 5173,
     proxy: {
