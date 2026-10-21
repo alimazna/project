@@ -16,7 +16,7 @@ describe('App shell', () => {
     expect(brand.querySelector('span')?.textContent).toBe('Cipher')
   })
 
-  it('shows the landing hero with the app name', () => {
+  it('shows the WEP marketing hero with products and pricing cards', () => {
     render(
       <MemoryRouter>
         <App />
@@ -24,6 +24,13 @@ describe('App shell', () => {
     )
     expect(screen.getByRole('heading', { name: /Maximize Market Opportunity/i })).toBeInTheDocument()
     expect(screen.getByText(/predictive statistical platform/i)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Download App' })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: 'Go Pro' }).length).toBeGreaterThan(0)
+    expect(screen.getByRole('link', { name: 'Get Basic' })).toBeInTheDocument()
+    expect(screen.getByText('Pricing Plans')).toBeInTheDocument()
+    expect(screen.getByText('$0')).toBeInTheDocument()
+    expect(screen.getByText('$199')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Pro' })).toBeInTheDocument()
   })
 
   it('renders the pricing page (nav + section) for the plans route', () => {
